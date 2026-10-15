@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-10-14",
+  "status": "research_candidate_not_hardware_validated",
+  "xllm_commit": "ad9e405650c1bbb0af53d2c8e821dbdcbe5e79eb",
+  "latest_observed_main_commit": "cbc03ff72c826a9b443d055f29f08ec8f2ecfe50",
+  "base_image": "quay.io/jd_xllm/xllm-ai@sha256:4fec4b05d8e698c830662f085445b77392d3b0e1d74f78be133f36628832100a",
+  "base_image_tag_reference": "xllm-dev-a3-arm-cann9-20260911",
+  "alternative_image": "quay.io/jd_xllm/xllm-ai@sha256:926eb5724e7327270b51fde0a2dc85c1013922cc54b7b6d70992727da4069b1d",
+  "alternative_image_tag_reference": "xllm-dev-cann9.1.0-a3-openeuler24.03-py3.12",
+  "submodules": {
+    "Mooncake": "bb2c0bee9f7839789c947556341556b4c02aaeda",
+    "torch_npu_ops": "b5a2d50511df72ab1465745aa551c6db68405362",
+    "xllm_ops": "b94b87318c2826738c65d6e6f242aa9c1881a3ab"
+  },
+  "compatibility_audit": "non-pd-plan.md",
+  "image_components": [
+    {
+      "image_key": "base_image",
+      "architecture": "arm64",
+      "created": "2026-09-11T09:16:23.707137666Z",
+      "config_digest": "sha256:ce452eaac57393e2727ed7dee0ff1b65768b6c99216608e8eb6b954c5a712d6d",
+      "cann_home": "/usr/local/Ascend/cann-9.0.0",
+      "python_version": "3.11.15",
+      "atb_home": "/usr/local/Ascend/nnal/atb/latest/atb/cxx_abi_1",
+      "packages_from_verified_install_layer": {
+        "torch": "2.9.0+cpu",
+        "torch_npu": "2.9.0.post2+gitbe0dd17"
+      },
+      "runtime_execution_verified": false,
+      "native_cann_kernel_libraries_inspected": false
+    },
+    {
+      "image_key": "alternative_image",
+      "architecture": "arm64",
+      "created": "2026-09-30T03:37:35.436709266Z",
+      "config_digest": "sha256:05e208e0f666db80d807a9e5b1fcbce334d1a241b64251649bba6e04ebc23e24",
+      "cann_home": "/usr/local/Ascend/cann-9.1.0",
+      "python_version": "3.12.13",
+      "atb_home": "/usr/local/Ascend/nnal/atb/latest/atb/cxx_abi_1",
+      "packages_from_verified_install_layer": {
+        "torch_npu": "2.10.0.post4+git5dd8ef3",
+        "torch": "2.10.0+cpu"
+      },
+      "runtime_execution_verified": false,
+      "native_cann_kernel_libraries_inspected": false
+    }
+  ],
+  "weight_format_status": "public_reference_key_audit_complete; actual_checkpoint_and_runtime_pending",
+  "latest_main_checked_at": "2026-10-15"
+}
