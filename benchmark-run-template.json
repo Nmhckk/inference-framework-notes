@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "template_not_a_measured_result",
+  "run_id": null,
+  "framework": null,
+  "framework_commit": null,
+  "container_digest": null,
+  "driver_cann_torch_npu_custom_ops_versions": {},
+  "model_checkpoint_hash": null,
+  "tokenizer_and_chat_template_hash": null,
+  "hardware": {"nodes": null, "physical_accelerators": null, "logical_devices": null, "interconnect": null},
+  "topology": {"mode": null, "attention_tp_dp_cp": null, "moe_ep_tp": null, "prefill_devices": null, "decode_devices": null},
+  "options": {"weight_quantization": null, "kv_dtype": null, "indexer_dtype": null, "mtp_tokens": null, "graph_mode": null, "prefix_cache": null, "chunk_size": null},
+  "workload": {"dataset_hash": null, "request_count": null, "input_token_distribution": null, "output_token_distribution_actual": null, "thinking_and_sampling": null, "load_mode": null, "offered_rps": null, "concurrency": null, "arrival_seed": null, "cache_state": null},
+  "measurement": {"client_version": null, "client_commit": null, "window_and_drain_rule": null, "duration_seconds": null, "repeat_index": null, "metric_formulas_version": null, "resource_normalization_unit": null, "resource_normalization_count": null},
+  "slo": {"ttft_ms": null, "tpot_ms": null, "e2e_ms": null, "target_attainment_fraction": null},
+  "results": {"accuracy_passed": null, "attempted_requests": null, "successful_requests": null, "failed_requests": null, "rejected_requests": null, "slo_good_requests": null, "ttft_ms_p50_p95_p99": null, "tpot_ms_p50_p95_p99": null, "chunk_gap_ms_p50_p95_p99": null, "per_request_gen_tps_aggregation": null, "per_request_gen_tps_value": null, "output_tps": null, "total_tps": null, "goodput_requests_per_second": null, "peak_hbm_per_rank_gib": null},
+  "artifacts": {"launch_commands": null, "raw_requests": null, "raw_responses_and_timestamps": null, "server_logs": null, "memory_ledger": null, "profile_trace": null},
+  "notes": "Fill after a real run. Preserve failed runs. Do not treat template null values as zero or construct performance curves from them."
+}
