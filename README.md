@@ -8,9 +8,12 @@
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
-| 2026/10/15 | 复核 xLLM C8 限制并归档非 PD 材料；补充框架论文及性能对比方法。[调研](research-2026-10-15.md) / [方法](benchmark-methodology.md)；实机待验证。 | GLM-5.3 C8 的 xLLM 部署验证与框架对比准备 | |
+| 2026/10/15 | 整理 xLLM 非 PD 材料；完成三框架调度、KV Cache、通信源码对比及论文分析。[资料](implementation-comparison.md)；实机待验证。 | GLM-5.3 C8 的 xLLM 部署验证与框架对比准备 | |
 
 ## 资料与代码
+
+- [三框架实现对比](implementation-comparison.md)：调度、KV Cache、昇腾通信、设计取舍与控制变量实验。
+- [固定提交源码索引](implementation-source-index.json)：31 个函数/模块入口及其支持的结论。
 
 - [性能对比方法](benchmark-methodology.md)：Qwen PD 文章分析、指标口径、显存预算、帕累托与 SLO 实验。
 - [论文与源码阅读路线](literature-map.md)：八篇文献的机制、评测思路和迁移边界。

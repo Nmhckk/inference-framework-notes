@@ -1,0 +1,322 @@
+{
+  "date": "2026-10-15",
+  "scope": "静态源码阅读；不是已验证可共同部署的版本组合；不是完整功能审计",
+  "repositories": {
+    "xLLM-AI/xllm": "cbc03ff72c826a9b443d055f29f08ec8f2ecfe50",
+    "sgl-project/sglang": "9ea5472833296e97724f12df716936576d34ddbb",
+    "vllm-project/vllm": "fc8e08a2a607968226376c53a30cfa6337578f79",
+    "vllm-project/vllm-ascend": "23d1d9055f2161b3c15613c7fc309f7d5d2ef629"
+  },
+  "entries": [
+    {
+      "id": "X1",
+      "repository": "xLLM-AI/xllm",
+      "commit": "cbc03ff72c826a9b443d055f29f08ec8f2ecfe50",
+      "path": "xllm/core/scheduler/scheduler_policy.cpp",
+      "line": 1061,
+      "symbols": "create_batch_mode / create_scheduler_policy",
+      "evidence": "按混批、分块、CP、KV 分片和 MTP 条件选择策略",
+      "url": "https://github.com/xLLM-AI/xllm/blob/cbc03ff72c826a9b443d055f29f08ec8f2ecfe50/xllm/core/scheduler/scheduler_policy.cpp#L1061"
+    },
+    {
+      "id": "X2",
+      "repository": "xLLM-AI/xllm",
+      "commit": "cbc03ff72c826a9b443d055f29f08ec8f2ecfe50",
+      "path": "xllm/core/scheduler/decode_first_policy.cpp",
+      "line": 30,
+      "symbols": "DecodeFirstPolicy::schedule",
+      "evidence": "先 Decode，再用剩余预算调度 Prefill；按 DP 预留占用",
+      "url": "https://github.com/xLLM-AI/xllm/blob/cbc03ff72c826a9b443d055f29f08ec8f2ecfe50/xllm/core/scheduler/decode_first_policy.cpp#L30"
+    },
+    {
+      "id": "X3",
+      "repository": "xLLM-AI/xllm",
+      "commit": "cbc03ff72c826a9b443d055f29f08ec8f2ecfe50",
+      "path": "xllm/core/scheduler/prefill_first_policy.cpp",
+      "line": 125,
+      "symbols": "PrefillFirstPolicy::schedule",
+      "evidence": "Prefill 分块续算优先；无 Prefill 才进入普通 Decode 调度",
+      "url": "https://github.com/xLLM-AI/xllm/blob/cbc03ff72c826a9b443d055f29f08ec8f2ecfe50/xllm/core/scheduler/prefill_first_policy.cpp#L125"
+    },
+    {
+      "id": "X4",
+      "repository": "xLLM-AI/xllm",
+      "commit": "cbc03ff72c826a9b443d055f29f08ec8f2ecfe50",
+      "path": "xllm/core/kv_cache/prefix/prefix_cache.cpp",
+      "line": 28,
+      "symbols": "PrefixCache::match / evict",
+      "evidence": "链式块哈希匹配、LRU、跳过在用块",
+      "url": "https://github.com/xLLM-AI/xllm/blob/cbc03ff72c826a9b443d055f29f08ec8f2ecfe50/xllm/core/kv_cache/prefix/prefix_cache.cpp#L28"
+    },
+    {
+      "id": "X5",
+      "repository": "xLLM-AI/xllm",
+      "commit": "cbc03ff72c826a9b443d055f29f08ec8f2ecfe50",
+      "path": "xllm/core/framework/block/kv_cache_manager_factory.cpp",
+      "line": 134,
+      "symbols": "KVCacheManagerFactory::create",
+      "evidence": "虚拟页分配器及 Host offload 由配置选择",
+      "url": "https://github.com/xLLM-AI/xllm/blob/cbc03ff72c826a9b443d055f29f08ec8f2ecfe50/xllm/core/framework/block/kv_cache_manager_factory.cpp#L134"
+    },
+    {
+      "id": "X6",
+      "repository": "xLLM-AI/xllm",
+      "commit": "cbc03ff72c826a9b443d055f29f08ec8f2ecfe50",
+      "path": "xllm/python/distributed/npu/hccl.py",
+      "line": 30,
+      "symbols": "get_hccl_comm / all_reduce_on_current_stream",
+      "evidence": "调用当前 NPU stream 上的 HCCL 自定义算子",
+      "url": "https://github.com/xLLM-AI/xllm/blob/cbc03ff72c826a9b443d055f29f08ec8f2ecfe50/xllm/python/distributed/npu/hccl.py#L30"
+    },
+    {
+      "id": "X7",
+      "repository": "xLLM-AI/xllm",
+      "commit": "cbc03ff72c826a9b443d055f29f08ec8f2ecfe50",
+      "path": "xllm/python/kernels_npu/moe.py",
+      "line": 928,
+      "symbols": "mega_moe",
+      "evidence": "融合专家分发、SwiGLU、合并；包装层区分 BF16/W8A8",
+      "url": "https://github.com/xLLM-AI/xllm/blob/cbc03ff72c826a9b443d055f29f08ec8f2ecfe50/xllm/python/kernels_npu/moe.py#L928"
+    },
+    {
+      "id": "X8",
+      "repository": "xLLM-AI/xllm",
+      "commit": "cbc03ff72c826a9b443d055f29f08ec8f2ecfe50",
+      "path": "xllm/core/framework/transfer/mooncake_transfer_engine.cpp",
+      "line": 280,
+      "symbols": "register_memory / batch transfer submission",
+      "evidence": "内存注册、传输区域检查与批量提交",
+      "url": "https://github.com/xLLM-AI/xllm/blob/cbc03ff72c826a9b443d055f29f08ec8f2ecfe50/xllm/core/framework/transfer/mooncake_transfer_engine.cpp#L280"
+    },
+    {
+      "id": "X9",
+      "repository": "xLLM-AI/xllm",
+      "commit": "cbc03ff72c826a9b443d055f29f08ec8f2ecfe50",
+      "path": "xllm/core/runtime/worker_impl.cpp",
+      "line": 521,
+      "symbols": "WorkerImpl KV dtype validation",
+      "evidence": "MLA packed C8 的 PD 启动限制",
+      "url": "https://github.com/xLLM-AI/xllm/blob/cbc03ff72c826a9b443d055f29f08ec8f2ecfe50/xllm/core/runtime/worker_impl.cpp#L521"
+    },
+    {
+      "id": "X10",
+      "repository": "xLLM-AI/xllm",
+      "commit": "cbc03ff72c826a9b443d055f29f08ec8f2ecfe50",
+      "path": "xllm/core/scheduler/unified_policy.cpp",
+      "line": 306,
+      "symbols": "UnifiedPolicy::schedule_from_unified_queue",
+      "evidence": "内存不足时抢占低优先级请求并回队",
+      "url": "https://github.com/xLLM-AI/xllm/blob/cbc03ff72c826a9b443d055f29f08ec8f2ecfe50/xllm/core/scheduler/unified_policy.cpp#L306"
+    },
+    {
+      "id": "S1",
+      "repository": "sgl-project/sglang",
+      "commit": "9ea5472833296e97724f12df716936576d34ddbb",
+      "path": "python/sglang/srt/managers/scheduler.py",
+      "line": 1975,
+      "symbols": "event_loop_overlap",
+      "evidence": "先发起当前批执行，再处理前批结果；存在禁用 overlap 的边界",
+      "url": "https://github.com/sgl-project/sglang/blob/9ea5472833296e97724f12df716936576d34ddbb/python/sglang/srt/managers/scheduler.py#L1975"
+    },
+    {
+      "id": "S2",
+      "repository": "sgl-project/sglang",
+      "commit": "9ea5472833296e97724f12df716936576d34ddbb",
+      "path": "python/sglang/srt/managers/schedule_policy.py",
+      "line": 168,
+      "symbols": "SchedulePolicy.calc_priority",
+      "evidence": "FCFS、LPM、DFS_WEIGHT、HRRN 等候选策略",
+      "url": "https://github.com/sgl-project/sglang/blob/9ea5472833296e97724f12df716936576d34ddbb/python/sglang/srt/managers/schedule_policy.py#L168"
+    },
+    {
+      "id": "S3",
+      "repository": "sgl-project/sglang",
+      "commit": "9ea5472833296e97724f12df716936576d34ddbb",
+      "path": "python/sglang/srt/managers/scheduler.py",
+      "line": 4028,
+      "symbols": "_get_new_batch_prefill_raw",
+      "evidence": "优先级计算进入 PrefillAdder 的实际调用链",
+      "url": "https://github.com/sgl-project/sglang/blob/9ea5472833296e97724f12df716936576d34ddbb/python/sglang/srt/managers/scheduler.py#L4028"
+    },
+    {
+      "id": "S4",
+      "repository": "sgl-project/sglang",
+      "commit": "9ea5472833296e97724f12df716936576d34ddbb",
+      "path": "python/sglang/srt/managers/schedule_policy.py",
+      "line": 1347,
+      "symbols": "PrefillAdder.add_one_req",
+      "evidence": "锁定匹配前缀后核算请求及缓存预算",
+      "url": "https://github.com/sgl-project/sglang/blob/9ea5472833296e97724f12df716936576d34ddbb/python/sglang/srt/managers/schedule_policy.py#L1347"
+    },
+    {
+      "id": "S5",
+      "repository": "sgl-project/sglang",
+      "commit": "9ea5472833296e97724f12df716936576d34ddbb",
+      "path": "python/sglang/srt/mem_cache/radix_cache.py",
+      "line": 364,
+      "symbols": "RadixCache.match_prefix / evict / inc_lock_ref",
+      "evidence": "带命名空间的前缀树、页面对齐、锁引用与叶节点淘汰",
+      "url": "https://github.com/sgl-project/sglang/blob/9ea5472833296e97724f12df716936576d34ddbb/python/sglang/srt/mem_cache/radix_cache.py#L364"
+    },
+    {
+      "id": "S6",
+      "repository": "sgl-project/sglang",
+      "commit": "9ea5472833296e97724f12df716936576d34ddbb",
+      "path": "python/sglang/srt/managers/schedule_batch.py",
+      "line": 3336,
+      "symbols": "ScheduleBatch.retract_decode",
+      "evidence": "显存压力下释放、撤回或终止请求；更新估算比例",
+      "url": "https://github.com/sgl-project/sglang/blob/9ea5472833296e97724f12df716936576d34ddbb/python/sglang/srt/managers/schedule_batch.py#L3336"
+    },
+    {
+      "id": "S7",
+      "repository": "sgl-project/sglang",
+      "commit": "9ea5472833296e97724f12df716936576d34ddbb",
+      "path": "python/sglang/srt/distributed/device_communicators/npu_communicator.py",
+      "line": 23,
+      "symbols": "NpuCommunicator.all_reduce / quant_all_reduce",
+      "evidence": "普通 collective 与低精度 all-gather 后还原求和",
+      "url": "https://github.com/sgl-project/sglang/blob/9ea5472833296e97724f12df716936576d34ddbb/python/sglang/srt/distributed/device_communicators/npu_communicator.py#L23"
+    },
+    {
+      "id": "S8",
+      "repository": "sgl-project/sglang",
+      "commit": "9ea5472833296e97724f12df716936576d34ddbb",
+      "path": "python/sglang/srt/hardware_backend/npu/moe/fuseep.py",
+      "line": 41,
+      "symbols": "forward_fuseep / process_fuseep_weights",
+      "evidence": "Ascend FuseEP 和专用权重布局处理",
+      "url": "https://github.com/sgl-project/sglang/blob/9ea5472833296e97724f12df716936576d34ddbb/python/sglang/srt/hardware_backend/npu/moe/fuseep.py#L41"
+    },
+    {
+      "id": "S9",
+      "repository": "sgl-project/sglang",
+      "commit": "9ea5472833296e97724f12df716936576d34ddbb",
+      "path": "python/sglang/srt/disaggregation/ascend/transfer_engine.py",
+      "line": 26,
+      "symbols": "AscendTransferEngine",
+      "evidence": "memfabric_hybrid 依赖、协议选择与内存注册",
+      "url": "https://github.com/sgl-project/sglang/blob/9ea5472833296e97724f12df716936576d34ddbb/python/sglang/srt/disaggregation/ascend/transfer_engine.py#L26"
+    },
+    {
+      "id": "V1",
+      "repository": "vllm-project/vllm",
+      "commit": "fc8e08a2a607968226376c53a30cfa6337578f79",
+      "path": "vllm/v1/core/sched/scheduler.py",
+      "line": 591,
+      "symbols": "Scheduler.schedule",
+      "evidence": "统一 token 进度、先 running 后 waiting、块分配失败时抢占",
+      "url": "https://github.com/vllm-project/vllm/blob/fc8e08a2a607968226376c53a30cfa6337578f79/vllm/v1/core/sched/scheduler.py#L591"
+    },
+    {
+      "id": "V2",
+      "repository": "vllm-project/vllm",
+      "commit": "fc8e08a2a607968226376c53a30cfa6337578f79",
+      "path": "vllm/v1/core/sched/scheduler.py",
+      "line": 1571,
+      "symbols": "Scheduler._preempt_request",
+      "evidence": "释放块、重置计算进度、回到等待队列",
+      "url": "https://github.com/vllm-project/vllm/blob/fc8e08a2a607968226376c53a30cfa6337578f79/vllm/v1/core/sched/scheduler.py#L1571"
+    },
+    {
+      "id": "V3",
+      "repository": "vllm-project/vllm",
+      "commit": "fc8e08a2a607968226376c53a30cfa6337578f79",
+      "path": "vllm/v1/core/sched/async_scheduler.py",
+      "line": 14,
+      "symbols": "AsyncScheduler",
+      "evidence": "输出占位、异步更新、抢占后的过期结果处理",
+      "url": "https://github.com/vllm-project/vllm/blob/fc8e08a2a607968226376c53a30cfa6337578f79/vllm/v1/core/sched/async_scheduler.py#L14"
+    },
+    {
+      "id": "V4",
+      "repository": "vllm-project/vllm",
+      "commit": "fc8e08a2a607968226376c53a30cfa6337578f79",
+      "path": "vllm/v1/core/kv_cache_manager.py",
+      "line": 264,
+      "symbols": "KVCacheManager.get_computed_blocks",
+      "evidence": "前缀块命中和末 token logits 重算边界",
+      "url": "https://github.com/vllm-project/vllm/blob/fc8e08a2a607968226376c53a30cfa6337578f79/vllm/v1/core/kv_cache_manager.py#L264"
+    },
+    {
+      "id": "V5",
+      "repository": "vllm-project/vllm",
+      "commit": "fc8e08a2a607968226376c53a30cfa6337578f79",
+      "path": "vllm/v1/core/block_pool.py",
+      "line": 666,
+      "symbols": "BlockPool.get_new_blocks / touch / free_blocks",
+      "evidence": "块引用计数、空闲队列、缓存块的淘汰顺序",
+      "url": "https://github.com/vllm-project/vllm/blob/fc8e08a2a607968226376c53a30cfa6337578f79/vllm/v1/core/block_pool.py#L666"
+    },
+    {
+      "id": "V6",
+      "repository": "vllm-project/vllm",
+      "commit": "fc8e08a2a607968226376c53a30cfa6337578f79",
+      "path": "vllm/distributed/parallel_state.py",
+      "line": 548,
+      "symbols": "GroupCoordinator device communicator selection",
+      "evidence": "按平台选择设备通信实现",
+      "url": "https://github.com/vllm-project/vllm/blob/fc8e08a2a607968226376c53a30cfa6337578f79/vllm/distributed/parallel_state.py#L548"
+    },
+    {
+      "id": "V7",
+      "repository": "vllm-project/vllm",
+      "commit": "fc8e08a2a607968226376c53a30cfa6337578f79",
+      "path": "vllm/distributed/device_communicators/all2all.py",
+      "line": 67,
+      "symbols": "AgRsAll2AllManager and backend managers",
+      "evidence": "MoE dispatch/combine 的多种后端接口",
+      "url": "https://github.com/vllm-project/vllm/blob/fc8e08a2a607968226376c53a30cfa6337578f79/vllm/distributed/device_communicators/all2all.py#L67"
+    },
+    {
+      "id": "V8",
+      "repository": "vllm-project/vllm",
+      "commit": "fc8e08a2a607968226376c53a30cfa6337578f79",
+      "path": "vllm/distributed/kv_transfer/kv_connector/v1/mooncake/mooncake_connector.py",
+      "line": 768,
+      "symbols": "MooncakeConnector scheduler / worker methods",
+      "evidence": "缓存命中、分配后更新、传输元数据与完成状态",
+      "url": "https://github.com/vllm-project/vllm/blob/fc8e08a2a607968226376c53a30cfa6337578f79/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/mooncake_connector.py#L768"
+    },
+    {
+      "id": "A1",
+      "repository": "vllm-project/vllm-ascend",
+      "commit": "23d1d9055f2161b3c15613c7fc309f7d5d2ef629",
+      "path": "vllm_ascend/distributed/device_communicators/npu_communicator.py",
+      "line": 23,
+      "symbols": "NPUCommunicator / _NpuAll2AllManager",
+      "evidence": "NPU 适配层与故障容错能力边界",
+      "url": "https://github.com/vllm-project/vllm-ascend/blob/23d1d9055f2161b3c15613c7fc309f7d5d2ef629/vllm_ascend/distributed/device_communicators/npu_communicator.py#L23"
+    },
+    {
+      "id": "A2",
+      "repository": "vllm-project/vllm-ascend",
+      "commit": "23d1d9055f2161b3c15613c7fc309f7d5d2ef629",
+      "path": "vllm_ascend/ops/fused_moe/token_dispatcher.py",
+      "line": 109,
+      "symbols": "TokenDispatcherWithMC2 / AllGather / All2AllV",
+      "evidence": "MC2 dispatch/combine、可变长度 collective 的实际路径",
+      "url": "https://github.com/vllm-project/vllm-ascend/blob/23d1d9055f2161b3c15613c7fc309f7d5d2ef629/vllm_ascend/ops/fused_moe/token_dispatcher.py#L109"
+    },
+    {
+      "id": "A3",
+      "repository": "vllm-project/vllm-ascend",
+      "commit": "23d1d9055f2161b3c15613c7fc309f7d5d2ef629",
+      "path": "vllm_ascend/ops/fused_moe/moe_comm_method.py",
+      "line": 68,
+      "symbols": "setup_moe_comm_method / MoECommMethod",
+      "evidence": "MoE 通信方法注册和分发、专家计算、合并编排",
+      "url": "https://github.com/vllm-project/vllm-ascend/blob/23d1d9055f2161b3c15613c7fc309f7d5d2ef629/vllm_ascend/ops/fused_moe/moe_comm_method.py#L68"
+    },
+    {
+      "id": "A4",
+      "repository": "vllm-project/vllm-ascend",
+      "commit": "23d1d9055f2161b3c15613c7fc309f7d5d2ef629",
+      "path": "vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake/connector.py",
+      "line": 1,
+      "symbols": "MooncakeBaseConnector",
+      "evidence": "Ascend connector 门面、pull 默认别名和未实现的 push 声明",
+      "url": "https://github.com/vllm-project/vllm-ascend/blob/23d1d9055f2161b3c15613c7fc309f7d5d2ef629/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake/connector.py#L1"
+    }
+  ]
+}

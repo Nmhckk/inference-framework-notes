@@ -6,6 +6,7 @@
     "sgl-project/sglang": "9ea5472833296e97724f12df716936576d34ddbb",
     "vllm-project/vllm-ascend": "23d1d9055f2161b3c15613c7fc309f7d5d2ef629",
     "kvcache-ai/Mooncake": "0ea240831edd7a4a6716e56ba48702cc0b9b2a62",
-    "AISBench/benchmark": "e00d1f758310c45580576af291a3126919776c89"
+    "AISBench/benchmark": "e00d1f758310c45580576af291a3126919776c89",
+    "vllm-project/vllm": "fc8e08a2a607968226376c53a30cfa6337578f79"
   }
 }
