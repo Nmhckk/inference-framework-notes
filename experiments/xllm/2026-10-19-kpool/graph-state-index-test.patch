@@ -1,0 +1,17 @@
+--- a/tests/python/test_decode_acl_graph.py
++++ b/tests/python/test_decode_acl_graph.py
+@@ -613,8 +613,12 @@
+     torch.testing.assert_close(output[1], aux_hidden[:3])
+ 
+ 
+-def test_linear_state_indices_use_stable_graph_buffer() -> None:
+-    runner = _runner()
++@pytest.mark.parametrize("is_hybrid_mla", [False, True])
++def test_linear_state_indices_use_stable_graph_buffer(is_hybrid_mla: bool) -> None:
++    runner = _runner()
++    if is_hybrid_mla:
++        runner.attention_backend.is_mla = True
++        runner.bind_layer_caches([LayerCache(torch.zeros(1), torch.zeros(1), ssm=torch.zeros(1))])
+     input_ids = torch.arange(4, dtype=torch.int32)
+     positions = torch.arange(4, dtype=torch.int32)
+     metadata = _metadata(torch.tensor([3, 7, 11, 15], dtype=torch.int32))

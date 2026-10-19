@@ -69,3 +69,16 @@ xLLM 的 C++ 调度层并不意味着模型的 Python 执行路径必然更快�
 决定：关闭精确池复用候选，恢复eager＋MTP1基线。图索引补丁继续列为待NPU验证，不纳入本次性能结果。32个活跃设备健康检查通过，当前HBM双比特错误为0；K8s容器ID与记录一致。本次仅证明压测完成及短回归通过，不是完整长上下文精度验收。
 
 证据：[摘要](performance-summary.json)、[延迟CSV](performance-latency.csv)、[原始完整压测归档](performance-raw.tar.gz)、[设备健康](active-device-health.json)、[K8s保留检查](k8s-preservation.json)。
+
+## 状态索引补丁实机验证（后续实验）
+
+补丁将跳过 recurrent state 索引更新的条件限制为纯 MLA；混合 MLA/KDA 仍复制索引，并保持 padding 清零。已保留原文件校验值和回退副本，源补丁见 `graph-state-index.patch`，测试扩展见 `graph-state-index-test.patch`。镜像缺少 pytest 入口需要的 `xllm_export` 扩展，单元测试在收集前阻塞，不能记作通过。
+
+| 实机配置 | 图捕获 | 输出检查 | 决定 |
+| --- | --- | --- | --- |
+| 补丁＋MTP1，小桶上限4 | draft 1/2/4，target 2/4/8 捕获完成 | 1K检索0/4，重复乱码，全部达到600上限 | 不测正式性能 |
+| 补丁＋MTP0，D batch8 | 1/2/4/8 捕获完成 | 1K 4/4、8K 4/4；80K执行4/4、检索2/4，另有漏检/思考截断 | 继续性能试验，不宣称长文本精度通过 |
+
+MTP0下未复现连续乱码；这支持该补丁改善基础图路径，但不能证明它独自解决所有图问题。MTP1图仍不可用，后续需要分别检查draft与verify的状态更新。正式复测使用原81920/600、48请求、并发16命令；P/D MTP均关闭，D图开启，私有池复用关闭。与eager＋MTP1基线比较的是部署配置整体，不能单独归因于图加速。当前正式性能仍在运行。
+
+失败样本与日志：`graph-state-fix-mtp1-raw.tar.gz`、`graph-state-fix-mtp1-logs.tar.gz`。MTP0验证样本：`graph-state-fix-mtp0-1024-raw.tar.gz`、`graph-state-fix-mtp0-8192-raw.tar.gz`、`graph-state-fix-mtp0-81920-raw.tar.gz`。实际配置：`runtime-graph-state-fix-mtp0.json`。

@@ -1,0 +1,18 @@
+--- a/xllm/python/model_executor/runners/decode_acl_graph.py
++++ b/xllm/python/model_executor/runners/decode_acl_graph.py
+@@ -1099,12 +1099,13 @@
+             static_metadata.paged_kv_last_page_len,
+             padded_batch_size,
+         )
+-        # MLA does not consume recurrent state. The scheduler can still carry
++        # Pure MLA does not consume recurrent state. Hybrid MLA models do.
++        # The scheduler can still carry
+         # one linear-state index per request while GLM MTP adds a nonuniform
+         # number of repair rows; those unrelated indices need no expansion.
+         linear_state_indices = (
+             None
+-            if getattr(self.attention_backend, "is_mla", False)
++            if getattr(self.attention_backend, "is_mla", False) and not self._has_linear_cache
+             else getattr(metadata, "linear_state_indices", None)
+         )
+         if linear_state_indices is not None:
