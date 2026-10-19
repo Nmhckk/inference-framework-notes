@@ -1,0 +1,22 @@
+{
+  "phase": "passed",
+  "label": "3p1d-kpool-reuse-eager-20261019",
+  "full_accuracy": false,
+  "membership": "/flash-20261016/XLLM:DECODE:172.16.12.11:19600\n\n/flash-20261016/XLLM:LOADMETRICS:172.16.12.10:19600\n\n/flash-20261016/XLLM:LOADMETRICS:172.16.12.11:19600\n\n/flash-20261016/XLLM:LOADMETRICS:172.16.12.9:19600\n\n/flash-20261016/XLLM:PREFILL:172.16.12.10:19600\n\n/flash-20261016/XLLM:PREFILL:172.16.12.8:19600\n\n/flash-20261016/XLLM:PREFILL:172.16.12.9:19600\n\n/flash-20261016/XLLM:SERVICE:172.16.12.11:28889\n\n/flash-20261016/XLLM:SERVICE:MASTER\n\n",
+  "known_answer_results": {
+    "1024": {
+      "total": 4,
+      "passed": 4,
+      "all_passed": true,
+      "scope": "known-answer retrieval lengths=1024; not a general long-context benchmark"
+    },
+    "8192": {
+      "total": 4,
+      "passed": 4,
+      "all_passed": true,
+      "scope": "known-answer retrieval lengths=8192; not a general long-context benchmark"
+    }
+  },
+  "last_passed_length": 8192,
+  "gate_scope": "short 1K/8K regression only; no full accuracy claim"
+}

@@ -1,0 +1,15 @@
+{
+  "phase": "failed",
+  "label": "3p1d-graph-mtp0-relinked-20261019",
+  "full_accuracy": false,
+  "membership": "/flash-20261016/XLLM:DECODE:172.16.12.11:19600\n\n/flash-20261016/XLLM:LOADMETRICS:172.16.12.10:19600\n\n/flash-20261016/XLLM:LOADMETRICS:172.16.12.11:19600\n\n/flash-20261016/XLLM:LOADMETRICS:172.16.12.8:19600\n\n/flash-20261016/XLLM:LOADMETRICS:172.16.12.9:19600\n\n/flash-20261016/XLLM:PREFILL:172.16.12.10:19600\n\n/flash-20261016/XLLM:PREFILL:172.16.12.8:19600\n\n/flash-20261016/XLLM:PREFILL:172.16.12.9:19600\n\n/flash-20261016/XLLM:SERVICE:172.16.12.11:28889\n\n/flash-20261016/XLLM:SERVICE:MASTER\n\n",
+  "known_answer_results": {
+    "1024": {
+      "total": 4,
+      "passed": 0,
+      "all_passed": false,
+      "scope": "known-answer retrieval lengths=1024; not a general long-context benchmark"
+    }
+  },
+  "error": "CalledProcessError(2, ['/usr/local/python3.11.15/bin/python3', '/work/evaluate_state_reuse.py', '--lengths', '1024', '--max-tokens', '600', '--concurrency', '4', '--sequential-count', '0', '--output', '/work/logs/state-3p1d-graph-mtp0-relinked-20261019-1024'], None, None)"
+}
