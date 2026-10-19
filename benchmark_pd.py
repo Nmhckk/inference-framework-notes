@@ -54,7 +54,9 @@ def main():
                   installed_logical_devices=a.installed_logical_devices,hosts=a.allocated_hosts,scope='conservative configuration microbenchmark; see topology/runtime parameters; not tuned peak',
                   ttft='first non-empty reasoning or answer delta',
                   ttfa='first non-empty visible answer delta, nullable',
-                  tpot='(end-to-end latency - TTFT)/(usage.completion_tokens - 1)',
+                  tpot='(last nonempty output delta time - first output delta time)/(usage.completion_tokens - 1)',
+                  per_user_decode_tps='(completion_tokens - 1)/(last output delta time - first output delta time)',
+                  output_tokens_include='reasoning plus visible answer; fixed output is not an accuracy test',
                   time_source='one client time.perf_counter; not server wall clocks',
                   tail_limit='small sample; no stable P99 claim')
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2))
@@ -106,7 +108,9 @@ def main():
             completion=int(usage['completion_tokens'])
             if completion!=output_tokens:raise RuntimeError(f'Output length {completion} != fixed target {output_tokens}')
             result.update(ok=True,latency=end-start,ttft=first-start,ttfa=None if answer_first is None else answer_first-start,
-                          tpot=None if completion<2 else (end-first)/(completion-1),usage=usage,
+                          tpot=None if completion<2 else (last_chunk-first)/(completion-1),
+                          per_user_decode_tps=None if completion<2 or last_chunk<=first else (completion-1)/(last_chunk-first),
+                          per_user_e2e_tps=completion/(end-start),last_output=last_chunk-start,usage=usage,
                           max_chunk_gap=max([e['gap'] for e in events if e['gap'] is not None] or [0]))
         except Exception as error:
             result.update(ok=False,error=repr(error),latency=time.perf_counter()-start,usage=usage)
@@ -135,7 +139,12 @@ def main():
                       'latency_p50':quantile([r['latency'] for r in successes],.5),'latency_p95':quantile([r['latency'] for r in successes],.95),
                       'ttft_p50':quantile([r['ttft'] for r in successes],.5),'ttft_p95':quantile([r['ttft'] for r in successes],.95),
                       'tpot_p50':quantile([r['tpot'] for r in successes if r['tpot'] is not None],.5),
-                      'tpot_p95':quantile([r['tpot'] for r in successes if r['tpot'] is not None],.95)}
+                      'tpot_p95':quantile([r['tpot'] for r in successes if r['tpot'] is not None],.95),
+                      'per_user_decode_tps_p50':quantile([r['per_user_decode_tps'] for r in successes if r['per_user_decode_tps'] is not None],.5),
+                      'input_tokens':sum(r['usage']['prompt_tokens'] for r in successes),
+                      'output_tokens':sum(r['usage']['completion_tokens'] for r in successes),
+                      'ttfa_p50':quantile([r['ttfa'] for r in successes if r['ttfa'] is not None],.5),
+                      'visible_answer_requests':sum(r['ttfa'] is not None for r in successes)}
                 matrix.append(cell)
                 (out/f'cell-{repeat}-{input_tokens}-{concurrency}.json').write_text(json.dumps({'summary':cell,'requests':rows,'warmup':warm},indent=2))
                 (out/'summary.json').write_text(json.dumps(matrix,indent=2))

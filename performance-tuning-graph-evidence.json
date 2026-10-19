@@ -1,0 +1,20 @@
+{
+  "10": [
+    {
+      "log_archive": "before-graph-off-b2-1792397656667192000",
+      "capture_lines": [
+        "I20261019 16:10:40.503739 49653 acl_graph.py:288] Python ACL graph capture start: model=Glm5NextModel bucket=1 mtp_topk=False",
+        "I20261019 16:10:45.536157 49653 acl_graph.py:322] Python ACL graph captured: model=Glm5NextModel bucket=1 mtp_topk=False tasks=0"
+      ]
+    }
+  ],
+  "11": [
+    {
+      "log_archive": "before-graph-off-b2-1792397656667192000",
+      "capture_lines": [
+        "I20261019 16:11:01.006014 26084 acl_graph.py:288] Python ACL graph capture start: model=Glm5NextModel bucket=1 mtp_topk=False",
+        "I20261019 16:11:05.811233 26084 acl_graph.py:322] Python ACL graph captured: model=Glm5NextModel bucket=1 mtp_topk=False tasks=0"
+      ]
+    }
+  ]
+}

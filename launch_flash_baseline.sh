@@ -21,6 +21,10 @@ MODEL_PATH=/models/glm53-flash
 ROLE=${INSTANCE_ROLE:-DEFAULT}
 HOST_IP=${HOST_IP:-127.0.0.1}
 pd_args=()
+graph_args=()
+if [[ "${XLLM_ENABLE_GRAPH:-false}" == true ]]; then
+ graph_args=(--max_tokens_for_graph_mode="${XLLM_GRAPH_MAX_TOKENS:-1}")
+fi
 case "$ROLE" in
  DEFAULT)
   if [[ "${XLLM_SERVICE_ROUTING:-false}" == true ]]; then
@@ -62,10 +66,10 @@ for ((i=0;i<8;i++)); do
   --max_memory_utilization=0.85 --enable_chunked_prefill=true \
   --enable_schedule_overlap=false --enable_prefix_cache=false \
   --max_tokens_per_chunk_for_prefill=8192 --enable_mix_batch=false \
-  --enable_shm=false --enable_graph=false --model_impl=python --backend="${XLLM_BACKEND:-vlm}" \
+  --enable_shm=false --enable_graph="${XLLM_ENABLE_GRAPH:-false}" --model_impl=python --backend="${XLLM_BACKEND:-vlm}" \
   --reasoning_parser=glm5 \
   --max_seqs_per_batch="${XLLM_MAX_SEQS:-1}" --max_linear_state_cache_slots=16 --max_body_size=268435456 \
-  --transfer_listen_port=$((26000+i)) "${pd_args[@]}" \
+  --transfer_listen_port=$((26000+i)) "${pd_args[@]}" "${graph_args[@]}" \
   > "$LOG_DIR/node_${i}.log" 2>&1 &
  pids+=("$!")
 done

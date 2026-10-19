@@ -2,16 +2,18 @@
 
 以 GLM 系列模型研究推理框架，当前实机对象改为 GLM-5.3-Flash W8A8，先完成 xLLM 验证，再扩展 SGLang、vLLM-Ascend，对比调度、算子、KV Cache 和通信带来的差异，逐步形成自己的框架。早期 GLM-5.3 W8A8C8 调研材料保留其原适用条件。
 
-当前阶段：完成xLLM跨模型优势候选与反例核查；单机合批实验暴露检索正确性风险。非PD原路由复核也有失败，已撤回此前按吞吐选择非PD的默认推荐，当前恢复2P2D并通过相同8条检索回归。未改K8s。
+当前阶段：2P2D的Decode batch上限2通过功能检查，1K/128、并发4重复测得21.4–21.7集群输出token/s；TTFT P50约0.72秒。图模式检索7/8，未采用；历史非PD约30 token/s因后续检索失败仍不能推荐。未改K8s。
 
 ## 日报
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
-| 2026/10/19 | 完成xLLM优势与三框架能力复核；合批实验发现检索风险，撤回非PD默认推荐并恢复2P2D，复核8/8通过。[研究](xllm-strengths-and-experiments-2026-10-19.md)／[实验](xllm-batch-canary-2026-10-19.md)。 | 找出框架优势及适用条件，建立可靠性能基线 | |
+| 2026/10/19 | 完成xLLM优势调研；2P2D Decode合批调优，1K/128并发4实测21.4–21.7 token/s，TTFT约0.72秒；图模式校验失败未采用。[性能](xllm-performance-tuning-2026-10-19.md)／[研究](xllm-strengths-and-experiments-2026-10-19.md)。 | 找出框架优势及适用条件，建立可靠性能基线 | |
 | 2026/10/15 | 整理 xLLM 非 PD 材料；完成三框架调度、KV Cache、通信源码对比及论文分析。[资料](implementation-comparison.md)；实机待验证。 | GLM-5.3 C8 的 xLLM 部署验证与框架对比准备 | |
 
 ## 资料与代码
+
+- [2P2D性能调优与指标口径](xllm-performance-tuning-2026-10-19.md)：基线、失败图模式、Decode合批与重复测试。
 
 - [xLLM优势候选与跨模型实验](xllm-strengths-and-experiments-2026-10-19.md)：历史评测边界、对手已有能力、源码限制与自研模块问题。
 - [合批实验及正确性回退](xllm-batch-canary-2026-10-19.md)：失败反例、对照修正与当前2P2D配置。
