@@ -1,0 +1,110 @@
+{
+  "scope": "four hosts TP8 each; batch1; fixed128 reasoning-inclusive output; two repeats of four requests per cell; not peak/P99/full accuracy",
+  "same_router": true,
+  "matching_prompt_and_output_usage": true,
+  "measured_requests_per_topology": 32,
+  "combined_smoke": {
+    "requests": 8,
+    "concurrency": 4,
+    "repeats": 1,
+    "successes": 8,
+    "correct": 8,
+    "natural_stops": 8,
+    "visible_answers": 8,
+    "duration": 85.05557472002693,
+    "output_tps": 18.035267001009508,
+    "ttft_p50": 0.429133145022206,
+    "ttfa_nonblank_p50": 12.011955505004153,
+    "ttfa_nonblank_p95": 45.1754574054561,
+    "latency_p50": 21.68669357500039,
+    "latency_p95": 62.58830053648561,
+    "scope": "one fixed-prefix natural-stop GSM8K supplement; not comparable to fixed128 benchmark throughput"
+  },
+  "rows": [
+    {
+      "input_target": 1024,
+      "concurrency": 1,
+      "pd_output_tps": 6.144727869188681,
+      "pd_ttft_p50": 0.7174273800337687,
+      "pd_latency_p50": 20.80036717496114,
+      "pd_tpot_p50": 0.15823833582607488,
+      "pd_repeat_tps": [
+        6.157540005841778,
+        6.1319689388492025
+      ],
+      "combined_output_tps": 7.615521236635248,
+      "combined_ttft_p50": 0.7309524000156671,
+      "combined_latency_p50": 16.788861125009134,
+      "combined_tpot_p50": 0.12625501523624855,
+      "combined_repeat_tps": [
+        7.558263767150935,
+        7.673652833585035
+      ],
+      "combined_output_tps_ratio": 1.2393585849133402
+    },
+    {
+      "input_target": 1024,
+      "concurrency": 4,
+      "pd_output_tps": 11.789557645454426,
+      "pd_ttft_p50": 1.0758084199624136,
+      "pd_latency_p50": 31.187753410020377,
+      "pd_tpot_p50": 0.2372203221655539,
+      "pd_repeat_tps": [
+        11.698827026645983,
+        11.881706592453837
+      ],
+      "combined_output_tps": 30.02915991244519,
+      "combined_ttft_p50": 0.7050847750506364,
+      "combined_latency_p50": 16.670903435035143,
+      "combined_tpot_p50": 0.12570458299234716,
+      "combined_repeat_tps": [
+        30.642416869160176,
+        29.439967968505453
+      ],
+      "combined_output_tps_ratio": 2.5470981028726905
+    },
+    {
+      "input_target": 8192,
+      "concurrency": 1,
+      "pd_output_tps": 4.452709254920313,
+      "pd_ttft_p50": 8.172930060012732,
+      "pd_latency_p50": 28.83358227502322,
+      "pd_tpot_p50": 0.16220384814976313,
+      "pd_repeat_tps": [
+        4.464927187844171,
+        4.4405580064039984
+      ],
+      "combined_output_tps": 5.1621559250648525,
+      "combined_ttft_p50": 8.155074195005,
+      "combined_latency_p50": 24.361029065039475,
+      "combined_tpot_p50": 0.12761408181111217,
+      "combined_repeat_tps": [
+        5.0502176983212355,
+        5.27916886120012
+      ],
+      "combined_output_tps_ratio": 1.1593292149853687
+    },
+    {
+      "input_target": 8192,
+      "concurrency": 4,
+      "pd_output_tps": 10.072666151422691,
+      "pd_ttft_p50": 12.268975350016262,
+      "pd_latency_p50": 38.979929099965375,
+      "pd_tpot_p50": 0.2094595273622077,
+      "pd_repeat_tps": [
+        10.087486508680866,
+        10.057889277893961
+      ],
+      "combined_output_tps": 20.919530015519303,
+      "combined_ttft_p50": 8.1147343700286,
+      "combined_latency_p50": 24.047797530016396,
+      "combined_tpot_p50": 0.12570633736208053,
+      "combined_repeat_tps": [
+        21.104377629861478,
+        20.737892348005722
+      ],
+      "combined_output_tps_ratio": 2.0768612501432475
+    }
+  ],
+  "combined_faster_in_all_cells": true
+}

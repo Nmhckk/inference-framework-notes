@@ -24,6 +24,8 @@ def quantile(values, q):
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--url',default='http://172.16.12.11:28888/v1')
+    p.add_argument('--urls',help='Comma separated API bases, deterministic round robin per cell')
+    p.add_argument('--topology',default='2p2d')
     p.add_argument('--accuracy-summary',required=True)
     p.add_argument('--state-summary',required=True)
     p.add_argument('--output',required=True)
@@ -32,6 +34,8 @@ def main():
     p.add_argument('--repeats',type=int,default=3)
     p.add_argument('--concurrencies',default='1,2,4')
     a=p.parse_args()
+    urls=a.urls.split(',') if a.urls else [a.url]
+    assert a.requests >= max(map(int,a.concurrencies.split(','))) and a.repeats > 0
     gate=json.loads(Path(a.accuracy_summary).read_text())
     if gate.get('regression_gate') is not True:
         raise SystemExit('Accuracy regression gate is not passed; performance not started')
@@ -63,22 +67,24 @@ def main():
             n=max(1,n+round((target-length)/18))
         return messages,length
     def probe(spec):
-        target,output_tokens,salt=spec
+        target,output_tokens,salt,endpoint=spec
         messages,expected_prompt=make_messages(target,salt)
         body={'model':'glm53-flash','messages':messages,'max_tokens':output_tokens,
               'temperature':0,'stream':True,'stream_options':{'include_usage':True},
               'ignore_eos':True,'chat_template_kwargs':{'enable_thinking':True}}
         start=time.perf_counter();first=None;answer_first=None;last_chunk=None;events=[];usage=None;done=False;request_id=None
-        result={'target_input_tokens':target,'target_output_tokens':output_tokens,'tokenizer_prompt_tokens':expected_prompt,'salt':salt}
+        result={'target_input_tokens':target,'target_output_tokens':output_tokens,'tokenizer_prompt_tokens':expected_prompt,'salt':salt,'endpoint':endpoint}
         try:
-            request=urllib.request.Request(a.url.rstrip('/')+'/chat/completions',data=json.dumps(body).encode(),headers={'Content-Type':'application/json'})
+            request=urllib.request.Request(endpoint.rstrip('/')+'/chat/completions',data=json.dumps(body).encode(),headers={'Content-Type':'application/json'})
             with urllib.request.urlopen(request,timeout=1200) as response:
                 for raw in response:
                     line=raw.decode().strip()
                     if not line.startswith('data:'):continue
                     now=time.perf_counter();data=line[5:].strip()
                     if data=='[DONE]':done=True;break
-                    chunk=json.loads(data);request_id=request_id or chunk.get('id')
+                    chunk=json.loads(data)
+                    if chunk.get('error'):raise RuntimeError(str(chunk['error']))
+                    request_id=request_id or chunk.get('id')
                     if chunk.get('usage'):usage=chunk['usage']
                     text='';answer=''
                     for choice in chunk.get('choices',[]):
@@ -107,12 +113,12 @@ def main():
             for concurrency in map(int,a.concurrencies.split(',')):
                 # Warmup each cell outside timed measurements.
                 with ThreadPoolExecutor(max_workers=concurrency) as pool:
-                    warm=list(pool.map(probe,[(input_tokens,output_tokens,f'warm-{repeat}-{input_tokens}-{concurrency}-{i}') for i in range(concurrency)]))
+                    warm=list(pool.map(probe,[(input_tokens,output_tokens,f'warm-{repeat}-{input_tokens}-{concurrency}-{i}',urls[i%len(urls)]) for i in range(concurrency)]))
                 if any(not x['ok'] for x in warm):
                     (out/'warmup-failure.json').write_text(json.dumps(warm,indent=2));raise SystemExit('Warmup failed')
                 start=time.perf_counter()
                 with ThreadPoolExecutor(max_workers=concurrency) as pool:
-                    rows=list(pool.map(probe,[(input_tokens,output_tokens,f'{repeat}-{input_tokens}-{concurrency}-{i}') for i in range(a.requests)]))
+                    rows=list(pool.map(probe,[(input_tokens,output_tokens,f'{repeat}-{input_tokens}-{concurrency}-{i}',urls[i%len(urls)]) for i in range(a.requests)]))
                 duration=time.perf_counter()-start
                 successes=[r for r in rows if r['ok']]
                 cell={'repeat':repeat,'input_target':input_tokens,'output_target':output_tokens,'concurrency':concurrency,

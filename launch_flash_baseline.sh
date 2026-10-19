@@ -8,7 +8,7 @@ export NPU_MEMORY_FRACTION=0.90
 export OMP_NUM_THREADS=12
 export HCCL_CONNECT_TIMEOUT=300
 export HCCL_EXEC_TIMEOUT=300
-export HCCL_OP_EXPANSION_MODE=AIV
+export HCCL_OP_EXPANSION_MODE="${XLLM_HCCL_OP_EXPANSION_MODE:-AIV}"
 export HCCL_IF_BASE_PORT=47440
 export ASCEND_RT_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 export PYTHONPATH=/work/sources/xllm:${PYTHONPATH:-}
@@ -22,7 +22,12 @@ ROLE=${INSTANCE_ROLE:-DEFAULT}
 HOST_IP=${HOST_IP:-127.0.0.1}
 pd_args=()
 case "$ROLE" in
- DEFAULT) ;;
+ DEFAULT)
+  if [[ "${XLLM_SERVICE_ROUTING:-false}" == true ]]; then
+   pd_args=(--enable_service_routing=true --instance_role=DEFAULT
+    --etcd_addr=172.16.12.11:12389 --etcd_namespace=flash-20261016)
+  fi
+  ;;
  PREFILL|DECODE)
   case "$HOST_IP:$ROLE" in
    172.16.12.8:PREFILL|172.16.12.9:PREFILL|172.16.12.10:DECODE|172.16.12.11:DECODE) ;;
