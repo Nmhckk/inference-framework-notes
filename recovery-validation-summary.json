@@ -1,0 +1,31 @@
+{
+  "natural_smoke": {
+    "complete": 8,
+    "total": 8,
+    "correct": 8
+  },
+  "natural_C1": {
+    "complete": 8,
+    "total": 8,
+    "correct": 8
+  },
+  "natural_C2": {
+    "complete": 16,
+    "total": 16,
+    "correct": 15
+  },
+  "natural_C4": {
+    "complete": 32,
+    "total": 32,
+    "correct": 31
+  },
+  "state_retrieval": {
+    "passed": 16,
+    "total": 16
+  },
+  "accuracy_caution": "Repeated overlapping GSM8K prefixes; not an independent full accuracy score",
+  "full_1319": "not started; continuation cancelled by user scope change",
+  "formal_performance": "not started; chain stopped pending deployment-mode clarification",
+  "current_topology": "2P2D disaggregated; ordinary auto KV; prefix cache false",
+  "k8s": "not modified"
+}
