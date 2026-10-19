@@ -40,3 +40,9 @@ NPU 微基准使用 CANN 9、torch 2.9、torch_npu 2.9.0.post2；脚本按原实
 ## 对框架比较的意义
 
 xLLM 的 C++ 调度层并不意味着模型的 Python 执行路径必然更快。本实验的瓶颈候选集中在长历史整理、池化和 Python/NPU 调用开销；同一框架切换模型实现或图路径就会改变表现。后续对比 SGLang、vLLM 时，应同时记录是否重建全历史、缓存失效策略、图可用性、调度合批和通信路径，而不能只按框架名字归因。当前数据只支持 xLLM 内部实验，不能据此判定三框架胜负。
+
+## 图模式状态索引检查
+
+`npu_paged_attention.py` 的缓存绑定将带 DSA index 的混合模型标记为 `is_mla=True`；`decode_acl_graph.py::_fill_entry` 却据此跳过 `linear_state_indices` 更新，即使 `_has_linear_cache=True`。CPU 检查直接执行该方法，桩替代无关 NPU 元数据 kernel：输入索引 `[3,7,11,19]` 后，原版混合路径仍为 `[0,0,0,0]`；候选条件补充 `not self._has_linear_cache` 后能正确复制，纯 MLA 与非 MLA 线性路径保持原行为。
+
+检查结果见 `graph-metadata-probe.json`，候选改动见 `graph-linear-state-proposed.patch`。这是元数据更新层面的复现，尚未应用到本轮服务，也不能替代 NPU 图执行、padding、MTP 和端到端正确性验证。

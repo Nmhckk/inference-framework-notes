@@ -1,0 +1,49 @@
+{
+  "scope": "Actual _fill_entry method with unrelated NPU metadata kernel stubbed; only CPU routing of state IDs is tested, not graph execution",
+  "expected_hybrid_state_ids": [
+    3,
+    7,
+    11,
+    19
+  ],
+  "original": {
+    "hybrid_KDA_DSA": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "pure_MLA": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "linear_non_MLA": [
+      3,
+      7,
+      11,
+      19
+    ]
+  },
+  "proposed": {
+    "hybrid_KDA_DSA": [
+      3,
+      7,
+      11,
+      19
+    ],
+    "pure_MLA": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "linear_non_MLA": [
+      3,
+      7,
+      11,
+      19
+    ]
+  }
+}
