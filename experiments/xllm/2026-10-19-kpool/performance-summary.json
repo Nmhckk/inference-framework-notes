@@ -1,0 +1,278 @@
+{
+  "run": "perf-3p1d-aisbench-kpool-reuse-eager-20261019",
+  "scope": "AISBench performance pressure data only; quality not validated",
+  "requests": 48,
+  "successes": 48,
+  "failed": 0,
+  "output_tokens": 28800,
+  "actual_input_lengths": {
+    "81932": 45,
+    "81933": 1,
+    "81934": 2
+  },
+  "actual_output_lengths": {
+    "600": 48
+  },
+  "ttft_mean_seconds": 30.6614,
+  "ttft_median_seconds": 11.2938,
+  "ttft_p90_seconds": 86.77239999999999,
+  "tpot_mean_ms": 666.1,
+  "tpot_median_ms": 413.1,
+  "tpot_p90_ms": 1963.1,
+  "cluster_output_tps": 20.0466,
+  "benchmark_duration_seconds": 1436.6551572,
+  "max_client_concurrency": 16,
+  "observed_average_concurrency": 14.355,
+  "resources": {
+    "hosts": 4,
+    "active_logical_devices": 32,
+    "topology": "3P1D",
+    "TP_per_instance": 8,
+    "D_batch_limit": 8,
+    "D_memory_utilization": 0.75,
+    "graph": false,
+    "MTP_tokens": 1,
+    "prefix_cache": true,
+    "schedule_overlap": true,
+    "verified_pool_reuse": true
+  },
+  "source_report": "outputs/20261019_213414/performances/vllm-api-stream-chat/gsm8k.json",
+  "dataset_sha256": {
+    "GSM8K-in81920-num48-glm53-flash-repeatRate0.93.jsonl": "f2416217346337822ead08806fc86b77c2def876cee89f7ce8bcda3a26b043c6",
+    "prefix-GSM8K-in76185-num2-glm53-flash.jsonl": "e0020aca0fa8fe27feb212eb833899850c20e2dcce85ee32aceee13082fc4d41"
+  },
+  "native_cache_observation": {
+    "scope": "P leader process admission counters; main-phase delta includes AISBench default one warmup request, not only48 measured requests",
+    "samples": {
+      "before_wrapper": {
+        "client_monotonic": 644513.83087781,
+        "P_counters": {
+          "8": {
+            "prefix_cache_hit_tokens_total": 0.0,
+            "prefix_cache_prompt_tokens_total": 2053.0
+          },
+          "9": {
+            "prefix_cache_hit_tokens_total": 0.0,
+            "prefix_cache_prompt_tokens_total": 1027.0
+          },
+          "10": {
+            "prefix_cache_hit_tokens_total": 0.0,
+            "prefix_cache_prompt_tokens_total": 1026.0
+          }
+        }
+      },
+      "before_main_phase": {
+        "client_monotonic": 644839.87260936,
+        "P_counters": {
+          "8": {
+            "prefix_cache_hit_tokens_total": 0.0,
+            "prefix_cache_prompt_tokens_total": 86440.0
+          },
+          "9": {
+            "prefix_cache_hit_tokens_total": 0.0,
+            "prefix_cache_prompt_tokens_total": 85414.0
+          },
+          "10": {
+            "prefix_cache_hit_tokens_total": 0.0,
+            "prefix_cache_prompt_tokens_total": 93603.0
+          }
+        }
+      },
+      "after_wrapper": {
+        "client_monotonic": 646442.33682516,
+        "P_counters": {
+          "8": {
+            "prefix_cache_hit_tokens_total": 1179650.0,
+            "prefix_cache_prompt_tokens_total": 1397350.0
+          },
+          "9": {
+            "prefix_cache_hit_tokens_total": 1253380.0,
+            "prefix_cache_prompt_tokens_total": 1478260.0
+          },
+          "10": {
+            "prefix_cache_hit_tokens_total": 1179650.0,
+            "prefix_cache_prompt_tokens_total": 1404520.0
+          }
+        }
+      }
+    },
+    "main_phase_admission_counter_delta": {
+      "prompt_tokens": 4014673.0,
+      "hit_tokens": 3612680.0,
+      "token_hit_rate": 0.8998690553377573
+    }
+  },
+  "native_mtp_observation": {
+    "scope": "Decode native MTP counters; main phase includes AISBench default one warmup request",
+    "samples": {
+      "before_wrapper": {
+        "client_monotonic": 644514.53633048,
+        "D_counters": {
+          "11": {
+            "speculative_num_accepted_tokens_total": 114.0,
+            "speculative_num_committed_tokens_total": 247.0,
+            "speculative_num_draft_tokens_total": 133.0,
+            "speculative_num_drafts_total": 133.0
+          }
+        }
+      },
+      "before_main_phase": {
+        "client_monotonic": 644840.57413015,
+        "D_counters": {
+          "11": {
+            "speculative_num_accepted_tokens_total": 307.0,
+            "speculative_num_committed_tokens_total": 668.0,
+            "speculative_num_draft_tokens_total": 361.0,
+            "speculative_num_drafts_total": 361.0
+          }
+        }
+      },
+      "after_wrapper": {
+        "client_monotonic": 646442.99174367,
+        "D_counters": {
+          "11": {
+            "speculative_num_accepted_tokens_total": 13610.0,
+            "speculative_num_committed_tokens_total": 30129.0,
+            "speculative_num_draft_tokens_total": 16519.0,
+            "speculative_num_drafts_total": 16519.0
+          }
+        }
+      }
+    },
+    "main_phase_delta": {
+      "speculative_num_accepted_tokens_total": 13303.0,
+      "speculative_num_committed_tokens_total": 29461.0,
+      "speculative_num_draft_tokens_total": 16158.0,
+      "speculative_num_drafts_total": 16158.0
+    }
+  },
+  "AISBench_aggregates": {
+    "Benchmark Duration": {
+      "total": "1436655.1572 ms"
+    },
+    "Total Requests": {
+      "total": 48
+    },
+    "Failed Requests": {
+      "total": 0
+    },
+    "Success Requests": {
+      "total": 48
+    },
+    "Concurrency": {
+      "total": 14.355
+    },
+    "Max Concurrency": {
+      "total": 16
+    },
+    "Request Throughput": {
+      "total": "0.0334 req/s"
+    },
+    "Total Input Tokens": {
+      "total": 3932741
+    },
+    "Prefill Token Throughput": {
+      "total": "2672.1568 token/s"
+    },
+    "Total Generated Tokens": {
+      "total": 28800
+    },
+    "Input Token Throughput": {
+      "total": "2737.4287 token/s"
+    },
+    "Output Token Throughput": {
+      "total": "20.0466 token/s"
+    },
+    "Total Token Throughput": {
+      "total": "2757.4752 token/s"
+    }
+  },
+  "AISBench_latency_rows": {
+    "E2EL": {
+      "Performance Parameters": "E2EL",
+      "Stage": "total",
+      "Average": "429648.6 ms",
+      "Min": "223896.9 ms",
+      "Max": "1429990.0 ms",
+      "Median": "267240.3 ms",
+      "P75": "390314.6 ms",
+      "P90": "1209614.3 ms",
+      "P99": "1419912.4 ms",
+      "N": "48"
+    },
+    "TTFT": {
+      "Performance Parameters": "TTFT",
+      "Stage": "total",
+      "Average": "30661.4 ms",
+      "Min": "10797.7 ms",
+      "Max": "108277.7 ms",
+      "Median": "11293.8 ms",
+      "P75": "50895.0 ms",
+      "P90": "86772.4 ms",
+      "P99": "106541.4 ms",
+      "N": "48"
+    },
+    "TPOT": {
+      "Performance Parameters": "TPOT",
+      "Stage": "total",
+      "Average": "666.1 ms",
+      "Min": "318.6 ms",
+      "Max": "2267.3 ms",
+      "Median": "413.1 ms",
+      "P75": "618.3 ms",
+      "P90": "1963.1 ms",
+      "P99": "2238.1 ms",
+      "N": "48"
+    },
+    "ITL": {
+      "Performance Parameters": "ITL",
+      "Stage": "total",
+      "Average": "1202.1 ms",
+      "Min": "0.0 ms",
+      "Max": "1168044.7 ms",
+      "Median": "691.7 ms",
+      "P75": "706.4 ms",
+      "P90": "718.7 ms",
+      "P99": "749.7 ms",
+      "N": "48"
+    },
+    "InputTokens": {
+      "Performance Parameters": "InputTokens",
+      "Stage": "total",
+      "Average": "81932.1042",
+      "Min": "81932.0",
+      "Max": "81934.0",
+      "Median": "81932.0",
+      "P75": "81932.0",
+      "P90": "81932.0",
+      "P99": "81934.0",
+      "N": "48"
+    },
+    "OutputTokens": {
+      "Performance Parameters": "OutputTokens",
+      "Stage": "total",
+      "Average": "600.0",
+      "Min": "600.0",
+      "Max": "600.0",
+      "Median": "600.0",
+      "P75": "600.0",
+      "P90": "600.0",
+      "P99": "600.0",
+      "N": "48"
+    },
+    "OutputTokenThroughput": {
+      "Performance Parameters": "OutputTokenThroughput",
+      "Stage": "total",
+      "Average": "1.916 token/s",
+      "Min": "0.4196 token/s",
+      "Max": "2.6798 token/s",
+      "Median": "2.2452 token/s",
+      "P75": "2.4004 token/s",
+      "P90": "2.5246 token/s",
+      "P99": "2.6532 token/s",
+      "N": "48"
+    }
+  },
+  "runtime_evidence": "runtime-kpool-reuse-eager-20261019.json",
+  "decision": "No demonstrated end-to-end benefit; disable candidate and restore eager MTP1 baseline"
+}

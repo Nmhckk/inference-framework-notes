@@ -1,6 +1,6 @@
 # xLLM Decode KPool 与图模式实验
 
-目标：在原四台机器的 GLM-5.3-Flash W8A8 3P1D 上，改善 81920/600、48 请求、并发 16 的 Decode 性能。有效整机基线仍为输出 22.10 token/s、TTFT 8.945 秒、TPOT 637.1 毫秒。候选尚未完成整机复测。
+目标：在原四台机器的 GLM-5.3-Flash W8A8 3P1D 上，改善 81920/600、48 请求、并发 16 的 Decode 性能。有效整机基线仍为输出 22.10 token/s、TTFT 8.945 秒、TPOT 637.1 毫秒。候选已完成整机复测，未取得收益，关闭复用候选并恢复基线配置。
 
 ## 已验证的局部实验
 
@@ -27,7 +27,7 @@
 - `pool-reuse-validation.json`：增加独立 valid-mask guard 前的 NPU 微基准。
 - `gather-microbenchmark.json`：被否决的向量化 Gather 实验。
 - `profile-summary.json`：单步剖析摘要。
-- 测试脚本与 `pool_reuse.py`：候选代码，尚未整机验收，不作为生产补丁。
+- 测试脚本与 `pool_reuse.py`：实验代码，整机复测无收益，不作为生产补丁。
 
 最终比较必须使用相同用户脚本与负载，保存真实运行开关、失败记录、TTFT、TPOT 和集群输出 TPS。k8s 不操作。
 
@@ -46,3 +46,26 @@ xLLM 的 C++ 调度层并不意味着模型的 Python 执行路径必然更快�
 `npu_paged_attention.py` 的缓存绑定将带 DSA index 的混合模型标记为 `is_mla=True`；`decode_acl_graph.py::_fill_entry` 却据此跳过 `linear_state_indices` 更新，即使 `_has_linear_cache=True`。CPU 检查直接执行该方法，桩替代无关 NPU 元数据 kernel：输入索引 `[3,7,11,19]` 后，原版混合路径仍为 `[0,0,0,0]`；候选条件补充 `not self._has_linear_cache` 后能正确复制，纯 MLA 与非 MLA 线性路径保持原行为。
 
 检查结果见 `graph-metadata-probe.json`，候选改动见 `graph-linear-state-proposed.patch`。这是元数据更新层面的复现，尚未应用到本轮服务，也不能替代 NPU 图执行、padding、MTP 和端到端正确性验证。
+
+## 满负载覆盖限制
+
+当前复用条件按 history tensor 的行数限制为 8，而非按客户端并发数限制。MTP 验证可能展开多行，因此 D batch8 不保证复用分支覆盖满负载。正式压测中，layer3 计数曾停留在 hits=284、misses=216；这是分支覆盖不足的线索，不能当作完整运行的命中率。直接放宽到 16 行会增加私有历史快照显存，需重新验证显存余量、正确性和吞吐，不能仅凭微基准默认开启。
+
+## 完整整机复测（48/48）
+
+使用用户给定 AISBench 命令：81920 输入、600 输出、48 请求、并发16、request_rate0.93、prefix_cache、repeat_rate0.93、prefix_test、dp2。每条实际输出600，共28800 token；模板后输入81932×45、81933×1、81934×2。正式测量耗时1436.655秒，预填充前缀预热不计入该耗时。
+
+| 指标 | 原基线 | 精确池复用候选 |
+| --- | ---: | ---: |
+| TTFT均值（秒） | 8.9446 | 30.6614 |
+| TTFT中位数（秒） | 4.0605 | 11.2938 |
+| TPOT均值（毫秒） | 637.1 | 666.1 |
+| TPOT中位数（毫秒） | 374.6 | 413.1 |
+| 集群输出（token/s） | 22.1016 | 20.0466 |
+| 请求成功数 | 48/48 | 48/48 |
+
+候选输出吞吐低约9.3%，未取得端到端收益。相同脚本和参数，但两轮使用新选取的前缀数据，且未做多次随机交叉试验；不能将全部差异归因为补丁。原生前缀token命中率约89.99%，MTP接受率约82.33%（计数窗口含工具预热，不等于正式48条独立统计）。图关闭，MTP1、TP8、3P1D；候选微基准加速不能外推整机。
+
+决定：关闭精确池复用候选，恢复eager＋MTP1基线。图索引补丁继续列为待NPU验证，不纳入本次性能结果。32个活跃设备健康检查通过，当前HBM双比特错误为0；K8s容器ID与记录一致。本次仅证明压测完成及短回归通过，不是完整长上下文精度验收。
+
+证据：[摘要](performance-summary.json)、[延迟CSV](performance-latency.csv)、[原始完整压测归档](performance-raw.tar.gz)、[设备健康](active-device-health.json)、[K8s保留检查](k8s-preservation.json)。
