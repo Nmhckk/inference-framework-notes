@@ -1,0 +1,530 @@
+{
+  "n": 64,
+  "correct": 63,
+  "accuracy": 0.984375,
+  "errors": 0,
+  "truncations": 0,
+  "seconds": 953.9563496999908,
+  "regression_gate": true,
+  "gate_rule": "accuracy>=95%, zero transport errors, zero truncations",
+  "scope": "sampled GSM8K regression; not full test split or cross-framework reference",
+  "items": [
+    {
+      "index": 1206,
+      "correct": true,
+      "predicted": "4E+4",
+      "expected": "4E+4",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 660,
+      "correct": true,
+      "predicted": "15",
+      "expected": "15",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 246,
+      "correct": true,
+      "predicted": "2.7E+4",
+      "expected": "2.7E+4",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 434,
+      "correct": true,
+      "predicted": "5",
+      "expected": "5",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 962,
+      "correct": false,
+      "predicted": "6E+2",
+      "expected": "1E+3",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1104,
+      "correct": true,
+      "predicted": "24",
+      "expected": "24",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 599,
+      "correct": true,
+      "predicted": "48",
+      "expected": "48",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 546,
+      "correct": true,
+      "predicted": "1.3E+2",
+      "expected": "1.3E+2",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 56,
+      "correct": true,
+      "predicted": "3",
+      "expected": "3",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 714,
+      "correct": true,
+      "predicted": "1E+1",
+      "expected": "1E+1",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 282,
+      "correct": true,
+      "predicted": "195",
+      "expected": "195",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 11,
+      "correct": true,
+      "predicted": "694",
+      "expected": "694",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1116,
+      "correct": true,
+      "predicted": "6E+1",
+      "expected": "6E+1",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 602,
+      "correct": true,
+      "predicted": "5",
+      "expected": "5",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 901,
+      "correct": true,
+      "predicted": "1",
+      "expected": "1",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1316,
+      "correct": true,
+      "predicted": "2.3E+2",
+      "expected": "2.3E+2",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 555,
+      "correct": true,
+      "predicted": "2",
+      "expected": "2",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1139,
+      "correct": true,
+      "predicted": "1",
+      "expected": "1",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 646,
+      "correct": true,
+      "predicted": "79",
+      "expected": "79",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 158,
+      "correct": true,
+      "predicted": "34",
+      "expected": "34",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 161,
+      "correct": true,
+      "predicted": "32",
+      "expected": "32",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 788,
+      "correct": true,
+      "predicted": "1E+2",
+      "expected": "1E+2",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 519,
+      "correct": true,
+      "predicted": "2.8E+2",
+      "expected": "2.8E+2",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 470,
+      "correct": true,
+      "predicted": "3",
+      "expected": "3",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 924,
+      "correct": true,
+      "predicted": "12",
+      "expected": "12",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 164,
+      "correct": true,
+      "predicted": "15",
+      "expected": "15",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 382,
+      "correct": true,
+      "predicted": "3.5E+2",
+      "expected": "3.5E+2",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 825,
+      "correct": true,
+      "predicted": "153",
+      "expected": "153",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 694,
+      "correct": true,
+      "predicted": "9",
+      "expected": "9",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 40,
+      "correct": true,
+      "predicted": "8",
+      "expected": "8",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1134,
+      "correct": true,
+      "predicted": "7",
+      "expected": "7",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 687,
+      "correct": true,
+      "predicted": "13",
+      "expected": "13",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 550,
+      "correct": true,
+      "predicted": "27",
+      "expected": "27",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 378,
+      "correct": true,
+      "predicted": "15",
+      "expected": "15",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1174,
+      "correct": true,
+      "predicted": "2.4E+2",
+      "expected": "2.4E+2",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 200,
+      "correct": true,
+      "predicted": "55",
+      "expected": "55",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 753,
+      "correct": true,
+      "predicted": "128",
+      "expected": "128",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1271,
+      "correct": true,
+      "predicted": "43",
+      "expected": "43",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 77,
+      "correct": true,
+      "predicted": "1E+2",
+      "expected": "1E+2",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1194,
+      "correct": true,
+      "predicted": "1.2E+3",
+      "expected": "1.2E+3",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 799,
+      "correct": true,
+      "predicted": "4",
+      "expected": "4",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 0,
+      "correct": true,
+      "predicted": "18",
+      "expected": "18",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 725,
+      "correct": true,
+      "predicted": "25",
+      "expected": "25",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 669,
+      "correct": true,
+      "predicted": "132",
+      "expected": "132",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1001,
+      "correct": true,
+      "predicted": "2",
+      "expected": "2",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1185,
+      "correct": true,
+      "predicted": "6",
+      "expected": "6",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 545,
+      "correct": true,
+      "predicted": "3E+1",
+      "expected": "3E+1",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1114,
+      "correct": true,
+      "predicted": "8",
+      "expected": "8",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 621,
+      "correct": true,
+      "predicted": "3E+3",
+      "expected": "3E+3",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 666,
+      "correct": true,
+      "predicted": "1.2E+2",
+      "expected": "1.2E+2",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 513,
+      "correct": true,
+      "predicted": "3E+2",
+      "expected": "3E+2",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1245,
+      "correct": true,
+      "predicted": "96",
+      "expected": "96",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 220,
+      "correct": true,
+      "predicted": "7E+1",
+      "expected": "7E+1",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 278,
+      "correct": true,
+      "predicted": "4E+1",
+      "expected": "4E+1",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1012,
+      "correct": true,
+      "predicted": "94",
+      "expected": "94",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 961,
+      "correct": true,
+      "predicted": "225",
+      "expected": "225",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 142,
+      "correct": true,
+      "predicted": "1.4E+2",
+      "expected": "1.4E+2",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 486,
+      "correct": true,
+      "predicted": "6",
+      "expected": "6",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 439,
+      "correct": true,
+      "predicted": "17",
+      "expected": "17",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 771,
+      "correct": true,
+      "predicted": "3",
+      "expected": "3",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 99,
+      "correct": true,
+      "predicted": "58",
+      "expected": "58",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 633,
+      "correct": true,
+      "predicted": "5",
+      "expected": "5",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 1210,
+      "correct": true,
+      "predicted": "288",
+      "expected": "288",
+      "truncated": false,
+      "error": null
+    },
+    {
+      "index": 501,
+      "correct": true,
+      "predicted": "273",
+      "expected": "273",
+      "truncated": false,
+      "error": null
+    }
+  ],
+  "wilson95_interval": [
+    0.9166589839990573,
+    0.9972364580766624
+  ],
+  "no_regression_claim": "No non-PD or higher-precision reference measured for this64-question set."
+}

@@ -1,0 +1,22 @@
+--- a/xllm/compiler/tilelang/cli/compile_kernels.py
++++ b/xllm/compiler/tilelang/cli/compile_kernels.py
+@@ -55,6 +55,8 @@
+     output_root.mkdir(parents=True, exist_ok=True)
+ 
+     if args.target == "ascend":
++        # Backend autoload is disabled in the serving image; AOT lowering still needs NPU detection.
++        import torch_npu  # noqa: F401
+         if args.device is None:
+             raise ValueError("--device is required for Ascend TileLang kernel compilation.")
+         set_npu_envs()
+--- a/xllm/compiler/tilelang/targets/ascend/kernel_family_builder.py
++++ b/xllm/compiler/tilelang/targets/ascend/kernel_family_builder.py
+@@ -90,6 +90,8 @@
+ 
+ 
+ def _run_variant_worker(args: _VariantWorkerArgs) -> _VariantBuildResult:
++    # Spawned compiler workers do not inherit imported torch backends.
++    import torch_npu  # noqa: F401
+     mod = importlib.import_module(args.kernel_cls_module)
+     kernel_cls = getattr(mod, args.kernel_cls_name)
+ 

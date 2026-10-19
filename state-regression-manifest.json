@@ -1,0 +1,71 @@
+{
+  "cases": [
+    {
+      "name": "length1024-variant0",
+      "expected": "VALUE_1197",
+      "prompt_tokens_client": 1026
+    },
+    {
+      "name": "length1024-variant1",
+      "expected": "VALUE_1588",
+      "prompt_tokens_client": 1026
+    },
+    {
+      "name": "length1024-variant2",
+      "expected": "VALUE_1979",
+      "prompt_tokens_client": 1027
+    },
+    {
+      "name": "length1024-variant3",
+      "expected": "VALUE_2370",
+      "prompt_tokens_client": 1027
+    },
+    {
+      "name": "length8192-variant0",
+      "expected": "VALUE_8365",
+      "prompt_tokens_client": 8190
+    },
+    {
+      "name": "length8192-variant1",
+      "expected": "VALUE_8756",
+      "prompt_tokens_client": 8190
+    },
+    {
+      "name": "length8192-variant2",
+      "expected": "VALUE_9147",
+      "prompt_tokens_client": 8190
+    },
+    {
+      "name": "length8192-variant3",
+      "expected": "VALUE_9538",
+      "prompt_tokens_client": 8190
+    },
+    {
+      "name": "length16384-variant0",
+      "expected": "VALUE_16557",
+      "prompt_tokens_client": 16377
+    },
+    {
+      "name": "length16384-variant1",
+      "expected": "VALUE_16948",
+      "prompt_tokens_client": 16377
+    },
+    {
+      "name": "length16384-variant2",
+      "expected": "VALUE_17339",
+      "prompt_tokens_client": 16377
+    },
+    {
+      "name": "length16384-variant3",
+      "expected": "VALUE_17730",
+      "prompt_tokens_client": 16377
+    }
+  ],
+  "max_tokens": 1024,
+  "temperature": 0,
+  "phases": [
+    "first4 sequential",
+    "all12 concurrency4"
+  ],
+  "pass_rule": "all16 exact final-answer matches; no truncation or transport errors"
+}

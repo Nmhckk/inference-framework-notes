@@ -1,0 +1,16 @@
+{
+  "mixed_accuracy_workload_observation": {
+    "gsm8k_item555": {
+      "response_tokens": 137,
+      "client_seconds": 763.6912622799864,
+      "answer_correct": true
+    },
+    "retrieval_1k_variant1": {
+      "client_seconds": 637.4210849399678,
+      "answer_correct": true
+    },
+    "interpretation": "long waiting observed; root cause unproven. Not a homogeneous performance benchmark; no request loss or truncation in these completed runs."
+  },
+  "accuracy_scope": "64/1319 GSM8K items; no same-set non-PD or higher-precision reference;16 exact retrieval checks only",
+  "clock": "server wall clocks differ; client monotonic times used; host clocks not changed"
+}

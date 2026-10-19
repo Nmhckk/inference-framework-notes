@@ -1,0 +1,21 @@
+{
+  "patches": [
+    {
+      "target": "xllm/compiler/tilelang/cli/compile_kernels.py",
+      "original_sha256": "f3f1c4ff6a1719d01ec064519cc65e211c982fe09ae40ecb63e032fd54b2cb7e",
+      "replacement": "compile_kernels.compat.py",
+      "replacement_sha256": "bb029697edcb5d4f40576922eaaadd1cb9d203a2306c60ad6405b4a9e581a822",
+      "purpose": "Explicitly register torch NPU backend before Ascend TileLang AOT lowering; correct mixed-dtype storage rewriting.",
+      "status": "Three original failing kernels compile with NPU backend registered."
+    },
+    {
+      "target": "xllm/compiler/tilelang/targets/ascend/kernel_family_builder.py",
+      "original_sha256": "6c1904fa17cfa1369dc36b79a005bf21bb3145c588c7034e63b7bf0f5310a869",
+      "replacement": "kernel_family_builder.compat.py",
+      "replacement_sha256": "190ae3345f32e279ed62fe136f04aa1077318b11b6a5d6fdf2ba0788920944b1",
+      "purpose": "Explicitly register torch NPU backend before Ascend TileLang AOT lowering; correct mixed-dtype storage rewriting.",
+      "status": "Three original failing kernels compile with NPU backend registered."
+    }
+  ],
+  "superseded": "All three kernel math/lifetime workarounds reverted; original upstream kernels restored."
+}
