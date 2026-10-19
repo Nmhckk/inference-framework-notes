@@ -1,0 +1,586 @@
+{
+  "8": [
+    {
+      "physical_device": 0,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 1,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 2,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 3,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 4,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 5,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 6,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 7,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    }
+  ],
+  "9": [
+    {
+      "physical_device": 0,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 1,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 2,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 3,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 4,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 5,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 6,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 7,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    }
+  ],
+  "10": [
+    {
+      "physical_device": 0,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 1,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 2,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 3,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 4,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 5,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 6,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 7,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    }
+  ],
+  "11": [
+    {
+      "physical_device": 8,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 9,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 10,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 11,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 12,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 13,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 14,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    },
+    {
+      "physical_device": 15,
+      "health": {
+        "Health Status": "OK",
+        "Error Code": "NA",
+        "Error Information": "NA"
+      },
+      "ecc": {
+        "HBM Single Bit Error Count": "0",
+        "HBM Double Bit Error Count": "0",
+        "HBM Single Bit Aggregate Total Err Cnt": "0",
+        "HBM Double Bit Aggregate Total Err Cnt": "0",
+        "HBM Single Bit Isolated Pages Count": "0",
+        "HBM Double Bit Isolated Pages Count": "0",
+        "HBM Single Bit Next-Isolated Pages Count": "0",
+        "HBM Double Bit Next-Isolated Pages Count": "0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "source_commit": "ad9e405650c1bbb0af53d2c8e821dbdcbe5e79eb",
+  "license": "Apache-2.0",
+  "scope": "pinned source evidence; performance attribution beyond observed OOM requires profiling",
+  "files": {
+    "xllm/python/models/glm5_next.py": {
+      "sha256": "25188c0bc241d11c9659555c1a9244c6432ea707fcaad56d95538f16aa06538a",
+      "excerpts": [
+        {
+          "first_line": 684,
+          "last_line": 706,
+          "text": "        weights = (\n            self.weights_proj(hidden_states.to(self.weights_proj.weight.dtype))\n            if projected_weights is None\n            else projected_weights\n        )\n        if (\n            self.index_kpool_compress\n            and q.device.type == \"npu\"\n            and pool_cache is not None\n            and pool_block_table is not None\n            and kernels.supports_pool_key_indexer(self.head_dim, self.topk, self.index_kpool)\n        ):\n            fused_indices = self._select_topk_fused_pa(\n                q,\n                weights,\n                kv_seq_lens if kv_seq_lens is not None else key_valid.sum(-1, dtype=torch.int64),\n                attention_mask,\n                pool_cache,\n                pool_block_table,\n            )\n            if fused_indices is not None:\n                return fused_indices\n        if key_valid is None:"
+        },
+        {
+          "first_line": 873,
+          "last_line": 896,
+          "text": "        # this configured path, including when running a decode ACL graph.\n        pool_cache = None\n        if (\n            self.index_kpool_compress\n            and ctx.index_cache is not None\n            and ctx.block_table is not None\n            and ctx.slot_mapping is not None\n            and ctx.actual_seq_kv is not None\n            and not layer.cache_transfer_enabled\n        ):\n            pool_cache = self._pool_caches.get(layer.layer_id)\n            if pool_cache is None:\n                # The ACL graph runner executes a non-captured static warmup\n                # before capture. Allocate there so the captured decode graph\n                # sees the stable PA_BBND pool-cache address.\n                pool_cache = alloc_pool_cache(ctx.index_cache, self.index_kpool)\n                self._pool_caches[layer.layer_id] = pool_cache\n                logger.info(\n                    f\"[kpool] layer {layer.layer_id}: pool cache \"\n                    f\"{tuple(pool_cache.shape)} \"\n                    f\"({pool_cache.numel() * 2 / 1024**3:.2f} GiB), \"\n                    f\"index cache {tuple(ctx.index_cache.shape)}\"\n                )\n"
+        }
+      ]
+    },
+    "xllm/python/models/glm5_next_kpool.py": {
+      "sha256": "0a4bffa27334245a642c7bc6c3d97f255e6358576c793d0aac81a25d725a67b5",
+      "excerpts": [
+        {
+          "first_line": 36,
+          "last_line": 72,
+          "text": "\ndef pooled_states(packed_states: torch.Tensor, key_valid: torch.Tensor, ape: torch.Tensor, head_dim: int, rate: int):\n    \"\"\"Bit-exact identical to the full output of Glm5NextIndexer.get_pooled_states.\"\"\"\n    keys, gate_scores, _ = torch.split(packed_states, [head_dim, head_dim, 1], dim=-1)\n    batch_size, total_len = keys.shape[:2]\n    device = keys.device\n    first_key = torch.where(\n        key_valid.any(-1),\n        key_valid.to(torch.int32).argmax(-1),\n        torch.full((batch_size,), total_len, dtype=torch.long, device=device),\n    )\n    n_pools = (total_len + rate - 1) // rate\n    pool_offsets = torch.arange(n_pools, device=device) * rate\n    slot_offsets = torch.arange(rate, device=device)\n    pool_indices = first_key[:, None, None] + pool_offsets[None, :, None] + slot_offsets[None, None, :]\n    slot_in_range = pool_indices < total_len\n    safe_indices = pool_indices.clamp(0, total_len - 1)\n    grouped_keys = _gather_rows(keys, safe_indices)  # [B, P, R, D]\n    grouped_gate_scores = _gather_rows(gate_scores, safe_indices)\n    slot_valid = (\n        key_valid.to(torch.uint8)\n        .gather(1, safe_indices.reshape(batch_size, -1))\n        .reshape(batch_size, n_pools, rate)\n        .to(torch.bool)\n        & slot_in_range\n    )\n    pool_valid = slot_valid.all(-1)\n    logits = grouped_gate_scores.float() + ape.float()[None, None]\n    logits = logits.masked_fill(~slot_valid[..., None], float(\"-inf\"))\n    weights = torch.nan_to_num(logits.softmax(2)).to(grouped_keys.dtype)\n    pool_keys = (weights * grouped_keys).sum(2)\n    pool_indices = pool_indices.masked_fill(~slot_valid, -1)\n    return pool_keys, pool_indices, pool_valid\n\n\n# ---------------------------------------------------------------------------\n# Paged pool cache: write-time incremental compression + direct read."
+        }
+      ]
+    },
+    "xllm/core/distributed_runtime/llm_engine.cpp": {
+      "sha256": "c1515500d40a596aef20d7dfe8404660f955b18873e739d1bfb10b55ac992bbc",
+      "excerpts": [
+        {
+          "first_line": 326,
+          "last_line": 344,
+          "text": "      .supports_grouped_cache_offload =\n          util::is_deepseek_v4_model_type(args_.model_type()),\n      .kv_cache_dtype = options_.kv_cache_dtype(),\n      .indexer_cache_dtype = kv_cache_config.indexer_cache_dtype(),\n      .model_type = args_.model_type(),\n  };\n  // DECODE-side skips LINEAR prefix cache by role (see\n  // composite_block_manager.cpp::leaf_participates_in_prefix_cache), so the\n  // chunked-prefill + chunk-stride guards below are only meaningful for\n  // PREFILL / MIX. On DECODE the linear-state cache is disabled anyway and\n  // pd_launch.sh legitimately sets --enable_chunked_prefill=false.\n  const bool is_decode = options_.instance_role() == InstanceRole::DECODE;\n  if (options_.enable_prefix_cache() && enable_state_cache && !is_decode) {\n    const auto& scheduler_config = ::xllm::SchedulerConfig::get_instance();\n    CHECK(scheduler_config.enable_chunked_prefill())\n        << \"GDN/KPool state prefix cache requires block-aligned chunked \"\n           \"prefill to save matching linear states. Please set \"\n           \"--enable_chunked_prefill=true in your config.\";\n    CHECK(scheduler_config.max_tokens_per_chunk_for_prefill() % block_size == 0)"
+        }
+      ]
+    }
+  }
+}
