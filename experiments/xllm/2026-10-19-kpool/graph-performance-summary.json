@@ -1,0 +1,292 @@
+{
+  "run": "perf-3p1d-aisbench-graph-state-fix-mtp0-20261019",
+  "scope": "Mechanical performance only. Postbenchmark known-answer regression FAILED 0/4. Not an accepted speedup.",
+  "requests": 48,
+  "successes": 48,
+  "failed": 0,
+  "output_tokens": 28800,
+  "actual_input_lengths": {
+    "81932": 44,
+    "81933": 1,
+    "81934": 3
+  },
+  "actual_output_lengths": {
+    "600": 48
+  },
+  "ttft_mean_seconds": 4.7271,
+  "ttft_median_seconds": 2.9094,
+  "ttft_p90_seconds": 12.512799999999999,
+  "tpot_mean_ms": 406.3,
+  "tpot_median_ms": 231.3,
+  "tpot_p90_ms": 586.4,
+  "cluster_output_tps": 34.9,
+  "benchmark_duration_seconds": 825.2151837,
+  "max_client_concurrency": 16,
+  "observed_average_concurrency": 14.4303,
+  "resources": {
+    "hosts": 4,
+    "active_logical_devices": 32,
+    "topology": "3P1D",
+    "TP_per_instance": 8,
+    "D_batch_limit": 8,
+    "D_memory_utilization": 0.75,
+    "graph": true,
+    "MTP_tokens": 0,
+    "prefix_cache": true,
+    "schedule_overlap": true,
+    "graph_scope": "Decode only; Prefill eager",
+    "verified_pool_reuse": false,
+    "graph_history_max_kv": 90112,
+    "backend": "llm"
+  },
+  "source_report": "outputs/20261019_223033/performances/vllm-api-stream-chat/gsm8k.json",
+  "dataset_sha256": {
+    "GSM8K-in81920-num48-glm53-flash-repeatRate0.93.jsonl": "fe1335f3a213d5ff5fbb2840aac009b967b82d76f4f8408a26b9d597b25cdb22",
+    "prefix-GSM8K-in76185-num2-glm53-flash.jsonl": "589ef6a1e7cc3e5b42f08bceef3746dea60c335b4653934f758afd12336a17e6"
+  },
+  "native_cache_observation": {
+    "scope": "P leader process admission counters; main-phase delta includes AISBench default one warmup request, not only48 measured requests",
+    "samples": {
+      "before_wrapper": {
+        "client_monotonic": 648090.70060592,
+        "P_counters": {
+          "8": {
+            "prefix_cache_hit_tokens_total": 0.0,
+            "prefix_cache_prompt_tokens_total": 99328.0
+          },
+          "9": {
+            "prefix_cache_hit_tokens_total": 0.0,
+            "prefix_cache_prompt_tokens_total": 173058.0
+          },
+          "10": {
+            "prefix_cache_hit_tokens_total": 0.0,
+            "prefix_cache_prompt_tokens_total": 92164.0
+          }
+        }
+      },
+      "before_main_phase": {
+        "client_monotonic": 648218.72135558,
+        "P_counters": {
+          "8": {
+            "prefix_cache_hit_tokens_total": 0.0,
+            "prefix_cache_prompt_tokens_total": 175525.0
+          },
+          "9": {
+            "prefix_cache_hit_tokens_total": 0.0,
+            "prefix_cache_prompt_tokens_total": 249255.0
+          },
+          "10": {
+            "prefix_cache_hit_tokens_total": 0.0,
+            "prefix_cache_prompt_tokens_total": 168361.0
+          }
+        }
+      },
+      "after_wrapper": {
+        "client_monotonic": 649140.9386651,
+        "P_counters": {
+          "8": {
+            "prefix_cache_hit_tokens_total": 1179650.0,
+            "prefix_cache_prompt_tokens_total": 1486440.0
+          },
+          "9": {
+            "prefix_cache_hit_tokens_total": 1179650.0,
+            "prefix_cache_prompt_tokens_total": 1560170.0
+          },
+          "10": {
+            "prefix_cache_hit_tokens_total": 1253380.0,
+            "prefix_cache_prompt_tokens_total": 1561210.0
+          }
+        }
+      }
+    },
+    "main_phase_admission_counter_delta": {
+      "prompt_tokens": 4014679.0,
+      "hit_tokens": 3612680.0,
+      "token_hit_rate": 0.8998677104695045
+    }
+  },
+  "native_mtp_observation": {
+    "scope": "Decode native MTP counters; main phase includes AISBench default one warmup request",
+    "samples": {
+      "before_wrapper": {
+        "client_monotonic": 648090.69982248,
+        "D_counters": {
+          "11": {
+            "speculative_num_accepted_tokens_total": 0.0,
+            "speculative_num_committed_tokens_total": 0.0,
+            "speculative_num_draft_tokens_total": 0.0,
+            "speculative_num_drafts_total": 0.0
+          }
+        }
+      },
+      "before_main_phase": {
+        "client_monotonic": 648218.72049331,
+        "D_counters": {
+          "11": {
+            "speculative_num_accepted_tokens_total": 0.0,
+            "speculative_num_committed_tokens_total": 0.0,
+            "speculative_num_draft_tokens_total": 0.0,
+            "speculative_num_drafts_total": 0.0
+          }
+        }
+      },
+      "after_wrapper": {
+        "client_monotonic": 649140.94390788,
+        "D_counters": {
+          "11": {
+            "speculative_num_accepted_tokens_total": 0.0,
+            "speculative_num_committed_tokens_total": 0.0,
+            "speculative_num_draft_tokens_total": 0.0,
+            "speculative_num_drafts_total": 0.0
+          }
+        }
+      }
+    },
+    "main_phase_delta": {
+      "speculative_num_accepted_tokens_total": 0.0,
+      "speculative_num_committed_tokens_total": 0.0,
+      "speculative_num_draft_tokens_total": 0.0,
+      "speculative_num_drafts_total": 0.0
+    }
+  },
+  "AISBench_aggregates": {
+    "Benchmark Duration": {
+      "total": "825215.1837 ms"
+    },
+    "Total Requests": {
+      "total": 48
+    },
+    "Failed Requests": {
+      "total": 0
+    },
+    "Success Requests": {
+      "total": 48
+    },
+    "Concurrency": {
+      "total": 14.4303
+    },
+    "Max Concurrency": {
+      "total": 16
+    },
+    "Request Throughput": {
+      "total": "0.0582 req/s"
+    },
+    "Total Input Tokens": {
+      "total": 3932743
+    },
+    "Prefill Token Throughput": {
+      "total": "17332.3049 token/s"
+    },
+    "Total Generated Tokens": {
+      "total": 28800
+    },
+    "Input Token Throughput": {
+      "total": "4765.7182 token/s"
+    },
+    "Output Token Throughput": {
+      "total": "34.9 token/s"
+    },
+    "Total Token Throughput": {
+      "total": "4800.6182 token/s"
+    }
+  },
+  "AISBench_latency_rows": {
+    "E2EL": {
+      "Performance Parameters": "E2EL",
+      "Stage": "total",
+      "Average": "248085.4 ms",
+      "Min": "131683.0 ms",
+      "Max": "823247.9 ms",
+      "Median": "141861.8 ms",
+      "P75": "266842.5 ms",
+      "P90": "354243.4 ms",
+      "P99": "821555.4 ms",
+      "N": "48"
+    },
+    "TTFT": {
+      "Performance Parameters": "TTFT",
+      "Stage": "total",
+      "Average": "4727.1 ms",
+      "Min": "1935.4 ms",
+      "Max": "18625.7 ms",
+      "Median": "2909.4 ms",
+      "P75": "3060.7 ms",
+      "P90": "12512.8 ms",
+      "P99": "17861.8 ms",
+      "N": "48"
+    },
+    "TPOT": {
+      "Performance Parameters": "TPOT",
+      "Stage": "total",
+      "Average": "406.3 ms",
+      "Min": "216.6 ms",
+      "Max": "1355.6 ms",
+      "Median": "231.3 ms",
+      "P75": "435.7 ms",
+      "P90": "586.4 ms",
+      "P99": "1351.9 ms",
+      "N": "48"
+    },
+    "ITL": {
+      "Performance Parameters": "ITL",
+      "Stage": "total",
+      "Average": "404.3 ms",
+      "Min": "0.0 ms",
+      "Max": "673024.1 ms",
+      "Median": "224.2 ms",
+      "P75": "224.4 ms",
+      "P90": "224.7 ms",
+      "P99": "302.5 ms",
+      "N": "48"
+    },
+    "InputTokens": {
+      "Performance Parameters": "InputTokens",
+      "Stage": "total",
+      "Average": "81932.1458",
+      "Min": "81932.0",
+      "Max": "81934.0",
+      "Median": "81932.0",
+      "P75": "81932.0",
+      "P90": "81932.0",
+      "P99": "81934.0",
+      "N": "48"
+    },
+    "OutputTokens": {
+      "Performance Parameters": "OutputTokens",
+      "Stage": "total",
+      "Average": "600.0",
+      "Min": "600.0",
+      "Max": "600.0",
+      "Median": "600.0",
+      "P75": "600.0",
+      "P90": "600.0",
+      "P99": "600.0",
+      "N": "48"
+    },
+    "OutputTokenThroughput": {
+      "Performance Parameters": "OutputTokenThroughput",
+      "Stage": "total",
+      "Average": "3.2347 token/s",
+      "Min": "0.7288 token/s",
+      "Max": "4.5564 token/s",
+      "Median": "4.2296 token/s",
+      "P75": "4.3499 token/s",
+      "P90": "4.3658 token/s",
+      "P99": "4.4769 token/s",
+      "N": "48"
+    }
+  },
+  "patch_sha256": "de5ba5c45c1bf23158c429f284eb960d1de3e1e79bc637fe8cf046b373321a46",
+  "comparison_limits": [
+    "Baseline uses eager and MTP1; candidate uses Decode graph and MTP0, so not isolated graph effect",
+    "same generator settings with different sampled prefix datasets",
+    "single run each; long retrieval only2/4, no full quality acceptance",
+    "No per-step graph replay coverage counter"
+  ],
+  "postbench_gate": {
+    "length": 1024,
+    "passed": 0,
+    "total": 4
+  },
+  "decision": "Reject candidate; restore original runner and all P/D eager MTP1"
+}
