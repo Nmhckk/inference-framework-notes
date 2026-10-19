@@ -1,0 +1,32 @@
+{
+  "xllm_commit": "ad9e405650c1bbb0af53d2c8e821dbdcbe5e79eb",
+  "local_snapshot_image_id": "sha256:546794832bb2e3b34010b824c1e45f50b455d62213ed0a625207b52ad5a7cf15",
+  "snapshot_source": "existing project build container; no package changes",
+  "D-B_physical_devices": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "D-B_container_logical_devices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "HCCL_OP_EXPANSION_MODE": "AIV",
+  "ASCEND_LAUNCH_BLOCKING": "unset",
+  "torch": "2.9.0+cpu",
+  "torch_npu": "2.9.0.post2+gitbe0dd17",
+  "transformers": "5.14.1",
+  "topology": "2P2D, TP8 each,32 active logical devices",
+  "model_math_and_cache_dtype": "unchanged W8A8 weights and auto KV"
+}

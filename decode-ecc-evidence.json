@@ -1,0 +1,22 @@
+{
+  "affected_instance": "D-B",
+  "affected_physical_device": 7,
+  "error_code": 507054,
+  "event_id": "0x80e01801",
+  "error": "HBM MULTI BIT ECC / Uncorrectable ECC",
+  "sync_run_first_rank7_time": "13:35:03",
+  "sync_run_later_rank0_time": "13:35:11",
+  "downstream_kernel": "aiv_all_reduce_bfloat16_t",
+  "ecc_counters": {
+    "single_bit_current": 64548277,
+    "double_bit_current": 3,
+    "double_bit_aggregate": 6,
+    "double_bit_isolated_pages": 1,
+    "double_bit_next_isolated_pages": 5
+  },
+  "health_overview_was_OK": true,
+  "AI_CPU_control": "rank7 also failed with same ECC; not a successful workaround",
+  "hardware_reset_performed": false,
+  "counter_clear_performed": false,
+  "software_math_patch_applied": false
+}

@@ -1,0 +1,17 @@
+{
+  "requests": 8,
+  "concurrency": 2,
+  "repeats": 1,
+  "successes": 8,
+  "correct": 8,
+  "natural_stops": 8,
+  "visible_answers": 8,
+  "duration": 116.61820211005397,
+  "output_tps": 11.773462248237061,
+  "ttft_p50": 0.38111263496102765,
+  "ttfa_nonblank_p50": 14.144553604943212,
+  "ttfa_nonblank_p95": 18.349224382976534,
+  "latency_p50": 26.631089809990954,
+  "latency_p95": 36.63360745148384,
+  "scope": "one fixed-prefix natural-stop GSM8K supplement; not comparable to fixed128 benchmark throughput"
+}

@@ -2,16 +2,18 @@
 
 以 GLM 系列模型研究推理框架，当前实机对象改为 GLM-5.3-Flash W8A8，先完成 xLLM 验证，再扩展 SGLang、vLLM-Ascend，对比调度、算子、KV Cache 和通信带来的差异，逐步形成自己的框架。早期 GLM-5.3 W8A8C8 调研材料保留其原适用条件。
 
-当前阶段：Flash W8A8 的 xLLM 文本 2P2D 容器部署完成，功能检查 12/12 通过；GSM8K 抽样 63/64、状态检索 16/16；144 条固定长度压测完成；自然停止补测触发 Decode NPU 异常，稳定性与完整精度参考对照待补。
+当前阶段：Flash W8A8 文本2P2D已定位D-B设备7的不可纠正HBM ECC，并迁移到健康设备8–15；恢复后自然停止smoke 8/8成功，扩大稳定性回归进行中，之后运行完整GSM8K与性能复测。
 
 ## 日报
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
-| 2026/10/19 | 完成 Flash xLLM 2P2D 抽样精度回归（63/64）及吞吐/延迟基线，归档 Decode 异常与待修复问题；[记录](xllm-flash-2p2d-2026-10-19.md)。 | xLLM 精度验收与性能基线 | |
+| 2026/10/19 | 完成 Flash 2P2D 初轮精度/性能基线，定位并隔离 Decode 故障 NPU；扩大稳定性回归中。[记录](xllm-decode-ecc-recovery-2026-10-19.md)。 | xLLM 精度验收与性能基线 | |
 | 2026/10/15 | 整理 xLLM 非 PD 材料；完成三框架调度、KV Cache、通信源码对比及论文分析。[资料](implementation-comparison.md)；实机待验证。 | GLM-5.3 C8 的 xLLM 部署验证与框架对比准备 | |
 
 ## 资料与代码
+
+- [Decode ECC 定位与恢复](xllm-decode-ecc-recovery-2026-10-19.md)：全部rank日志、硬件计数、设备隔离和顺序验收。
 
 - [Flash 2P2D 部署与验证](xllm-flash-2p2d-2026-10-19.md)：说明旧 C8 限制、VLM/LLM 差异和实际测试范围。
 

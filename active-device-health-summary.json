@@ -1,0 +1,62 @@
+{
+  "P-A": {
+    "physical_devices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "health_ok": true,
+    "current_double_bit_errors": 0,
+    "next_isolated_double_bit_pages": 0
+  },
+  "P-B": {
+    "physical_devices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "health_ok": true,
+    "current_double_bit_errors": 0,
+    "next_isolated_double_bit_pages": 0
+  },
+  "D-A": {
+    "physical_devices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "health_ok": true,
+    "current_double_bit_errors": 0,
+    "next_isolated_double_bit_pages": 0
+  },
+  "D-B": {
+    "physical_devices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "health_ok": true,
+    "current_double_bit_errors": 0,
+    "next_isolated_double_bit_pages": 0
+  }
+}
