@@ -1,0 +1,152 @@
+{
+  "passed": 12,
+  "total": 12,
+  "rows": [
+    {
+      "case": "math",
+      "concurrency": 1,
+      "ok": true,
+      "request_id": "chatcmpl-9455936156375386488-pyyx9kx9KaP5LLYshKEKxf",
+      "prefill_nodes": [
+        9
+      ],
+      "decode_nodes": [
+        10
+      ]
+    },
+    {
+      "case": "short",
+      "concurrency": 1,
+      "ok": true,
+      "request_id": "chatcmpl-17878280960609526611-rheRCAZBuXgwSpL2iT4tTT",
+      "prefill_nodes": [
+        8
+      ],
+      "decode_nodes": [
+        11
+      ]
+    },
+    {
+      "case": "multi_turn",
+      "concurrency": 1,
+      "ok": true,
+      "request_id": "chatcmpl-9455936156375386488-gPWxj854kk647wBz6NjVxM",
+      "prefill_nodes": [
+        9
+      ],
+      "decode_nodes": [
+        10
+      ]
+    },
+    {
+      "case": "long_a",
+      "concurrency": 1,
+      "ok": true,
+      "request_id": "chatcmpl-17878280960609526611-YwrAtPC84HGoXYgSqX4SNs",
+      "prefill_nodes": [
+        8
+      ],
+      "decode_nodes": [
+        11
+      ]
+    },
+    {
+      "case": "long_b",
+      "concurrency": 1,
+      "ok": true,
+      "request_id": "chatcmpl-9455936156375386488-6hVaFFQ7YwRY8qAJygp6rV",
+      "prefill_nodes": [
+        9
+      ],
+      "decode_nodes": [
+        10
+      ]
+    },
+    {
+      "case": "stream",
+      "concurrency": 1,
+      "ok": true,
+      "request_id": "chatcmpl-17878280960609526611-ogCs94gYFVVd2fvX63cAi3",
+      "prefill_nodes": [
+        8
+      ],
+      "decode_nodes": [
+        11
+      ]
+    },
+    {
+      "case": "math",
+      "concurrency": 4,
+      "ok": true,
+      "request_id": "chatcmpl-9455936156375386488-sinjV6sg5anTvhqKzAwoB5",
+      "prefill_nodes": [
+        9
+      ],
+      "decode_nodes": [
+        10
+      ]
+    },
+    {
+      "case": "short",
+      "concurrency": 4,
+      "ok": true,
+      "request_id": "chatcmpl-17878280960609526611-U8buC84M94gfChn395JdCF",
+      "prefill_nodes": [
+        8
+      ],
+      "decode_nodes": [
+        11
+      ]
+    },
+    {
+      "case": "multi_turn",
+      "concurrency": 4,
+      "ok": true,
+      "request_id": "chatcmpl-9455936156375386488-DtqeLZP39CtaLq4W3QRHoV",
+      "prefill_nodes": [
+        9
+      ],
+      "decode_nodes": [
+        10
+      ]
+    },
+    {
+      "case": "long_a",
+      "concurrency": 4,
+      "ok": true,
+      "request_id": "chatcmpl-17878280960609526611-4iBPiEVi4b6JqsWjvoNHL9",
+      "prefill_nodes": [
+        8
+      ],
+      "decode_nodes": [
+        11
+      ]
+    },
+    {
+      "case": "long_b",
+      "concurrency": 4,
+      "ok": true,
+      "request_id": "chatcmpl-9455936156375386488-hKQdTQZwnMSRCN4FiKTJAJ",
+      "prefill_nodes": [
+        9
+      ],
+      "decode_nodes": [
+        10
+      ]
+    },
+    {
+      "case": "stream",
+      "concurrency": 4,
+      "ok": true,
+      "request_id": "chatcmpl-17878280960609526611-f5JWA4nDQsT457EkoSYnNb",
+      "prefill_nodes": [
+        8
+      ],
+      "decode_nodes": [
+        11
+      ]
+    }
+  ],
+  "all_four_used": true,
+  "each_request_has_p_and_d": true
+}
