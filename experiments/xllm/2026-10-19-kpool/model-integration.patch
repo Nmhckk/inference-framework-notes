@@ -1,0 +1,60 @@
+diff --git a/xllm/python/models/glm5_next.py b/xllm/python/models/glm5_next.py
+index ce6a81a..a018357 100644
+--- a/xllm/python/models/glm5_next.py
++++ b/xllm/python/models/glm5_next.py
+@@ -29,6 +29,7 @@ The mHC residual follows the patched transformers reference.
+ from __future__ import annotations
+ 
+ import math
++import os
+ import re
+ from dataclasses import dataclass, field
+ from typing import Optional
+@@ -527,6 +528,12 @@ class Glm5NextIndexer(nn.Module):
+         # Paged pool cache per DSA layer (lazily allocated on first eager
+         # forward, before graph capture): layer_id -> [blocks, bs//index_kpool, 1, D].
+         self._pool_caches: dict[int, torch.Tensor] = {}
++        self._verified_pool_reuse = None
++        if os.environ.get("XLLM_PD_VERIFIED_POOL_REUSE") == "1":
++            from xllm.python.models.glm5_next_pool_reuse import VerifiedHistoryPoolReuse
++
++            self._verified_pool_reuse = VerifiedHistoryPoolReuse(_kpool_pooled_states)
++
+ 
+     def process_weights_after_loading(self) -> None:
+         prev_weight = self._wk_weights_weight
+@@ -544,8 +551,24 @@ class Glm5NextIndexer(nn.Module):
+         projected = F.linear(hidden_states, self._wk_weights_weight)
+         return projected.split((self.head_dim, self.n_heads), dim=-1)
+ 
++    def _pool_history(
++        self, packed_states: torch.Tensor, key_valid: torch.Tensor,
++        ape: torch.Tensor, head_dim: int, rate: int,
++    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
++        # Exact comparisons own the validity decision, independent of block
++        # identity or PD generations. Graphs retain the original static path.
++        if (self._verified_pool_reuse is not None and not in_acl_graph()
++                and packed_states.shape[1] >= 4096 and packed_states.shape[0] <= 8):
++            result = self._verified_pool_reuse(packed_states, key_valid, ape, head_dim, rate)
++            count = self._verified_pool_reuse.hits + self._verified_pool_reuse.misses
++            if count % 100 == 0 and self.layer_id == 3:
++                logger.info(f"verified_pool_reuse hits={self._verified_pool_reuse.hits} "
++                            f"misses={self._verified_pool_reuse.misses}")
++            return result
++        return _kpool_pooled_states(packed_states, key_valid, ape, head_dim, rate)
++
+     def get_pooled_states(self, packed_states: torch.Tensor, key_valid: torch.Tensor):
+-        pool_keys, pool_indices, pool_valid = _kpool_pooled_states(
++        pool_keys, pool_indices, pool_valid = self._pool_history(
+             packed_states,
+             key_valid,
+             self.index_kpool_compress_ape,
+@@ -1027,7 +1050,7 @@ class Glm5NextIndexer(nn.Module):
+             # including an incomplete final pool. Compacting invalid pools
+             # changes topk's tie ordering even when all valid scores agree.
+             history_key_valid = packed_history[..., -1].gt(0)
+-            pool_data = _kpool_pooled_states(
++            pool_data = self._pool_history(
+                 packed_history,
+                 history_key_valid,
+                 self.index_kpool_compress_ape,

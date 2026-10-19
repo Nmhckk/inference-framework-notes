@@ -1,0 +1,36 @@
+[
+  {
+    "batch": 1,
+    "length": 129,
+    "cases_passed": 10,
+    "bit_exact": true,
+    "reference_ms": 0.5672180093824863,
+    "reuse_ms": 1.2721299892291427,
+    "hits": 5,
+    "misses": 1
+  },
+  {
+    "batch": 4,
+    "length": 129,
+    "cases_passed": 10,
+    "bit_exact": true,
+    "reference_ms": 0.6981580052524805,
+    "reuse_ms": 1.5429880004376173,
+    "hits": 5,
+    "misses": 1
+  },
+  {
+    "batch": 8,
+    "length": 81920,
+    "cases_passed": 10,
+    "bit_exact": true,
+    "reference_ms": 10.503215994685888,
+    "reuse_ms": 4.233554005622864,
+    "hits": 5,
+    "misses": 1
+  },
+  {
+    "independent_mask_cases": 5,
+    "bit_exact": true
+  }
+]

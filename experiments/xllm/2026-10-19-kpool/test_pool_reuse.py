@@ -25,3 +25,15 @@ for batch,base in [(1,129),(4,129),(8,81920)]:
   torch.npu.synchronize();row[name+'_ms']=(time.perf_counter()-start)*200
  row.update(hits=reuse.hits,misses=reuse.misses);print(json.dumps(row),flush=True);results.append(row)
 (root/'pool-reuse-validation.json').write_text(json.dumps(results,indent=2))
+
+# The validity mask can change independently from packed history.
+x=torch.randn(2,132,257,device='npu',dtype=torch.bfloat16);x[:,:,-1]=1
+valid=torch.ones(2,132,device='npu',dtype=torch.bool)
+ape=torch.randn(4,128,device='npu',dtype=torch.bfloat16);reuse=Reuse(ref)
+for positions in [[],[8],[8,9],[8,9,16],[]]:
+ mask=valid.clone();mask[:,positions]=False
+ expected=ref(x,mask,ape,128,4);actual=reuse(x,mask,ape,128,4)
+ for a,b in zip(actual,expected):torch.testing.assert_close(a,b,rtol=0,atol=0)
+results.append({'independent_mask_cases':5,'bit_exact':True})
+(root/'pool-reuse-validation-final.json').write_text(json.dumps(results,indent=2))
+print('FINAL_MASK_GUARD_PASSED',flush=True)
