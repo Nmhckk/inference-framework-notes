@@ -1,0 +1,20 @@
+{
+  "url": "http://172.16.12.11:28888/v1",
+  "accuracy_summary": "/work/logs/gsm8k-2p2d-20261019/summary.json",
+  "state_summary": "/work/logs/state-2p2d-20261019/summary.json",
+  "output": "/work/logs/perf-2p2d-20261019",
+  "tokenizer": "/models/glm53-flash",
+  "requests": 8,
+  "repeats": 3,
+  "concurrencies": "1,2,4",
+  "harness": "custom urllib SSE, closed-loop",
+  "active_logical_devices": 32,
+  "installed_logical_devices": 64,
+  "hosts": 4,
+  "scope": "conservative batch1 baseline; not tuned peak",
+  "ttft": "first non-empty reasoning or answer delta",
+  "ttfa": "first non-empty visible answer delta, nullable",
+  "tpot": "(end-to-end latency - TTFT)/(usage.completion_tokens - 1)",
+  "time_source": "one client time.perf_counter; not server wall clocks",
+  "tail_limit": "small sample; no stable P99 claim"
+}

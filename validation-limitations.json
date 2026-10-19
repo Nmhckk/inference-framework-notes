@@ -12,5 +12,9 @@
     "interpretation": "long waiting observed; root cause unproven. Not a homogeneous performance benchmark; no request loss or truncation in these completed runs."
   },
   "accuracy_scope": "64/1319 GSM8K items; no same-set non-PD or higher-precision reference;16 exact retrieval checks only",
-  "clock": "server wall clocks differ; client monotonic times used; host clocks not changed"
+  "clock": "server wall clocks differ; client monotonic times used; host clocks not changed",
+  "request_timeout_seconds": 1200,
+  "timeout_scope_note": "Zero transport timeouts under1200s test-client budget does not imply a short-latency production SLO.",
+  "fixed128_scope": "144 measured successes; all output remains reasoning; no completed final answer latency measured",
+  "stability": "natural-stop supplement crashed Decode with507035; single-instance recovery repeated exception; full stability acceptance not passed"
 }

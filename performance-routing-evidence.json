@@ -1,0 +1,1742 @@
+{
+  "measured_requests": 144,
+  "counts": {
+    "P-A": 72,
+    "P-B": 72,
+    "D-A": 72,
+    "D-B": 72
+  },
+  "each_request_one_p_and_one_d": true,
+  "all_four_used": true,
+  "rows": [
+    {
+      "request_id": "chatcmpl-17878280960609526611-PAg4vfH9cfqVAHmry3A9g2",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-aKQiXQWzg5n58ghmhk5hFq",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-cTDWDZ85aXdNyTJQexdGzr",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-2GwpbuDhdrXTyA37cBC52R",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-GwWSq96dakXTF2tEDM6GS5",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-B8Dyct74VJF3L8YNFwxS7F",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-ZjJSyqccHiFyBoc6pvq65v",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-rFV8TYhLSq4P66oJG9yXCC",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-LqDjBjCGshQzrTzrxTAeYG",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-v8gugCNyY3TuETkrofHVGp",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-q6QvCvNq2bMhMZkTGrwB2W",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-bCpgwfuQ5EuNEGXPUEURVp",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-BPnb2tqPukJuv6WTvWZZwz",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-YfSbYuMGipSUaGEmSig4TL",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-5V4srbzhUPYL6pHp7ZW9qP",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-WJcseCKc7TxqhkQfBpcSsx",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-3yWKMpnRb3XhihExo4tEYN",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-Lk6wJakrW9rtWfcLviqPaJ",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-PRqni7w9vMuuZvkntKG2UT",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-XFqAUncJ6QQ2m376M2QaB4",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-6CmPHt3aAageioLLuCKqi3",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-HLeHKZaCVyyodgkdNjsxPL",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-mNFNDwGiCFYkjRgZTx58pN",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-VhNmCc6sYj9mVv47LsLNTU",
+      "repeat": 0,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-QrZuc5KYz5WC3QEY4BTjHD",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-fswFxHzHJevwSEWitPWD8B",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-wrXH6bsXgkwG7G4tzNJdMm",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-XF7k6zXPUrKDWu5CBweyAM",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-zdENEKETofAAsBCaVGEZVT",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-eTxifqSrSERs9LdFaAE3x3",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-zNGakrNNbd2CMAWLfMMLSs",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-rdBDtmBV3FU3PDcywabN7B",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-TXWYsEAzoHNGQUoCuxvocp",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-XdwsbD8A885iJfwbqhidcX",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-mnqv2KsEFJhwWd8V5QKLNq",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-CYHndxFuFCGUS22kji6J3h",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-kNiDywMxmpqby9P45HUyEN",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-wyiGBbu4T2GymMsW7vywfs",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-6fqbCR3QPVJMQNvRp62sij",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-sAeAHB8suSKCVxFPFZfBQC",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-VBMbXc8noNiXQLCNhw3iGh",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-nEgQ6dowsAE599rCydxwYn",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-86Lk8rNYWF3cccnPQ7m2aL",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-pJjDrZNLjWZ7V5G8b4tQse",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-UQWteoTqbVqXXiZ2yshLzZ",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-fdM9o8Zh29zevQX2LWZUWN",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-risB4s6GAty5GQpu2MhHBZ",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-w6BZCFMW5nTFuxF7QKdUuj",
+      "repeat": 0,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-x9kJTG6gNnE4MwN3L4si6u",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-DBYF7doMwom36ysaaciwwy",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-Dkkmng9RH5QgskNzNXTW9A",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-tGzuMPJqGPuVSmfGsAdyyi",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-8tquasc2ZRCWtgF3Jv7brN",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-xEA5stEqEonft92Bn6zGdj",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-VMESNzShPw4XGobg3pLAf3",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-izP6sUybyB2rjAJBLviE2s",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-uTqdPY4ePp3KqrQJ9EGJ3k",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-uciUgU3HyhqkB2AJLtspqR",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-gGHjbfVAbfVp4ijAUcT4yG",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-6iPJLWsbRzHNwaGCjSQKpe",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-FEkni2966Q2pT6XLtyLaKz",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-qfSAQHWrJ8RHAeyiD7jM9C",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-Uu7ewQVwwKLuWSEzwTT9ZQ",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-YveDxy8Y26d8DDBZzrx6HS",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-JCxGc7zpEox5zEBmBehPJB",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-dbSjz6jEQK5Skbp4jdXdKL",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-Vrv5r8wjLXtyZnz9dEUkrE",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-k9Fcr9j5qk2r2c34FMVa9g",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-hBhE8DaG5UXNYoBx7Kfa8c",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-BYiRCQKzDSBvcAqFyNG84G",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-PsuX2UwU2qi7WphQDspa4a",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-KeD9XL9g4ApPX7RtAFyv37",
+      "repeat": 1,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-Bu5QmE4i3r5A8FobEh2xue",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-Q9Quf5jeHKDXFTxsoqj8e4",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-RMmAZq8yX72aVmiuYiXL6L",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-mXShwEaZGPE4GXn93HGLZi",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-s3ZStYvotUf7n8MjVSeNsF",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-nygmKmJhqLsKG3H8YjiMrv",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-SAbEAAbXviV5s7dZuM49kk",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-B9Z4tzMsjSHRC4xS3bsHXF",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-ZVcjYZWTzdn9YbqMANPBH8",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-X5CFFxMyphskXStyDrrNbx",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-TPrrAToVRdPJMf4mq5CRej",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-PUEzzoqE3ThWmETfkmzxYd",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-8YGPzryibKP4SKntoekiRi",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-NsXLohaBkbdiQRGfWcW3L7",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-pPj8eDy96yZJ8s65g5mVve",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-Jik6yb8ueiWDm7nkAFK7kb",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-xejCQZpMUvJAuWgiE85qdW",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-sHj5vLJPeU4HZGvsUZjowE",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-u8KcBU2ZEbGnCCNEUNZpFv",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-4VGwhZwbkNXuXEPPcLnwck",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-7kPnf4WZRtmZC6N2PXEFZY",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-F9Hqek8RnK9pXUT3eEqf2K",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-4ccbraZ2VrpxXGAULDTteU",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-oEMe89pWwjQKTsb7zEzTRD",
+      "repeat": 1,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-y57prcA9tjmDBZLzHYhRK3",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-gBLMNzRQXx6JNExdQ84PQk",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-V7myb4eWua8zXnd4hbia26",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-diZtFsEigwqBTcGwSPSUv9",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-iavE6czWQ3jmyucdpm8rjb",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-ue7h6rFTGeM5ph5tnaAUqJ",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-mePhoAtWpsjkAYUtfWGMsX",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-rouiZpu4ZmrtjWoEcKv2Bz",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-T7qiU8K2uhHsZmGu4jDD2R",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-Smdpmy98NL8kdyVDTJ9dAo",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-U6QPMRKpLTzw2q7bZHSjm7",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-d8Pq3ZVTZhU9F4GMzTsh2s",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-L8nGVUBzqxUrVpN2k2F3jm",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-BB9TFJpzAuAQGkCge3rz8D",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-nAKcuZyyfb8koq6dA3gdFr",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-wAhGtPqQXkutFiPxxjN3FS",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-yxTTRZzeFWTe3WacnQgnuq",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-Y973wUtNdbQQoEV8JJy7WM",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-T4dMbqPEEPCeq3MC5d3oGb",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-zbcAUYEDyNMndixKAfTTKE",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-y8mH4uVRgBjdbnNeFfU2sh",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-Ekw3NRHB7j8hKuV2biM4uP",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-GXeZ8VaZs97vwRmSuhE3QF",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-axeNkm9cEAu7vhoBrFPYrr",
+      "repeat": 2,
+      "input_target": 1024,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-Ciy3N3vULBsbemjW5qX83v",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-9CFw5aQNeRhKEQHoQ9tnCf",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-v4JV32zQhWTQUw7LkVyJkg",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-8NDx8DFjerzK2xnny9GdLk",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-tKpRDy667NXXNDirjHY3fy",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-tAp2zYTZp26W6qRSDmc6AW",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-qdira5bz4nnDwnQP3oAYZQ",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-KQf9EyZkhrGFs2K5G9ZM9u",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 1,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-pXFiPvwj9HmgwtX6zQ3xVf",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-9xcHUJCq3iP85KYi839Pcc",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-UxZPCyfFETCMugy4EneaSB",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-VXXrG2qzv8WCWSdXco4DAf",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-AwaUGXYv4HNDaBPKdmNaZP",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-NrGhwydjQtN9hQwDxismui",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-UyZggPWfFBDgo3baGN7eE6",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-AqBoPRsGinSt9xg4zqL8nU",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 2,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-HSnNJjiPtJJy9AChGTSbta",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-3U6AR6UCXHtaEop8QbLWfM",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-pjLkUuN6X8SR39wjfzLvkr",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-n7uQ3xU6AMN7fRQeAUY8zX",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-oyd8c4edRTFVC4BFkgZTX2",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-y4LfzNgxebg3bTKQEiGHq2",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-9455936156375386488-C3zPt8fouCT9H6qt3iKJop",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-B"
+      ],
+      "decode": [
+        "D-A"
+      ]
+    },
+    {
+      "request_id": "chatcmpl-17878280960609526611-kZFEpj92sbet8C2jiv3ixY",
+      "repeat": 2,
+      "input_target": 8192,
+      "concurrency": 4,
+      "prefill": [
+        "P-A"
+      ],
+      "decode": [
+        "D-B"
+      ]
+    }
+  ],
+  "scope": "measured requests only; warmups excluded"
+}

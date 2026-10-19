@@ -1,0 +1,118 @@
+{
+  "model": "GLM-5.3-Flash-w8a8",
+  "model_type": "glm5_next",
+  "topology": {
+    "prefill_instances": 2,
+    "decode_instances": 2,
+    "tp_per_instance": 8,
+    "hosts": 4,
+    "active_logical_devices": 32,
+    "installed_logical_devices": 64
+  },
+  "runtime": {
+    "backend": "llm",
+    "model_impl": "python",
+    "kv_cache_dtype": "auto",
+    "kv_cache_transfer_mode": "PUSH",
+    "max_tokens_per_chunk_for_prefill": 8192,
+    "max_seqs_per_batch": 1,
+    "max_linear_state_cache_slots": 16,
+    "enable_schedule_overlap": false,
+    "enable_prefix_cache": false,
+    "enable_graph": false,
+    "num_speculative_tokens": 0,
+    "reasoning_parser": "glm5"
+  },
+  "software": {
+    "python": "3.11.15",
+    "torch": "2.9.0+cpu",
+    "torch_npu": "2.9.0.post2+gitbe0dd17",
+    "transformers": "5.14.1",
+    "triton_distribution": "3.5.0",
+    "cann": "9.0.0",
+    "driver_npu_smi": "25.5.2",
+    "xllm_commit": "ad9e405650c1bbb0af53d2c8e821dbdcbe5e79eb",
+    "service_commit": "b232b7094f17fbab68f010290554b012ee384a0b",
+    "native_ops_commit": "b94b87318c2826738c65d6e6f242aa9c1881a3ab",
+    "triton_imported_version": "3.2.0",
+    "triton_imported_path": "/usr/local/python3.11.15/lib/python3.11/site-packages/triton/__init__.py",
+    "triton_note": "Imported module3.2.0 matches triton_ascend3.2.1 RECORD. Base image retains triton3.5.0 distribution metadata whose triton/__init__.py RECORD does not match. No package changes during measurement.",
+    "triton_ascend_distribution": "3.2.1",
+    "triton_provider_record_checks": {
+      "triton_ascend3.2.1": true,
+      "triton3.5.0": false
+    },
+    "distribution_audit": {
+      "verified_roles": [
+        "P-A",
+        "P-B",
+        "D-A",
+        "D-B"
+      ],
+      "same_across_all_four": true,
+      "fields": [
+        "python",
+        "torch",
+        "torch_npu",
+        "transformers",
+        "triton",
+        "triton_ascend"
+      ]
+    },
+    "torch_label_note": "The +cpu PyTorch wheel is paired with torch_npu; NPU worker processes and HBM usage were verified. +cpu does not describe the actual inference device."
+  },
+  "image": {
+    "tag": "quay.io/jd_xllm/xllm-ai:xllm-dev-a3-arm-cann9-20260911",
+    "manifest_digest": "sha256:4fec4b05d8e698c830662f085445b77392d3b0e1d74f78be133f36628832100a",
+    "base_image_id": "sha256:ce452eaac57393e2727ed7dee0ff1b65768b6c99216608e8eb6b954c5a712d6d",
+    "note": "Base dev image plus pinned in-container source/native builds; not an untouched prebuilt serving image."
+  },
+  "transfer": {
+    "engine": "Mooncake AscendDirectTransport/ADXL",
+    "roce_mode": false,
+    "use_fabric_mem": false,
+    "note": "Observed runtime init logs; control IPs do not establish the data-plane protocol."
+  },
+  "native_ops_installer_sha256": "36a0919b569d593c59b1cc15b9ff6820887197deaa9ccdaeb9dee07edf61d803",
+  "source_files_verified_sha256": {
+    "worker_impl.cpp": "e38ba13d78eb668fcd0f1a0d6a00d078f1a0f4822d326282600815dddcbfe20b",
+    "vlm_engine.cpp": "548876e54dbfaf7623a32f6ac7b354acb8eab18717af3b147966a5e0f6bd9aed",
+    "llm_engine.cpp": "c1515500d40a596aef20d7dfe8404660f955b18873e739d1bfb10b55ac992bbc"
+  },
+  "model_identity": {
+    "files": {
+      "config.json": {
+        "bytes": 5939,
+        "sha256": "33e63ec7fe607658be712bd6dd3c16c6549960d8e7f0483d34b939881b55f943"
+      },
+      "generation_config.json": {
+        "bytes": 194,
+        "sha256": "230c30609ecbbb9e6583bedde8e7bdda0c6eb8fe5fad0eaeb3d1b293d751cb4f"
+      },
+      "tokenizer_config.json": {
+        "bytes": 761,
+        "sha256": "98b1271574f41abf89427ae2dda030d94dc9478f0edc5a8bd240db213c6fd5fc"
+      },
+      "tokenizer.json": {
+        "bytes": 20217442,
+        "sha256": "19e773648cb4e65de8660ea6365e10acca112d42a854923df93db4a6f333a82d"
+      },
+      "chat_template.jinja": {
+        "bytes": 10950,
+        "sha256": "0c4099f3382d6c92700dfb99725025360966fd73032f0ecf32377c0d9e6309c5"
+      },
+      "quant_model_description.json": {
+        "bytes": 9956179,
+        "sha256": "9aae1f3c7657115b7e24294bf6d668f6ea062e2c8fe9eccad4a3862284fe665f"
+      },
+      "quant_model_weights.safetensors.index.json": {
+        "sha256": "f000c428bf2de077a148878fbb9f1b2ec188ff8ff75d7dd57a153cea181a8d4b",
+        "source": "deployment metadata audit"
+      }
+    },
+    "weight_shards_referenced": 83,
+    "weight_shard_bytes": 332859195316,
+    "upstream_model_revision": null,
+    "note": "User-provided local snapshot. Index/header checks passed; no new full-payload hash of all333GB of safetensors was performed during benchmark."
+  }
+}

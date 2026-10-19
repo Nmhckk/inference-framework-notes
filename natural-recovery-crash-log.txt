@@ -1,0 +1,62 @@
+Single Decode recovery repeated device exception; async stack not root cause proof.
+I20261019 12:57:18.576388 45193 xllm_server.cpp:171]      Application startup complete.
+I20261019 12:57:41.231025 45193 xllm_server.cpp:176]      Shutting down
+I20261019 12:57:41.231161 45193 xllm_server.cpp:177]      Waiting for application shutdown.
+I20261019 12:57:41.231168 45193 server.cpp:1260] Server[xllm::APIService] is going to quit
+I20261019 12:57:41.231392 45193 xllm_server.cpp:181]      Application shutdown complete.
+I20261019 12:57:41.231402 45193 xllm_server.cpp:182]      Finished server process [45193]
+I20261019 12:57:41.231418 45193 llm_master.cpp:346] LLMMaster stopping...
+W20261019 12:57:41.431897 53346 input_messenger.cpp:387] Fail to read from Socket{id=23 fd=83 addr=172.16.12.11:36525:42778} (0x677c4500): Connection reset by peer [104]
+W20261019 12:57:41.432291 45931 comm_channel.cpp:68] Health check failed: [E104]Fail to read from Socket{id=23fd=83 addr=172.16.12.11:36525:42778} (0x0x677c4500): Connection reset by peer [R1][E111]Fail to connect Socket{id=1105 addr=172.16.12.11:36525} (0x0xb9d0e000): Connection refused [R2][E112]Not connected to 172.16.12.11:36525 yet, server_id=22 [R3][E112]Not connected to 172.16.12.11:36525 yet, server_id=22
+I20261019 12:57:41.532366 51412 socket.cpp:2591] Checking Socket{id=22 addr=172.16.12.11:36525} (0x677c4200)
+terminate called after throwing an instance of 'pybind11::error_already_set'
+  what():  RuntimeError: operator():torch_npu/csrc/aten/common/LocalScalarDenseNpu.cpp:23 NPU function error: c10_npu::acl::AclrtSynchronizeStreamWithTimeout(copy_stream), error code is 507035
+[ERROR] 2026-10-19-12:57:42 (PID:45193, Device:0, RankID:-1) ERR00100 PTA call acl api failed
+[Error]: The vector core execution is abnormal. 
+        Rectify the fault based on the error information in the ascend log.
+[PID: 45193] 2026-10-19-12:57:42.631.778 Execution_Error_SDMA(EI0012): SDMA memory copy task exception occurred. Remote rank: [0]. Base information: [streamID:[46], taskID[9479], taskType[Task AIV], tag[AllReduce_group_name_1], AlgType(level 0-1-2):[ring-ring-ring].]. Task information: [cmdType:[2], tag:[217], size:[8192], numBlocks:[8], rankSize:[8], aivRdmaStep:[-1], flagMem:[0x12e835000000], isOpbase:[1]]. Communicator information: [].
+        Possible Cause: 1. Network connection exception occurred during the SDMA task execution. 2. The peer process exits abnormally. 3. The input or output memory address is not allocated, the actual allocated size is smaller than the input data size, or the memory is freed before the operator execution is complete.
+        Solution: 1. Check whether the network link is abnormal during the execution. 2. Check whether a process in the cluster exits before an error is reported. If yes, locate the cause of the process exit. 3. Check whether the size of the input/output memory passed to the communication operator meets the expectation, and whether the input/output memory or communicator is freed or destroyed before the operator execution is complete.
+        TraceBack (most recent call last):
+        [InitOpInfoLib][InitOpKernel] Inconsistent format size [1] and data type size [3]![FUNC:InitUnknownFormatAndDtype][FILE:op_kernel_info_constructor.cc][LINE:960]
+        [InitOpInfoLib][InitOpKernel] Node[CausalConv1dBwd]: failed to initialize unknown shape dtype and format. The input or output is input6.queryStartLoc.[FUNC:InitFormatAndDtypeForSingleInputAndOutput][FILE:op_kernel_info_constructor.cc][LINE:556]
+        [InitOpInfoLib][InitOpKernel] Initialization of Op CausalConv1dBwd with input_desc_info input6 failed.[FUNC:ParseInputAndOutputFromOpContent][FILE:op_kernel_info_constructor.cc][LINE:486]
+        [InitOpInfoLib][InitOpKernel] Failed to initialize inputs and outputs for Op CausalConv1dBwd.[FUNC:InitializeOpKernelInfo][FILE:op_kernel_info_constructor.cc][LINE:226]
+        [GraphOpt][Init][ConstructOpKernelInfo] OpKernelInfo CausalConv1dBwd initialization failed.[FUNC:ConstructOpKernelInfo][FILE:sub_op_info_store.cc][LINE:196]
+        The error from device(chipId:0, dieId:0), serial number is 2, there is an exception of aivec error, core id is 35, error code = 0x800000, dump info: pc start: 0x12e8358c3400, current: 0x12e83592a030, vec error info: 0xe2119c84a4, mte error info: 0xa803000150, ifu error info: 0x3843c97d37740, ccu error info: 0xf246426411712890, cube error info: 0, biu error info: 0, aic error mask: 0x6500020bd00028c, para base: 0x12c100741c00.[FUNC:PrintCoreInfo][FILE:device_error_core_proc.cc][LINE:645]
+        The extend info: errcode:(0x800000, 0, 0) errorStr: The DDR address of the MTE instruction is out of range. fixp_error0 info: 0x3000150, fixp_error1 info: 0xa8, fsmId:1, tslot:6, thread:0, ctxid:0, blk:7, sublk:0, subErrType:4.[FUNC:PrintCoreInfo][FILE:device_error_core_proc.cc][LINE:658]
+        Kernel task happen error, retCode=0x31, [vector core exception].[FUNC:PreCheckTaskErr][FILE:davinci_kernel_task.cc][LINE:1729]
+        SDMA memory copy task exception occurred. Remote rank: [0]. Base information: [streamID:[46], taskID[9479], taskType[Task AIV], tag[AllReduce_group_name_1], AlgType(level 0-1-2):[ring-ring-ring].]. Task information: [cmdType:[2], tag:[217], size:[8192], numBlocks:[8], rankSize:[8], aivRdmaStep:[-1], flagMem:[0x12e835000000], isOpbase:[1]]. Communicator information: [].
+        rtStreamSynchronizeWithTimeout execution failed, reason=vector core exception[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:65]
+        synchronize stream with timeout failed, runtime result = 507035[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:148]
+
+
+At:
+  /work/sources/xllm/xllm/python/attention/npu_paged_attention.py(1409): gather_index_history
+  /work/sources/xllm/xllm/python/models/glm5_next.py(978): select_qli
+  /work/sources/xllm/xllm/python/models/glm5_next.py(1231): forward
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/nn/modules/module.py(1786): _call_impl
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/nn/modules/module.py(1775): _wrapped_call_impl
+  /work/sources/xllm/xllm/python/models/glm5_next.py(1686): forward
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/nn/modules/module.py(1786): _call_impl
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/nn/modules/module.py(1775): _wrapped_call_impl
+  /work/sources/xllm/xllm/python/models/glm5_next.py(1750): forward
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/nn/modules/module.py(1786): _call_impl
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/nn/modules/module.py(1775): _wrapped_call_impl
+  /work/sources/xllm/xllm/python/model_executor/runners/eager.py(137): execute
+  /work/sources/xllm/xllm/python/model_executor/executor.py(885): execute
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/utils/_contextlib.py(120): decorate_context
+
+terminate called recursively
+E20261019 12:57:42.728323 45926 comm_channel.cpp:599] get_active_activation_memory_async failed: [E112]Not connected to 172.16.12.11:36525 yet, server_id=22 [R1][E112]Not connected to 172.16.12.11:36525 yet, server_id=22 [R2][E112]Not connected to 172.16.12.11:36525 yet, server_id=22 [R3][E112]Not connected to 172.16.12.11:36525 yet, server_id=22
+W20261019 12:57:45.248577 45931 comm_channel.cpp:68] Health check failed: [E112]Not connected to 172.16.12.11:36525 yet, server_id=22 [R1][E112]Not connected to 172.16.12.11:36525 yet, server_id=22 [R2][E112]Not connected to 172.16.12.11:36525 yet, server_id=22 [R3][E112]Not connected to 172.16.12.11:36525 yet, server_id=22
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+/usr/local/python3.11.15/lib/python3.11/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 30 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

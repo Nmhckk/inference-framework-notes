@@ -1,0 +1,76 @@
+Cold restart of all four model instances; same507035 device exception. Async stack is not root cause proof.
+I20261019 13:00:11.050951 63415 disagg_pd_scheduler.cpp:1403] Successfully linked instance, instance_name: 172.16.12.9:19600, prefill_kv_split_size: 1
+I20261019 13:00:39.161525 56145 xllm_server.cpp:176]      Shutting down
+I20261019 13:00:39.161724 56145 xllm_server.cpp:177]      Waiting for application shutdown.
+I20261019 13:00:39.161767 56145 server.cpp:1260] Server[xllm::APIService] is going to quit
+I20261019 13:00:39.162168 56145 xllm_server.cpp:181]      Application shutdown complete.
+I20261019 13:00:39.162184 56145 xllm_server.cpp:182]      Finished server process [56145]
+I20261019 13:00:39.162205 56145 llm_master.cpp:346] LLMMaster stopping...
+W20261019 13:00:39.376643 64632 input_messenger.cpp:387] Fail to read from Socket{id=510 fd=84 addr=172.16.12.11:41055:39004} (0x5898a000): Connection reset by peer [104]
+W20261019 13:00:39.376981 56874 comm_channel.cpp:68] Health check failed: [E104]Fail to read from Socket{id=510fd=84 addr=172.16.12.11:41055:39004} (0x0x5898a000): Connection reset by peer [R1][E112]Not connected to 172.16.12.11:41055 yet, server_id=22 [R2][E112]Not connected to 172.16.12.11:41055 yet, server_id=22 [R3][E112]Not connected to 172.16.12.11:41055 yet, server_id=22
+E20261019 13:00:39.376971 64839 comm_channel.cpp:692] Execute_model_async failed. Error code : 112, error message : [E1014]Got EOF of Socket{id=23fd=83 addr=172.16.12.11:41055:38990} (0x0x52112500) [R1][E111]Fail to connect Socket{id=1615 addr=172.16.12.11:41055} (0x0xa96dc000): Connection refused [R2][E112]Not connected to 172.16.12.11:41055 yet, server_id=22 [R3][E112]Not connected to 172.16.12.11:41055 yet, server_id=22
+I20261019 13:00:39.477062 64852 socket.cpp:2591] Checking Socket{id=22 addr=172.16.12.11:41055} (0x52112200)
+terminate called after throwing an instance of 'pybind11::error_already_set'
+  what():  RuntimeError: operator():torch_npu/csrc/aten/common/LocalScalarDenseNpu.cpp:23 NPU function error: c10_npu::acl::AclrtSynchronizeStreamWithTimeout(copy_stream), error code is 507035
+[ERROR] 2026-10-19-13:00:40 (PID:56145, Device:0, RankID:-1) ERR00100 PTA call acl api failed
+[Error]: The vector core execution is abnormal. 
+        Rectify the fault based on the error information in the ascend log.
+[PID: 56145] 2026-10-19-13:00:40.562.415 Execution_Error_SDMA(EI0012): SDMA memory copy task exception occurred. Remote rank: [0]. Base information: [streamID:[46], taskID[215537], taskType[Task AIV], tag[AllReduce_group_name_1], AlgType(level 0-1-2):[ring-ring-ring].]. Task information: [cmdType:[2], tag:[881], size:[8192], numBlocks:[8], rankSize:[8], aivRdmaStep:[-1], flagMem:[0x12e835000000], isOpbase:[1]]. Communicator information: [].
+        Possible Cause: 1. Network connection exception occurred during the SDMA task execution. 2. The peer process exits abnormally. 3. The input or output memory address is not allocated, the actual allocated size is smaller than the input data size, or the memory is freed before the operator execution is complete.
+        Solution: 1. Check whether the network link is abnormal during the execution. 2. Check whether a process in the cluster exits before an error is reported. If yes, locate the cause of the process exit. 3. Check whether the size of the input/output memory passed to the communication operator meets the expectation, and whether the input/output memory or communicator is freed or destroyed before the operator execution is complete.
+        TraceBack (most recent call last):
+        [InitOpInfoLib][InitOpKernel] Inconsistent format size [1] and data type size [3]![FUNC:InitUnknownFormatAndDtype][FILE:op_kernel_info_constructor.cc][LINE:960]
+        [InitOpInfoLib][InitOpKernel] Node[CausalConv1dBwd]: failed to initialize unknown shape dtype and format. The input or output is input6.queryStartLoc.[FUNC:InitFormatAndDtypeForSingleInputAndOutput][FILE:op_kernel_info_constructor.cc][LINE:556]
+        [InitOpInfoLib][InitOpKernel] Initialization of Op CausalConv1dBwd with input_desc_info input6 failed.[FUNC:ParseInputAndOutputFromOpContent][FILE:op_kernel_info_constructor.cc][LINE:486]
+        [InitOpInfoLib][InitOpKernel] Failed to initialize inputs and outputs for Op CausalConv1dBwd.[FUNC:InitializeOpKernelInfo][FILE:op_kernel_info_constructor.cc][LINE:226]
+        [GraphOpt][Init][ConstructOpKernelInfo] OpKernelInfo CausalConv1dBwd initialization failed.[FUNC:ConstructOpKernelInfo][FILE:sub_op_info_store.cc][LINE:196]
+        The error from device(chipId:0, dieId:0), serial number is 3, there is an exception of aivec error, core id is 19, error code = 0x800000, dump info: pc start: 0x12e8358c3400, current: 0x12e83592a030, vec error info: 0x3209513562, mte error info: 0xa803000150, ifu error info: 0x7563300bd2800, ccu error info: 0xee6b2f9d210522f9, cube error info: 0, biu error info: 0, aic error mask: 0x6500020bd00028c, para base: 0x12c10067c400.[FUNC:PrintCoreInfo][FILE:device_error_core_proc.cc][LINE:645]
+        The extend info: errcode:(0x800000, 0, 0) errorStr: The DDR address of the MTE instruction is out of range. fixp_error0 info: 0x3000150, fixp_error1 info: 0xa8, fsmId:0, tslot:6, thread:0, ctxid:0, blk:7, sublk:0, subErrType:4.[FUNC:PrintCoreInfo][FILE:device_error_core_proc.cc][LINE:658]
+        Kernel task happen error, retCode=0x31, [vector core exception].[FUNC:PreCheckTaskErr][FILE:davinci_kernel_task.cc][LINE:1729]
+        SDMA memory copy task exception occurred. Remote rank: [0]. Base information: [streamID:[46], taskID[215537], taskType[Task AIV], tag[AllReduce_group_name_1], AlgType(level 0-1-2):[ring-ring-ring].]. Task information: [cmdType:[2], tag:[881], size:[8192], numBlocks:[8], rankSize:[8], aivRdmaStep:[-1], flagMem:[0x12e835000000], isOpbase:[1]]. Communicator information: [].
+        rtStreamSynchronizeWithTimeout execution failed, reason=vector core exception[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:65]
+        synchronize stream with timeout failed, runtime result = 507035[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:148]
+
+
+At:
+  /work/sources/xllm/xllm/python/attention/npu_paged_attention.py(1409): gather_index_history
+  /work/sources/xllm/xllm/python/models/glm5_next.py(978): select_qli
+  /work/sources/xllm/xllm/python/models/glm5_next.py(1231): forward
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/nn/modules/module.py(1786): _call_impl
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/nn/modules/module.py(1775): _wrapped_call_impl
+  /work/sources/xllm/xllm/python/models/glm5_next.py(1686): forward
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/nn/modules/module.py(1786): _call_impl
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/nn/modules/module.py(1775): _wrapped_call_impl
+  /work/sources/xllm/xllm/python/models/glm5_next.py(1750): forward
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/nn/modules/module.py(1786): _call_impl
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/nn/modules/module.py(1775): _wrapped_call_impl
+  /work/sources/xllm/xllm/python/model_executor/runners/eager.py(137): execute
+  /work/sources/xllm/xllm/python/model_executor/executor.py(885): execute
+  /usr/local/python3.11.15/lib/python3.11/site-packages/torch/utils/_contextlib.py(120): decorate_context
+
+terminate called recursively
+F20261019 13:00:40.663993   540 llm_engine.cpp:553] Failed to execute model, result has no value
+*** Check failure stack trace: ***
+    @          0x11d6c80  google::LogMessage::SendToLog()
+    @          0x11d377c  google::LogMessage::Flush()
+    @          0x11d7250  google::LogMessageFatal::~LogMessageFatal()
+    @          0x167ee20  xllm::LLMEngine::step()
+    @          0x1195c18  _ZNSt17_Function_handlerIFN4xllm13ForwardOutputERNS0_10BatchGroupEEZNS0_19ContinuousSchedulerINS0_6EngineEEC4INS0_9LLMEngineEEEPT_RKNS0_16SchedulerOptionsESt10shared_ptrINS0_25ModelResidencyCoordinatorEESF_INS0_24DistributedWorkerManagerEEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_
+    @          0x170d994  xllm::ContinuousSchedulerBase::step()
+    @          0x1721cf4  xllm::DisaggPDScheduler::step()
+    @          0x118c2e0  _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4xllm9LLMMaster3runEvEUlvE_EEEEE6_M_runEv
+    @     0xffffa4339da4  (unknown)
+    @     0xffff93b6fbb4  (unknown)
+    @     0xffff93bd7f4c  (unknown)
+    @              (nil)  (unknown)
+W20261019 13:00:43.176891 56874 comm_channel.cpp:68] Health check failed: [E112]Not connected to 172.16.12.11:41055 yet, server_id=22 [R1][E112]Not connected to 172.16.12.11:41055 yet, server_id=22 [R2][E112]Not connected to 172.16.12.11:41055 yet, server_id=22 [R3][E112]Not connected to 172.16.12.11:41055 yet, server_id=22
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+/usr/local/python3.11.15/lib/python3.11/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 30 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

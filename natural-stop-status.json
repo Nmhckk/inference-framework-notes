@@ -1,0 +1,26 @@
+{
+  "attempt1": {
+    "warmup_successes": 1,
+    "warmup_failures": 1,
+    "measured_started": false,
+    "decode_exited": true
+  },
+  "single_decode_recovery": {
+    "warmup_completed_successes": 1,
+    "other_request_cancelled_after_device_failure": true,
+    "measured_started": false,
+    "decode_exited": true
+  },
+  "acceptance": "not passed; no full-answer latency percentile or natural-stop throughput published",
+  "attempt2_note": "started before failed topology was recognized; cancelled; excluded from2P2D metrics; original manifest retained on server",
+  "all_four_cold_restart": {
+    "warmup_successes": 1,
+    "warmup_failures": 1,
+    "measured_started": false,
+    "failed_decode": ".11",
+    "error": 507035,
+    "warmup_failure_seconds": 41.780063749989495,
+    "warmup_success_seconds": 29.847895900020376,
+    "hardware_readonly_spotcheck": "npu-smi health card0 chip0:OK; not a full hardware exclusion"
+  }
+}
