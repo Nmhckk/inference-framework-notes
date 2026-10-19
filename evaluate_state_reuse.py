@@ -12,12 +12,15 @@ def main():
     p.add_argument('--url',default='http://172.16.12.11:28888/v1')
     p.add_argument('--output',required=True)
     p.add_argument('--tokenizer',default='/models/glm53-flash')
+    p.add_argument('--lengths',default='1024,8192,16384')
+    p.add_argument('--concurrency',type=int,default=4)
+    p.add_argument('--sequential-count',type=int,default=4)
     a=p.parse_args()
     from transformers import AutoTokenizer
     t=AutoTokenizer.from_pretrained(a.tokenizer,local_files_only=True)
     out=Path(a.output);out.mkdir(parents=True,exist_ok=False)
     cases=[]
-    for target in (1024,8192,16384):
+    for target in map(int,a.lengths.split(',')):
         for variant in range(4):
             name=f'length{target}-variant{variant}'
             key=f'KEY_{target}_{variant}';value=f'VALUE_{target+173+variant*391}'
@@ -34,8 +37,8 @@ def main():
                 n=max(1,n+round((target-tokens)/23))
             cases.append({'name':name,'messages':messages,'expected':value,'prompt_tokens_client':tokens})
     (out/'manifest.json').write_text(json.dumps({'cases':[{k:v for k,v in c.items() if k!='messages'} for c in cases],
-        'max_tokens':1024,'temperature':0,'phases':['first4 sequential','all12 concurrency4'],
-        'pass_rule':'all16 exact final-answer matches; no truncation or transport errors'},indent=2))
+        'max_tokens':1024,'temperature':0,'phases':[f'first{a.sequential_count} sequential',f'all{len(cases)} concurrency{a.concurrency}'],
+        'pass_rule':f'all{min(a.sequential_count,len(cases))+len(cases)} exact final-answer matches; no truncation or transport errors'},indent=2))
     def probe(spec):
         phase,case=spec
         body={'model':'glm53-flash','messages':case['messages'],'temperature':0,'max_tokens':1024,'stream':False,
@@ -56,10 +59,10 @@ def main():
         print(json.dumps({k:v for k,v in row.items() if k not in ('response','messages')},ensure_ascii=False),flush=True)
         return row
     rows=[]
-    for phase,concurrency,subset in [('sequential',1,cases[:4]),('concurrent',4,cases)]:
+    for phase,concurrency,subset in [('sequential',1,cases[:a.sequential_count]),('concurrent',a.concurrency,cases)]:
         with ThreadPoolExecutor(max_workers=concurrency) as pool:rows.extend(pool.map(probe,[(phase,c) for c in subset]))
     summary={'total':len(rows),'passed':sum(r['ok'] for r in rows),'all_passed':all(r['ok'] for r in rows),
-             'scope':'known-answer retrieval with1024/8192/16384-token prompts; not a general long-context benchmark'}
+             'scope':f'known-answer retrieval lengths={a.lengths}; not a general long-context benchmark'}
     (out/'summary.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary),flush=True)
     return 0 if summary['all_passed'] else 2
 

@@ -1,0 +1,329 @@
+{
+  "decision": "do not promote batch2; retract nonPD default recommendation; restore 2P2D after same eight known answers pass",
+  "source_math_changes": false,
+  "candidate_max_seqs_per_batch": 2,
+  "baseline_max_seqs_per_batch": 1,
+  "common": {
+    "hosts": 1,
+    "active_logical_devices": 8,
+    "backend": "llm",
+    "service_routing": false,
+    "kv_dtype": "auto",
+    "graph": false,
+    "mtp": false,
+    "prefix_cache": false,
+    "overlap": false
+  },
+  "candidate_natural_smoke": {
+    "requests": 4,
+    "concurrency": 2,
+    "repeats": 1,
+    "successes": 4,
+    "correct": 4,
+    "natural_stops": 4,
+    "visible_answers": 4,
+    "duration": 46.21322032005992,
+    "output_tps": 12.766909466897655,
+    "ttft_p50": 0.6493341149762273,
+    "ttfa_nonblank_p50": 10.28165589494165,
+    "ttfa_nonblank_p95": 15.214021867496193,
+    "latency_p50": 19.826967599976342,
+    "latency_p95": 31.279231029970102,
+    "scope": "one fixed-prefix natural-stop GSM8K supplement; not comparable to fixed128 benchmark throughput"
+  },
+  "candidate_state": {
+    "planned": 8,
+    "completed_before_abort": 6,
+    "passed": 3,
+    "failed": [
+      {
+        "name": "length8192-variant2",
+        "expected": "VALUE_9147",
+        "answer": "VALUE_9142",
+        "finish_reason": "stop",
+        "seconds": 18.786040710052475
+      },
+      {
+        "name": "length8192-variant1",
+        "expected": "VALUE_8756",
+        "answer": "VALUE_8192_1",
+        "finish_reason": "stop",
+        "seconds": 18.077801960054785
+      },
+      {
+        "name": "length1024-variant1",
+        "expected": "VALUE_1588",
+        "answer": "VALUE_1024_1",
+        "finish_reason": "stop",
+        "seconds": 119.33043650991749
+      }
+    ],
+    "remaining_interrupted": 2
+  },
+  "candidate_performance_started": false,
+  "state_control_batch1": {
+    "completed": 1,
+    "passed": 0,
+    "rows": [
+      {
+        "name": "length1024-variant0",
+        "expected": "VALUE_1197",
+        "answer": "VALUE_1024",
+        "finish_reason": "stop"
+      }
+    ]
+  },
+  "original_router_nonpd_recheck": {
+    "planned": 8,
+    "completed_before_abort": 7,
+    "passed": 5,
+    "failed": [
+      {
+        "name": "length1024-variant0",
+        "answer": "",
+        "finish_reason": "length",
+        "seconds": 133.0901734600775
+      },
+      {
+        "name": "length1024-variant1",
+        "answer": "",
+        "finish_reason": "length",
+        "seconds": 130.01769887004048
+      }
+    ],
+    "remaining_interrupted": 1,
+    "routing_evidence": [
+      {
+        "name": "length1024-variant0",
+        "ok": false,
+        "answer": "",
+        "finish_reason": "length",
+        "request_id": "chatcmpl-17894327247549862089-fArteKbXoXat5QzXEgnjah",
+        "nodes": [
+          11
+        ]
+      },
+      {
+        "name": "length1024-variant1",
+        "ok": false,
+        "answer": "",
+        "finish_reason": "length",
+        "request_id": "chatcmpl-6633741816500402789-JeTJ9xZsndQATiZCuW8UR9",
+        "nodes": [
+          10
+        ]
+      },
+      {
+        "name": "length1024-variant2",
+        "ok": true,
+        "answer": "VALUE_1979",
+        "finish_reason": "stop",
+        "request_id": "chatcmpl-9455936156375386488-YRgjSwVTrvgZFGoSN2Hj2n",
+        "nodes": [
+          9
+        ]
+      },
+      {
+        "name": "length1024-variant3",
+        "ok": true,
+        "answer": "VALUE_2370",
+        "finish_reason": "stop",
+        "request_id": "chatcmpl-17878280960609526611-fyHiXgZKCJpxees73NqmCV",
+        "nodes": [
+          8
+        ]
+      },
+      {
+        "name": "length8192-variant0",
+        "ok": true,
+        "answer": "VALUE_8365",
+        "finish_reason": "stop",
+        "request_id": "chatcmpl-6633741816500402789-thL4fUywXcGxXgtujdZAku",
+        "nodes": [
+          10
+        ]
+      },
+      {
+        "name": "length8192-variant1",
+        "ok": true,
+        "answer": "VALUE_8756",
+        "finish_reason": "stop",
+        "request_id": "chatcmpl-17894327247549862089-UQHLLyYcHkq9735HmaueoG",
+        "nodes": [
+          11
+        ]
+      },
+      {
+        "name": "length8192-variant2",
+        "ok": true,
+        "answer": "VALUE_9147",
+        "finish_reason": "stop",
+        "request_id": "chatcmpl-9455936156375386488-xpb7iNo2fcMPe5E5kL4trC",
+        "nodes": [
+          9
+        ]
+      }
+    ]
+  },
+  "fallback_2p2d_recheck": {
+    "total": 8,
+    "passed": 8,
+    "all_passed": true,
+    "scope": "known-answer retrieval lengths=1024,8192; not a general long-context benchmark"
+  },
+  "root_cause": "unresolved; batch1/direct and original-router nonPD also fail, so not attributable only to batch2",
+  "final_topology": "2P2D batch1 auto KV, prefix/graph/MTP/overlap off",
+  "fingerprints": {
+    "8": {
+      "/models/glm53-flash/config.json": {
+        "exists": true,
+        "size": 5939,
+        "sha256": "33e63ec7fe607658be712bd6dd3c16c6549960d8e7f0483d34b939881b55f943"
+      },
+      "/models/glm53-flash/generation_config.json": {
+        "exists": true,
+        "size": 194,
+        "sha256": "230c30609ecbbb9e6583bedde8e7bdda0c6eb8fe5fad0eaeb3d1b293d751cb4f"
+      },
+      "/models/glm53-flash/quant_model_description.json": {
+        "exists": true,
+        "size": 9956179,
+        "sha256": "9aae1f3c7657115b7e24294bf6d668f6ea062e2c8fe9eccad4a3862284fe665f"
+      },
+      "/work/sources/xllm/xllm/python/models/glm5_next.py": {
+        "exists": true,
+        "size": 106114,
+        "sha256": "25188c0bc241d11c9659555c1a9244c6432ea707fcaad56d95538f16aa06538a"
+      },
+      "/work/sources/xllm/xllm/python/attention/kda_linear_attention.py": {
+        "exists": true,
+        "size": 34012,
+        "sha256": "9fa7bcdbe63f0c65cb9a7e13767c9fcf3f47619b233e9a1fed9084c755efba7e"
+      },
+      "/work/sources/xllm/build/xllm/core/server/xllm": {
+        "exists": true,
+        "size": 583668760,
+        "sha256": "7c9737e1dbc49ad39d712e1e4ff4409a915e70f0556ccd10d161634ecaf18fcf"
+      }
+    },
+    "9": {
+      "/models/glm53-flash/config.json": {
+        "exists": true,
+        "size": 5939,
+        "sha256": "33e63ec7fe607658be712bd6dd3c16c6549960d8e7f0483d34b939881b55f943"
+      },
+      "/models/glm53-flash/generation_config.json": {
+        "exists": true,
+        "size": 194,
+        "sha256": "230c30609ecbbb9e6583bedde8e7bdda0c6eb8fe5fad0eaeb3d1b293d751cb4f"
+      },
+      "/models/glm53-flash/quant_model_description.json": {
+        "exists": true,
+        "size": 9956179,
+        "sha256": "9aae1f3c7657115b7e24294bf6d668f6ea062e2c8fe9eccad4a3862284fe665f"
+      },
+      "/work/sources/xllm/xllm/python/models/glm5_next.py": {
+        "exists": true,
+        "size": 106114,
+        "sha256": "25188c0bc241d11c9659555c1a9244c6432ea707fcaad56d95538f16aa06538a"
+      },
+      "/work/sources/xllm/xllm/python/attention/kda_linear_attention.py": {
+        "exists": true,
+        "size": 34012,
+        "sha256": "9fa7bcdbe63f0c65cb9a7e13767c9fcf3f47619b233e9a1fed9084c755efba7e"
+      },
+      "/work/sources/xllm/build/xllm/core/server/xllm": {
+        "exists": true,
+        "size": 583668760,
+        "sha256": "7c9737e1dbc49ad39d712e1e4ff4409a915e70f0556ccd10d161634ecaf18fcf"
+      }
+    },
+    "10": {
+      "/models/glm53-flash/config.json": {
+        "exists": true,
+        "size": 5939,
+        "sha256": "33e63ec7fe607658be712bd6dd3c16c6549960d8e7f0483d34b939881b55f943"
+      },
+      "/models/glm53-flash/generation_config.json": {
+        "exists": true,
+        "size": 194,
+        "sha256": "230c30609ecbbb9e6583bedde8e7bdda0c6eb8fe5fad0eaeb3d1b293d751cb4f"
+      },
+      "/models/glm53-flash/quant_model_description.json": {
+        "exists": true,
+        "size": 9956179,
+        "sha256": "9aae1f3c7657115b7e24294bf6d668f6ea062e2c8fe9eccad4a3862284fe665f"
+      },
+      "/work/sources/xllm/xllm/python/models/glm5_next.py": {
+        "exists": true,
+        "size": 106114,
+        "sha256": "25188c0bc241d11c9659555c1a9244c6432ea707fcaad56d95538f16aa06538a"
+      },
+      "/work/sources/xllm/xllm/python/attention/kda_linear_attention.py": {
+        "exists": true,
+        "size": 34012,
+        "sha256": "9fa7bcdbe63f0c65cb9a7e13767c9fcf3f47619b233e9a1fed9084c755efba7e"
+      },
+      "/work/sources/xllm/build/xllm/core/server/xllm": {
+        "exists": true,
+        "size": 583668760,
+        "sha256": "7c9737e1dbc49ad39d712e1e4ff4409a915e70f0556ccd10d161634ecaf18fcf"
+      }
+    },
+    "11": {
+      "/models/glm53-flash/config.json": {
+        "exists": true,
+        "size": 5939,
+        "sha256": "33e63ec7fe607658be712bd6dd3c16c6549960d8e7f0483d34b939881b55f943"
+      },
+      "/models/glm53-flash/generation_config.json": {
+        "exists": true,
+        "size": 194,
+        "sha256": "230c30609ecbbb9e6583bedde8e7bdda0c6eb8fe5fad0eaeb3d1b293d751cb4f"
+      },
+      "/models/glm53-flash/quant_model_description.json": {
+        "exists": true,
+        "size": 9956179,
+        "sha256": "9aae1f3c7657115b7e24294bf6d668f6ea062e2c8fe9eccad4a3862284fe665f"
+      },
+      "/work/sources/xllm/xllm/python/models/glm5_next.py": {
+        "exists": true,
+        "size": 106114,
+        "sha256": "25188c0bc241d11c9659555c1a9244c6432ea707fcaad56d95538f16aa06538a"
+      },
+      "/work/sources/xllm/xllm/python/attention/kda_linear_attention.py": {
+        "exists": true,
+        "size": 34012,
+        "sha256": "9fa7bcdbe63f0c65cb9a7e13767c9fcf3f47619b233e9a1fed9084c755efba7e"
+      },
+      "/work/sources/xllm/build/xllm/core/server/xllm": {
+        "exists": true,
+        "size": 583668760,
+        "sha256": "7c9737e1dbc49ad39d712e1e4ff4409a915e70f0556ccd10d161634ecaf18fcf"
+      }
+    }
+  },
+  "full_weight_payload_verified": false,
+  "k8s_check": {
+    "8": {
+      "verified": true,
+      "unchanged": true,
+      "count": 17
+    },
+    "9": {
+      "verified": true,
+      "unchanged": true,
+      "count": 17
+    },
+    "10": {
+      "verified": true,
+      "unchanged": true,
+      "count": 17
+    },
+    "11": {
+      "verified": true,
+      "unchanged": true,
+      "count": 11
+    }
+  }
+}

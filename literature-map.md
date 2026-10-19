@@ -47,3 +47,9 @@
 - PD 的收益可能受 KV 传输和资源划分影响；非 PD 是有比较价值的基线，不只是启动失败后的替代方案。
 
 上述都是实验假设。评测方法和验收口径见 [性能对比方法](benchmark-methodology.md)。
+
+## 2026-10-19 补充：把优势拆成可证伪的机制
+
+- [vAttention](https://arxiv.org/abs/2405.04437)及[作者工程](https://github.com/microsoft/vattention)：用虚拟内存维持连续地址，同时按需分配物理内存。与xLLM xTensor对照时，研究页映射、分配、算子兼容与设备适配成本；虚拟连续KV不是xLLM独有思想，不把CUDA原型当作Ascend现成能力。
+- Sarathi-Serve用于理解合批/chunk预算与Decode停顿；DistServe用于比较PD隔离后的SLO达标吞吐；SGLang论文用于共享前缀/分支程序。三者分别对应不同瓶颈，不把论文排行榜拼成通用框架排名。
+- xLLM技术报告的评测基线为旧vLLM-Ascend与MindIE，未提供本项目所需的当前SGLang对照；新研究索引见[优势候选与实验设计](xllm-strengths-and-experiments-2026-10-19.md)。

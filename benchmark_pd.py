@@ -30,6 +30,11 @@ def main():
     p.add_argument('--state-summary',required=True)
     p.add_argument('--output',required=True)
     p.add_argument('--tokenizer',default='/models/glm53-flash')
+    p.add_argument('--input-lengths',default='1024,8192')
+    p.add_argument('--output-tokens',type=int,default=128)
+    p.add_argument('--active-logical-devices',type=int,default=32)
+    p.add_argument('--installed-logical-devices',type=int,default=64)
+    p.add_argument('--allocated-hosts',type=int,default=4)
     p.add_argument('--requests',type=int,default=8)
     p.add_argument('--repeats',type=int,default=3)
     p.add_argument('--concurrencies',default='1,2,4')
@@ -45,8 +50,8 @@ def main():
     from transformers import AutoTokenizer
     tokenizer=AutoTokenizer.from_pretrained(a.tokenizer,local_files_only=True,trust_remote_code=False)
     out=Path(a.output);out.mkdir(parents=True,exist_ok=False)
-    manifest=dict(vars(a),harness='custom urllib SSE, closed-loop',active_logical_devices=32,
-                  installed_logical_devices=64,hosts=4,scope='conservative batch1 baseline; not tuned peak',
+    manifest=dict(vars(a),harness='custom urllib SSE, closed-loop',active_logical_devices=a.active_logical_devices,
+                  installed_logical_devices=a.installed_logical_devices,hosts=a.allocated_hosts,scope='conservative configuration microbenchmark; see topology/runtime parameters; not tuned peak',
                   ttft='first non-empty reasoning or answer delta',
                   ttfa='first non-empty visible answer delta, nullable',
                   tpot='(end-to-end latency - TTFT)/(usage.completion_tokens - 1)',
@@ -109,7 +114,7 @@ def main():
         return result
     matrix=[]
     for repeat in range(a.repeats):
-        for input_tokens,output_tokens in [(1024,128),(8192,128)]:
+        for input_tokens,output_tokens in [(int(n),a.output_tokens) for n in a.input_lengths.split(',')]:
             for concurrency in map(int,a.concurrencies.split(',')):
                 # Warmup each cell outside timed measurements.
                 with ThreadPoolExecutor(max_workers=concurrency) as pool:
@@ -125,8 +130,8 @@ def main():
                       'requests':len(rows),'successes':len(successes),'duration':duration,
                       'output_tps':sum(r['usage']['completion_tokens'] for r in successes)/duration,
                       'total_tps':sum(r['usage']['completion_tokens']+r['usage']['prompt_tokens'] for r in successes)/duration,
-                      'output_tps_per_active_logical_device':sum(r['usage']['completion_tokens'] for r in successes)/duration/32,
-                      'output_tps_per_allocated_host':sum(r['usage']['completion_tokens'] for r in successes)/duration/4,
+                      'output_tps_per_active_logical_device':sum(r['usage']['completion_tokens'] for r in successes)/duration/a.active_logical_devices,
+                      'output_tps_per_allocated_host':sum(r['usage']['completion_tokens'] for r in successes)/duration/a.allocated_hosts,
                       'latency_p50':quantile([r['latency'] for r in successes],.5),'latency_p95':quantile([r['latency'] for r in successes],.95),
                       'ttft_p50':quantile([r['ttft'] for r in successes],.5),'ttft_p95':quantile([r['ttft'] for r in successes],.95),
                       'tpot_p50':quantile([r['tpot'] for r in successes if r['tpot'] is not None],.5),

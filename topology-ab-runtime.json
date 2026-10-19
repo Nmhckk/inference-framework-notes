@@ -5079,5 +5079,7 @@
       "unchanged": true,
       "running_count": 11
     }
-  }
+  },
+  "historical_selection_superseded": true,
+  "current_selection_report": "xllm-batch-canary-2026-10-19.md"
 }

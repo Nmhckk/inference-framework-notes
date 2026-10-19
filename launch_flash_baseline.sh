@@ -64,7 +64,7 @@ for ((i=0;i<8;i++)); do
   --max_tokens_per_chunk_for_prefill=8192 --enable_mix_batch=false \
   --enable_shm=false --enable_graph=false --model_impl=python --backend="${XLLM_BACKEND:-vlm}" \
   --reasoning_parser=glm5 \
-  --max_seqs_per_batch=1 --max_linear_state_cache_slots=16 --max_body_size=268435456 \
+  --max_seqs_per_batch="${XLLM_MAX_SEQS:-1}" --max_linear_state_cache_slots=16 --max_body_size=268435456 \
   --transfer_listen_port=$((26000+i)) "${pd_args[@]}" \
   > "$LOG_DIR/node_${i}.log" 2>&1 &
  pids+=("$!")
