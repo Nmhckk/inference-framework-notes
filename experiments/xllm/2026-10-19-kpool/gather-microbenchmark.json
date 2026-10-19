@@ -1,0 +1,23 @@
+[
+  {
+    "batch": 1,
+    "length": 129,
+    "bit_exact": true,
+    "reference_ms": 0.4776362475240603,
+    "vectorized_ms": 0.3847024927381426
+  },
+  {
+    "batch": 8,
+    "length": 129,
+    "bit_exact": true,
+    "reference_ms": 1.6823737532831728,
+    "vectorized_ms": 0.34988875268027186
+  },
+  {
+    "batch": 8,
+    "length": 82534,
+    "bit_exact": true,
+    "reference_ms": 3.5092724865535274,
+    "vectorized_ms": 7.7262587583391
+  }
+]

@@ -1,0 +1,2888 @@
+[
+  {
+    "cat": "",
+    "name": "Free",
+    "calls": 5260,
+    "total_ms": 719.9608260000066
+  },
+  {
+    "cat": "cpu_op",
+    "name": "empty_tensor",
+    "calls": 5483,
+    "total_ms": 419.504769999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "XLLM_POOL_STATES",
+    "calls": 11,
+    "total_ms": 272.93231999999995
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::to",
+    "calls": 978,
+    "total_ms": 205.01308999999975
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::_to_copy",
+    "calls": 696,
+    "total_ms": 202.3233600000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::empty",
+    "calls": 1900,
+    "total_ms": 196.2194500000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "XLLM_GATHER_HISTORY",
+    "calls": 11,
+    "total_ms": 147.83670999999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::add",
+    "calls": 300,
+    "total_ms": 76.89817
+  },
+  {
+    "cat": "",
+    "name": "Computing",
+    "calls": 5170,
+    "total_ms": 73.36226400000021
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::zeros",
+    "calls": 147,
+    "total_ms": 71.89571000000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::index_select",
+    "calls": 316,
+    "total_ms": 71.40570999999996
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::item",
+    "calls": 457,
+    "total_ms": 23.575880000000023
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::_local_scalar_dense",
+    "calls": 457,
+    "total_ms": 22.74960999999996
+  },
+  {
+    "cat": "cpu_op",
+    "name": "XLLM_SELECT_TOPK",
+    "calls": 11,
+    "total_ms": 22.705569999999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "xllm_ops::hc_pre",
+    "calls": 90,
+    "total_ms": 22.323079999999994
+  },
+  {
+    "cat": "cpu_op",
+    "name": "xllm_python::grouped_moe",
+    "calls": 42,
+    "total_ms": 20.830910000000003
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::copy_",
+    "calls": 819,
+    "total_ms": 18.796090000000017
+  },
+  {
+    "cat": "",
+    "name": "AivKernel",
+    "calls": 91,
+    "total_ms": 18.045701125000008
+  },
+  {
+    "cat": "",
+    "name": "Communication",
+    "calls": 91,
+    "total_ms": 18.045701
+  },
+  {
+    "cat": "",
+    "name": "Communication(Not Overlapped)",
+    "calls": 91,
+    "total_ms": 18.045701
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_1_1",
+    "calls": 1,
+    "total_ms": 15.009799999999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::index_copy_",
+    "calls": 272,
+    "total_ms": 14.706620000000003
+  },
+  {
+    "cat": "cpu_op",
+    "name": "xllm_ops::all_reduce_",
+    "calls": 90,
+    "total_ms": 12.765069999999993
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::linear",
+    "calls": 266,
+    "total_ms": 12.429130000000002
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnInplaceCopy",
+    "calls": 717,
+    "total_ms": 9.272279999999995
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::mul",
+    "calls": 312,
+    "total_ms": 8.638499999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::matmul",
+    "calls": 277,
+    "total_ms": 8.247619999999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "xllm_ops::npu_all_reduce",
+    "calls": 90,
+    "total_ms": 8.17158
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::mean",
+    "calls": 1,
+    "total_ms": 8.146279999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "xllm_ops::rms_norm",
+    "calls": 113,
+    "total_ms": 8.01834
+  },
+  {
+    "cat": "cpu_op",
+    "name": "xllm_ops::hc_post",
+    "calls": 90,
+    "total_ms": 7.816739999999997
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnInplaceIndexCopy",
+    "calls": 272,
+    "total_ms": 7.74494
+  },
+  {
+    "cat": "",
+    "name": "aclnnGather_GatherElements_GatherElements",
+    "calls": 55,
+    "total_ms": 7.534790250000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::as_strided",
+    "calls": 2067,
+    "total_ms": 7.312100000000003
+  },
+  {
+    "cat": "cpu_op",
+    "name": "npu::npu_rms_norm",
+    "calls": 113,
+    "total_ms": 6.984609999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "xllm_ops::dynamic_quant",
+    "calls": 90,
+    "total_ms": 6.755909999999998
+  },
+  {
+    "cat": "",
+    "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+    "calls": 266,
+    "total_ms": 6.381968375000001
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnIndexSelect",
+    "calls": 316,
+    "total_ms": 6.348279999999999
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceMaskedFillScalar_MaskedFillAiCpu_MaskedFill",
+    "calls": 44,
+    "total_ms": 6.177063000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::sub",
+    "calls": 102,
+    "total_ms": 6.01129
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::bmm",
+    "calls": 67,
+    "total_ms": 5.948530000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::nan_to_num",
+    "calls": 11,
+    "total_ms": 5.914999999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "npu::npu_quant_matmul",
+    "calls": 90,
+    "total_ms": 5.594189999999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::sigmoid",
+    "calls": 68,
+    "total_ms": 4.99902
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::clamp",
+    "calls": 157,
+    "total_ms": 4.833669999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnInplaceCopy",
+    "calls": 717,
+    "total_ms": 4.766400000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::slice",
+    "calls": 609,
+    "total_ms": 4.561559999999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::view",
+    "calls": 1310,
+    "total_ms": 4.389539999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::reshape",
+    "calls": 595,
+    "total_ms": 4.355359999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::transpose",
+    "calls": 559,
+    "total_ms": 4.2872099999999955
+  },
+  {
+    "cat": "cpu_op",
+    "name": "npu::get_npu_format",
+    "calls": 2290,
+    "total_ms": 4.276540000000014
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnBatchMatMul",
+    "calls": 67,
+    "total_ms": 4.198970000000001
+  },
+  {
+    "cat": "",
+    "name": "aclnnGroupedMatmulSwigluQuantWeightNzV2_GroupedMatmulSwigluQuantV2_GroupedMatmulSwigluQuantV2",
+    "calls": 42,
+    "total_ms": 4.023960374999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::clone",
+    "calls": 79,
+    "total_ms": 3.886260000000001
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnInplaceCopy",
+    "calls": 717,
+    "total_ms": 3.727559999999997
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::index_fill_",
+    "calls": 34,
+    "total_ms": 3.572610000000001
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnMuls",
+    "calls": 222,
+    "total_ms": 3.47783
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::t",
+    "calls": 266,
+    "total_ms": 3.450320000000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::cat",
+    "calls": 68,
+    "total_ms": 3.4386199999999993
+  },
+  {
+    "cat": "",
+    "name": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+    "calls": 316,
+    "total_ms": 3.3157469999999982
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnMatmul",
+    "calls": 277,
+    "total_ms": 3.227760000000001
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnAdd",
+    "calls": 210,
+    "total_ms": 3.1595599999999977
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceIndexCopy_ScatterUpdateAiCore_ScatterUpdate",
+    "calls": 272,
+    "total_ms": 3.033860625000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::arange",
+    "calls": 145,
+    "total_ms": 2.9874199999999975
+  },
+  {
+    "cat": "cpu_op",
+    "name": "xllm_ops::causal_conv1d",
+    "calls": 34,
+    "total_ms": 2.9445699999999997
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnSub",
+    "calls": 68,
+    "total_ms": 2.932079999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::ones_like",
+    "calls": 68,
+    "total_ms": 2.8775899999999983
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnMean",
+    "calls": 1,
+    "total_ms": 2.85515
+  },
+  {
+    "cat": "",
+    "name": "aclnnEmbedding_SliceAiCore_Slice",
+    "calls": 44,
+    "total_ms": 2.682854250000001
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnClamp",
+    "calls": 157,
+    "total_ms": 2.6426299999999996
+  },
+  {
+    "cat": "cpu_op",
+    "name": "npu::npu_moe_gating_top_k",
+    "calls": 42,
+    "total_ms": 2.6252599999999995
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::contiguous",
+    "calls": 35,
+    "total_ms": 2.451289999999999
+  },
+  {
+    "cat": "",
+    "name": "aclnnAdd_AddAiCore_Add",
+    "calls": 210,
+    "total_ms": 2.4210293749999994
+  },
+  {
+    "cat": "",
+    "name": "aclnnGroupedMatmulWeightNz_GroupedMatmul_GroupedMatmul",
+    "calls": 42,
+    "total_ms": 2.4197287500000004
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnInplaceIndexCopy",
+    "calls": 272,
+    "total_ms": 2.3782699999999983
+  },
+  {
+    "cat": "cpu_op",
+    "name": "npu::npu_moe_init_routing_v2",
+    "calls": 42,
+    "total_ms": 2.35297
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_2_1",
+    "calls": 1,
+    "total_ms": 2.326127
+  },
+  {
+    "cat": "",
+    "name": "aclnnSoftmax_SoftmaxAiCore_SoftmaxV2",
+    "calls": 11,
+    "total_ms": 2.32338675
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::select",
+    "calls": 308,
+    "total_ms": 2.312659999999999
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceCopy_CastAiCpu_Cast",
+    "calls": 11,
+    "total_ms": 2.28596575
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnIndexSelect",
+    "calls": 316,
+    "total_ms": 2.259470000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "npu::npu_grouped_matmul",
+    "calls": 42,
+    "total_ms": 2.2129600000000007
+  },
+  {
+    "cat": "cpu_op",
+    "name": "npu::npu_grouped_matmul_swiglu_quant_v2",
+    "calls": 42,
+    "total_ms": 2.12752
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnRmsNorm",
+    "calls": 113,
+    "total_ms": 2.10866
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::split",
+    "calls": 79,
+    "total_ms": 2.1053200000000003
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::narrow",
+    "calls": 214,
+    "total_ms": 2.0888899999999997
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceCopy_CastAiCore_Cast",
+    "calls": 605,
+    "total_ms": 2.0366212500000027
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::exp",
+    "calls": 34,
+    "total_ms": 2.0090799999999995
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::empty_like",
+    "calls": 147,
+    "total_ms": 2.0078499999999995
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnInplaceIndexCopy",
+    "calls": 272,
+    "total_ms": 1.9841300000000004
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::zero_",
+    "calls": 147,
+    "total_ms": 1.9804499999999992
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::eq",
+    "calls": 34,
+    "total_ms": 1.9444700000000004
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::gather",
+    "calls": 55,
+    "total_ms": 1.93523
+  },
+  {
+    "cat": "cpu_op",
+    "name": "npu::npu_moe_token_unpermute",
+    "calls": 42,
+    "total_ms": 1.8948699999999996
+  },
+  {
+    "cat": "cpu_op",
+    "name": "xllm_ops::all_gather",
+    "calls": 1,
+    "total_ms": 1.89405
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnEqTensor",
+    "calls": 34,
+    "total_ms": 1.8849500000000006
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::unsqueeze",
+    "calls": 289,
+    "total_ms": 1.8803700000000008
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnMatmul",
+    "calls": 277,
+    "total_ms": 1.8764600000000005
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnInplaceFillScalar",
+    "calls": 79,
+    "total_ms": 1.8699399999999995
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnIndexSelect",
+    "calls": 316,
+    "total_ms": 1.8151600000000012
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnInplaceZero",
+    "calls": 147,
+    "total_ms": 1.8146500000000008
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::masked_fill_",
+    "calls": 66,
+    "total_ms": 1.7937500000000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::embedding",
+    "calls": 45,
+    "total_ms": 1.7876999999999996
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceZero_ZerosLikeAiCore_ZerosLike",
+    "calls": 147,
+    "total_ms": 1.7623748749999992
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::any",
+    "calls": 45,
+    "total_ms": 1.76066
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::gt",
+    "calls": 11,
+    "total_ms": 1.72961
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::fill_",
+    "calls": 79,
+    "total_ms": 1.7070200000000004
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnCat",
+    "calls": 68,
+    "total_ms": 1.6046200000000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::__and__",
+    "calls": 66,
+    "total_ms": 1.5959999999999988
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnMuls",
+    "calls": 222,
+    "total_ms": 1.559819999999999
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnMatmul",
+    "calls": 277,
+    "total_ms": 1.5165100000000011
+  },
+  {
+    "cat": "",
+    "name": "aclnnMul_MulAiCore_Mul",
+    "calls": 90,
+    "total_ms": 1.5124102499999998
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnArange",
+    "calls": 145,
+    "total_ms": 1.5035099999999995
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::flatten",
+    "calls": 112,
+    "total_ms": 1.4929100000000004
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::bitwise_and",
+    "calls": 66,
+    "total_ms": 1.4573399999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::masked_fill",
+    "calls": 22,
+    "total_ms": 1.4192899999999997
+  },
+  {
+    "cat": "",
+    "name": "aclnnConstantPadNd_PadV3AiCpu_PadV3",
+    "calls": 11,
+    "total_ms": 1.415228375
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceMaskedFillScalar_MaskedFillAiCore_MaskedFill",
+    "calls": 22,
+    "total_ms": 1.3988879999999997
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::bitwise_not",
+    "calls": 66,
+    "total_ms": 1.3584000000000003
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnHcPost",
+    "calls": 90,
+    "total_ms": 1.3481800000000002
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnQuantMatmulWeightNz",
+    "calls": 90,
+    "total_ms": 1.3275200000000003
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnHcPreSinkhorn",
+    "calls": 90,
+    "total_ms": 1.3198800000000004
+  },
+  {
+    "cat": "cpu_op",
+    "name": "npu::npu_sparse_flash_attention",
+    "calls": 11,
+    "total_ms": 1.31695
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnAdd",
+    "calls": 210,
+    "total_ms": 1.2779799999999997
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnMuls",
+    "calls": 222,
+    "total_ms": 1.2678299999999998
+  },
+  {
+    "cat": "",
+    "name": "aclnnCat_ConcatD_ConcatD",
+    "calls": 68,
+    "total_ms": 1.24136575
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::chunk",
+    "calls": 45,
+    "total_ms": 1.2250699999999999
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnHcPreInvRms",
+    "calls": 90,
+    "total_ms": 1.1646800000000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::einsum",
+    "calls": 11,
+    "total_ms": 1.1427399999999999
+  },
+  {
+    "cat": "",
+    "name": "aclnnQuantMatmulWeightNz_QuantBatchMatmulV3_QuantBatchMatmulV3",
+    "calls": 90,
+    "total_ms": 1.1397826249999998
+  },
+  {
+    "cat": "",
+    "name": "aclnnArange_ArangeAiCore_Range",
+    "calls": 145,
+    "total_ms": 1.1033224999999998
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnDynamicQuantV2",
+    "calls": 90,
+    "total_ms": 1.09051
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceCopy_TensorMoveAiCore_TensorMove",
+    "calls": 44,
+    "total_ms": 1.0893421250000002
+  },
+  {
+    "cat": "",
+    "name": "aclnnReduceSum_ReduceSumOpAiCore_ReduceSum",
+    "calls": 11,
+    "total_ms": 1.0763011249999999
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnInplaceMaskedFillScalar",
+    "calls": 66,
+    "total_ms": 1.0748600000000001
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnMul",
+    "calls": 90,
+    "total_ms": 1.03149
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::split_with_sizes",
+    "calls": 67,
+    "total_ms": 1.02863
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnSigmoid",
+    "calls": 68,
+    "total_ms": 1.0260200000000004
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnAdd",
+    "calls": 210,
+    "total_ms": 1.0204299999999997
+  },
+  {
+    "cat": "",
+    "name": "HcPreSinkhorn",
+    "calls": 90,
+    "total_ms": 1.0038402499999999
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnAdds",
+    "calls": 90,
+    "total_ms": 1.0002
+  },
+  {
+    "cat": "",
+    "name": "aclnnIndexFill_IndexFill_IndexFill",
+    "calls": 34,
+    "total_ms": 0.9736994999999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::where",
+    "calls": 45,
+    "total_ms": 0.9631
+  },
+  {
+    "cat": "",
+    "name": "aclnnEmbedding_GatherV2AiCore_GatherV2",
+    "calls": 45,
+    "total_ms": 0.960738875
+  },
+  {
+    "cat": "",
+    "name": "aclnnClamp_ClipByValueV2AiCore_ClipByValueV2",
+    "calls": 157,
+    "total_ms": 0.9561191250000004
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnEmbedding",
+    "calls": 45,
+    "total_ms": 0.9456800000000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnClamp",
+    "calls": 157,
+    "total_ms": 0.9394499999999997
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::layer_norm",
+    "calls": 11,
+    "total_ms": 0.9322700000000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnBatchMatMul",
+    "calls": 67,
+    "total_ms": 0.9299700000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::argmax",
+    "calls": 22,
+    "total_ms": 0.9213000000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::silu",
+    "calls": 45,
+    "total_ms": 0.90958
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnHcPost",
+    "calls": 90,
+    "total_ms": 0.87925
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnCausalConv1d",
+    "calls": 34,
+    "total_ms": 0.8779699999999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnInplaceZero",
+    "calls": 147,
+    "total_ms": 0.8550400000000004
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnBatchMatMul",
+    "calls": 67,
+    "total_ms": 0.8413899999999999
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnGather",
+    "calls": 55,
+    "total_ms": 0.83996
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::_reshape_alias",
+    "calls": 136,
+    "total_ms": 0.83787
+  },
+  {
+    "cat": "",
+    "name": "aclnnNanToNum_NanToNumAiCore_NanToNum",
+    "calls": 11,
+    "total_ms": 0.817696375
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::abs",
+    "calls": 42,
+    "total_ms": 0.8047300000000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnArange",
+    "calls": 145,
+    "total_ms": 0.8021700000000003
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::native_layer_norm",
+    "calls": 11,
+    "total_ms": 0.7716099999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnDynamicQuantV2",
+    "calls": 90,
+    "total_ms": 0.7556799999999997
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnClamp",
+    "calls": 157,
+    "total_ms": 0.7372
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnBitwiseAndTensor",
+    "calls": 66,
+    "total_ms": 0.7323399999999998
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnMoeInitRoutingV3",
+    "calls": 42,
+    "total_ms": 0.7318900000000002
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnHcPost",
+    "calls": 90,
+    "total_ms": 0.7274299999999999
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnGroupedMatmulWeightNz",
+    "calls": 42,
+    "total_ms": 0.72152
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnInplaceIndexFill",
+    "calls": 34,
+    "total_ms": 0.7126999999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnHcPreSinkhorn",
+    "calls": 90,
+    "total_ms": 0.7107500000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "xllm_ops::scatter_nd_update",
+    "calls": 11,
+    "total_ms": 0.68622
+  },
+  {
+    "cat": "",
+    "name": "aclnnGtScalar_StridedSliceAiCore_StridedSlice",
+    "calls": 11,
+    "total_ms": 0.683313625
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnBitwiseNot",
+    "calls": 66,
+    "total_ms": 0.6740200000000003
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnAny",
+    "calls": 45,
+    "total_ms": 0.6679500000000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnRmsNorm",
+    "calls": 113,
+    "total_ms": 0.6624899999999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::pad",
+    "calls": 11,
+    "total_ms": 0.6619299999999999
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnGroupedMatmulSwigluQuantWeightNzV2",
+    "calls": 42,
+    "total_ms": 0.6617600000000002
+  },
+  {
+    "cat": "",
+    "name": "SparseFlashAttention",
+    "calls": 11,
+    "total_ms": 0.66111325
+  },
+  {
+    "cat": "",
+    "name": "aclnnRecurrentKda_RecurrentKda_RecurrentKda",
+    "calls": 34,
+    "total_ms": 0.6495142500000001
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnInplaceZero",
+    "calls": 147,
+    "total_ms": 0.6459400000000001
+  },
+  {
+    "cat": "",
+    "name": "aclnnBatchMatMul_BatchMatMulNd_BatchMatMulV2",
+    "calls": 67,
+    "total_ms": 0.6375522499999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::permute",
+    "calls": 89,
+    "total_ms": 0.63314
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnHcPreInvRms",
+    "calls": 90,
+    "total_ms": 0.6277399999999997
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnArange",
+    "calls": 145,
+    "total_ms": 0.6225100000000003
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnSWhere",
+    "calls": 45,
+    "total_ms": 0.6144499999999999
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnDynamicQuantV2",
+    "calls": 90,
+    "total_ms": 0.6054400000000003
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::constant_pad_nd",
+    "calls": 11,
+    "total_ms": 0.6042700000000001
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+    "calls": 22,
+    "total_ms": 0.5901521249999999
+  },
+  {
+    "cat": "",
+    "name": "aclnnMoeInitRoutingV3_MoeInitRoutingV3_MoeInitRoutingV3",
+    "calls": 42,
+    "total_ms": 0.5859515000000003
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@ReshapeCacheOperation",
+    "calls": 11,
+    "total_ms": 0.57977
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnMoeTokenUnpermute",
+    "calls": 42,
+    "total_ms": 0.5797199999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnAdds",
+    "calls": 90,
+    "total_ms": 0.5748999999999999
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnExp",
+    "calls": 34,
+    "total_ms": 0.5722200000000002
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnHcPreSinkhorn",
+    "calls": 90,
+    "total_ms": 0.56711
+  },
+  {
+    "cat": "",
+    "name": "HcPost",
+    "calls": 90,
+    "total_ms": 0.5544312499999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::topk",
+    "calls": 11,
+    "total_ms": 0.55364
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnGtScalar",
+    "calls": 11,
+    "total_ms": 0.55298
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnMoeGatingTopK",
+    "calls": 42,
+    "total_ms": 0.55223
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnMul",
+    "calls": 90,
+    "total_ms": 0.5286400000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnQuantMatmulWeightNz",
+    "calls": 90,
+    "total_ms": 0.5265
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnSubs",
+    "calls": 34,
+    "total_ms": 0.5231899999999999
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnSparseFlashAttention",
+    "calls": 11,
+    "total_ms": 0.51305
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnRmsNorm",
+    "calls": 113,
+    "total_ms": 0.5060800000000001
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnLayerNorm",
+    "calls": 11,
+    "total_ms": 0.5005
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::stack",
+    "calls": 22,
+    "total_ms": 0.49378000000000005
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnSub",
+    "calls": 68,
+    "total_ms": 0.49332000000000004
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::empty_strided",
+    "calls": 34,
+    "total_ms": 0.48894999999999994
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::le",
+    "calls": 22,
+    "total_ms": 0.4865
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnHcPreInvRms",
+    "calls": 90,
+    "total_ms": 0.4801699999999998
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnAdds",
+    "calls": 90,
+    "total_ms": 0.45944
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::softmax",
+    "calls": 11,
+    "total_ms": 0.45769
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::sum",
+    "calls": 11,
+    "total_ms": 0.4525
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnSilu",
+    "calls": 45,
+    "total_ms": 0.4451500000000001
+  },
+  {
+    "cat": "",
+    "name": "aclnnMuls_MulAiCore_Mul",
+    "calls": 180,
+    "total_ms": 0.4447080000000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnInplaceFillScalar",
+    "calls": 79,
+    "total_ms": 0.4420999999999999
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnAbs",
+    "calls": 42,
+    "total_ms": 0.44001
+  },
+  {
+    "cat": "",
+    "name": "aclnnStack_PackAiCore_Pack",
+    "calls": 22,
+    "total_ms": 0.43600862500000004
+  },
+  {
+    "cat": "",
+    "name": "RmsNorm",
+    "calls": 113,
+    "total_ms": 0.43282924999999983
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnBitwiseAndTensor",
+    "calls": 66,
+    "total_ms": 0.42347000000000007
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnMul",
+    "calls": 90,
+    "total_ms": 0.42167000000000016
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnSub",
+    "calls": 68,
+    "total_ms": 0.41137999999999997
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::_softmax",
+    "calls": 11,
+    "total_ms": 0.40963000000000005
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnCat",
+    "calls": 68,
+    "total_ms": 0.40348000000000006
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnQuantMatmulWeightNz",
+    "calls": 90,
+    "total_ms": 0.40319000000000005
+  },
+  {
+    "cat": "",
+    "name": "aclnnBitwiseAndTensor_LogicalAndAiCore_LogicalAnd",
+    "calls": 66,
+    "total_ms": 0.4019074999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::max",
+    "calls": 11,
+    "total_ms": 0.3986
+  },
+  {
+    "cat": "cpu_op",
+    "name": "xllm_ops::reshape_paged_cache",
+    "calls": 11,
+    "total_ms": 0.39842999999999995
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnBitwiseNot",
+    "calls": 66,
+    "total_ms": 0.3940300000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnInplaceMaskedFillScalar",
+    "calls": 66,
+    "total_ms": 0.39167000000000013
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::mul_",
+    "calls": 22,
+    "total_ms": 0.3875199999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::all",
+    "calls": 11,
+    "total_ms": 0.38481
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@_rms_norm_sigmoid_gated_kernel",
+    "calls": 34,
+    "total_ms": 0.3815100000000001
+  },
+  {
+    "cat": "",
+    "name": "aclnnArgMax_ArgMaxV2AiCore_ArgMaxV2",
+    "calls": 11,
+    "total_ms": 0.37768737500000005
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnGather",
+    "calls": 55,
+    "total_ms": 0.35382
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnInplaceFillScalar",
+    "calls": 79,
+    "total_ms": 0.34235
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnSigmoid",
+    "calls": 68,
+    "total_ms": 0.34162999999999993
+  },
+  {
+    "cat": "cpu_op",
+    "name": "_rms_norm_sigmoid_gated_kernel",
+    "calls": 34,
+    "total_ms": 0.33862000000000014
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnBitwiseAndTensor",
+    "calls": 66,
+    "total_ms": 0.32908
+  },
+  {
+    "cat": "",
+    "name": "aclnnMatmul_BatchMatMulNd_BatchMatMulV2",
+    "calls": 11,
+    "total_ms": 0.318066125
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnBitwiseNot",
+    "calls": 66,
+    "total_ms": 0.3168500000000001
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnCat",
+    "calls": 68,
+    "total_ms": 0.31378
+  },
+  {
+    "cat": "",
+    "name": "HcPreInvRms",
+    "calls": 90,
+    "total_ms": 0.31082662500000013
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnGroupedMatmulWeightNz",
+    "calls": 42,
+    "total_ms": 0.30857999999999997
+  },
+  {
+    "cat": "",
+    "name": "aclnnBitwiseNot_LogicalNotAiCore_LogicalNot",
+    "calls": 66,
+    "total_ms": 0.30680625000000006
+  },
+  {
+    "cat": "",
+    "name": "aclnnBatchMatMul_TransposeAiCore_Transpose",
+    "calls": 22,
+    "total_ms": 0.30636599999999997
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnMoeGatingTopK",
+    "calls": 42,
+    "total_ms": 0.3054999999999999
+  },
+  {
+    "cat": "",
+    "name": "aclnnLeTensor_LessEqualAiCore_LessEqual",
+    "calls": 22,
+    "total_ms": 0.298066
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnInplaceMaskedFillScalar",
+    "calls": 66,
+    "total_ms": 0.29471
+  },
+  {
+    "cat": "",
+    "name": "CausalConv1d",
+    "calls": 34,
+    "total_ms": 0.2908255
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnLeTensor",
+    "calls": 22,
+    "total_ms": 0.28996
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnMoeTokenUnpermute",
+    "calls": 42,
+    "total_ms": 0.28678
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnSWhere",
+    "calls": 45,
+    "total_ms": 0.28225
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnGather",
+    "calls": 55,
+    "total_ms": 0.2820000000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnMoeInitRoutingV3",
+    "calls": 42,
+    "total_ms": 0.2801700000000001
+  },
+  {
+    "cat": "",
+    "name": "aclnnAny_ReduceAny_ReduceAny",
+    "calls": 45,
+    "total_ms": 0.27848537500000003
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@_rms_norm_sigmoid_gated_kernel",
+    "calls": 34,
+    "total_ms": 0.27737
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnSilu",
+    "calls": 45,
+    "total_ms": 0.2766199999999999
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnInplaceMuls",
+    "calls": 22,
+    "total_ms": 0.2762699999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnCausalConv1d",
+    "calls": 34,
+    "total_ms": 0.27521999999999996
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnTopk",
+    "calls": 11,
+    "total_ms": 0.27471
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnStack",
+    "calls": 22,
+    "total_ms": 0.27379000000000003
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnEmbedding",
+    "calls": 45,
+    "total_ms": 0.27159999999999995
+  },
+  {
+    "cat": "cpu_op",
+    "name": "xllm_ops::npu_all_gather",
+    "calls": 1,
+    "total_ms": 0.26793
+  },
+  {
+    "cat": "",
+    "name": "aclnnDynamicQuantV2_DynamicQuant_DynamicQuant",
+    "calls": 90,
+    "total_ms": 0.26672525
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnAny",
+    "calls": 45,
+    "total_ms": 0.26528
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::expand",
+    "calls": 34,
+    "total_ms": 0.26515
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::full",
+    "calls": 11,
+    "total_ms": 0.26221000000000005
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnInplaceIndexFill",
+    "calls": 34,
+    "total_ms": 0.25368
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnSigmoid",
+    "calls": 68,
+    "total_ms": 0.2530700000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnAbs",
+    "calls": 42,
+    "total_ms": 0.25183
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnGroupedMatmulWeightNz",
+    "calls": 42,
+    "total_ms": 0.25026999999999994
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnMoeGatingTopK",
+    "calls": 42,
+    "total_ms": 0.24211999999999997
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnArgMax",
+    "calls": 11,
+    "total_ms": 0.23432
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnGroupedMatmulSwigluQuantWeightNzV2",
+    "calls": 42,
+    "total_ms": 0.23372
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnMoeTokenUnpermute",
+    "calls": 42,
+    "total_ms": 0.22961999999999996
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::lt",
+    "calls": 11,
+    "total_ms": 0.22650999999999996
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnReduceSum",
+    "calls": 11,
+    "total_ms": 0.22171000000000005
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnSilu",
+    "calls": 45,
+    "total_ms": 0.21964999999999998
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnCausalConv1d",
+    "calls": 34,
+    "total_ms": 0.21817
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnSWhere",
+    "calls": 45,
+    "total_ms": 0.21436000000000002
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnEmbedding",
+    "calls": 45,
+    "total_ms": 0.21277999999999994
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnAny",
+    "calls": 45,
+    "total_ms": 0.21076000000000006
+  },
+  {
+    "cat": "",
+    "name": "aclnnAll_ReduceAll_ReduceAll",
+    "calls": 11,
+    "total_ms": 0.20840425
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnMoeInitRoutingV3",
+    "calls": 42,
+    "total_ms": 0.20675000000000002
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnInplaceIndexFill",
+    "calls": 34,
+    "total_ms": 0.20667999999999995
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnAbs",
+    "calls": 42,
+    "total_ms": 0.20323000000000002
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnConstantPadNd",
+    "calls": 11,
+    "total_ms": 0.20309000000000002
+  },
+  {
+    "cat": "",
+    "name": "aclnnLtScalar_LessAiCore_Less",
+    "calls": 11,
+    "total_ms": 0.191344
+  },
+  {
+    "cat": "",
+    "name": "aclnnAdds_AddAiCore_Add",
+    "calls": 90,
+    "total_ms": 0.19116387499999993
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnScatterNdUpdateV2",
+    "calls": 11,
+    "total_ms": 0.18721
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnSoftmax",
+    "calls": 11,
+    "total_ms": 0.18646000000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnEqTensor",
+    "calls": 34,
+    "total_ms": 0.18564999999999993
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnExp",
+    "calls": 34,
+    "total_ms": 0.18025000000000005
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::relu_",
+    "calls": 11,
+    "total_ms": 0.17763
+  },
+  {
+    "cat": "",
+    "name": "MoeGatingTopK",
+    "calls": 42,
+    "total_ms": 0.17578375000000002
+  },
+  {
+    "cat": "",
+    "name": "aclnnClamp_StridedSliceAiCore_StridedSlice",
+    "calls": 11,
+    "total_ms": 0.17242337500000002
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnNanToNum",
+    "calls": 11,
+    "total_ms": 0.1697
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnGroupedMatmulSwigluQuantWeightNzV2",
+    "calls": 42,
+    "total_ms": 0.16916000000000003
+  },
+  {
+    "cat": "",
+    "name": "MoeTokenUnpermute",
+    "calls": 42,
+    "total_ms": 0.166323625
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnStack",
+    "calls": 22,
+    "total_ms": 0.15245999999999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnSubs",
+    "calls": 34,
+    "total_ms": 0.15129
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnMax",
+    "calls": 11,
+    "total_ms": 0.14992000000000003
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnAll",
+    "calls": 11,
+    "total_ms": 0.14984999999999996
+  },
+  {
+    "cat": "",
+    "name": "aclnnBatchMatMul_AsStridedAiCore_AsStrided",
+    "calls": 34,
+    "total_ms": 0.14960299999999999
+  },
+  {
+    "cat": "",
+    "name": "aclnnRecurrentKda_SliceAiCore_Slice",
+    "calls": 102,
+    "total_ms": 0.14398312499999996
+  },
+  {
+    "cat": "",
+    "name": "aclnnTopk_TopkV2AiCore_TopKV2",
+    "calls": 11,
+    "total_ms": 0.14104275000000002
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnExp",
+    "calls": 34,
+    "total_ms": 0.14101000000000005
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnLtScalar",
+    "calls": 11,
+    "total_ms": 0.14069
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnEqTensor",
+    "calls": 34,
+    "total_ms": 0.13925000000000007
+  },
+  {
+    "cat": "",
+    "name": "aclnnClamp_SliceAiCore_Slice",
+    "calls": 90,
+    "total_ms": 0.12796174999999999
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnStack",
+    "calls": 22,
+    "total_ms": 0.12522
+  },
+  {
+    "cat": "",
+    "name": "aclnnContiguous_TransposeAiCore_Transpose",
+    "calls": 11,
+    "total_ms": 0.124982375
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceMuls_MulAiCore_Mul",
+    "calls": 22,
+    "total_ms": 0.11934225000000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::expand_as",
+    "calls": 11,
+    "total_ms": 0.11813
+  },
+  {
+    "cat": "",
+    "name": "aclnnSub_SubAiCore_Sub",
+    "calls": 68,
+    "total_ms": 0.11736187499999996
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnLeTensor",
+    "calls": 22,
+    "total_ms": 0.11581
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::resolve_conj",
+    "calls": 68,
+    "total_ms": 0.11486000000000005
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnInplaceRelu",
+    "calls": 11,
+    "total_ms": 0.11461999999999999
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnSubs",
+    "calls": 34,
+    "total_ms": 0.11181000000000002
+  },
+  {
+    "cat": "",
+    "name": "aclnnGtScalar_GreaterAiCore_Greater",
+    "calls": 11,
+    "total_ms": 0.109822125
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceCopy_SliceAiCore_Slice",
+    "calls": 79,
+    "total_ms": 0.10616237499999993
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::resolve_neg",
+    "calls": 68,
+    "total_ms": 0.10211000000000003
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnScatterNdUpdateV2",
+    "calls": 11,
+    "total_ms": 0.10031999999999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnInplaceMuls",
+    "calls": 22,
+    "total_ms": 0.09992999999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnGtScalar",
+    "calls": 11,
+    "total_ms": 0.09706999999999999
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceFillScalar_FillAiCore_Fill",
+    "calls": 79,
+    "total_ms": 0.096862
+  },
+  {
+    "cat": "cpu_op",
+    "name": "ReshapeCacheOperation",
+    "calls": 11,
+    "total_ms": 0.09670000000000002
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::reshape_as",
+    "calls": 11,
+    "total_ms": 0.09579999999999998
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceRelu_Relu_Relu",
+    "calls": 11,
+    "total_ms": 0.09514212499999998
+  },
+  {
+    "cat": "",
+    "name": "aclnnSWhere_SelectV2AiCore_SelectV2",
+    "calls": 45,
+    "total_ms": 0.094662125
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::unbind",
+    "calls": 1,
+    "total_ms": 0.09039
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnSoftmax",
+    "calls": 11,
+    "total_ms": 0.08862
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnLeTensor",
+    "calls": 22,
+    "total_ms": 0.08821000000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::_unsafe_view",
+    "calls": 22,
+    "total_ms": 0.08679
+  },
+  {
+    "cat": "",
+    "name": "_rms_norm_sigmoid_gated_kernel",
+    "calls": 34,
+    "total_ms": 0.08556212499999999
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnScatterNdUpdateV2",
+    "calls": 11,
+    "total_ms": 0.08433999999999998
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::alias",
+    "calls": 33,
+    "total_ms": 0.08400999999999997
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceCopy_BroadcastToAiCore_BroadcastTo",
+    "calls": 12,
+    "total_ms": 0.0821415
+  },
+  {
+    "cat": "",
+    "name": "aclnnMuls_Muls_Muls",
+    "calls": 42,
+    "total_ms": 0.08210137499999996
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@ReshapeCacheOperation",
+    "calls": 11,
+    "total_ms": 0.08039
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnConstantPadNd",
+    "calls": 11,
+    "total_ms": 0.07982
+  },
+  {
+    "cat": "",
+    "name": "aclnnSigmoid_SigmoidAiCore_Sigmoid",
+    "calls": 68,
+    "total_ms": 0.07900087500000003
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnTopk",
+    "calls": 11,
+    "total_ms": 0.07779
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnInplaceRelu",
+    "calls": 11,
+    "total_ms": 0.0772
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::ones",
+    "calls": 1,
+    "total_ms": 0.07698
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnGtScalar",
+    "calls": 11,
+    "total_ms": 0.07461000000000001
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnSoftmax",
+    "calls": 11,
+    "total_ms": 0.07332000000000001
+  },
+  {
+    "cat": "",
+    "name": "aclnnEqTensor_EqualAiCore_Equal",
+    "calls": 34,
+    "total_ms": 0.072841375
+  },
+  {
+    "cat": "",
+    "name": "aclnnLayerNormWithImplMode_LayerNormV3WithImplMode_LayerNormV3",
+    "calls": 11,
+    "total_ms": 0.071941375
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnSparseFlashAttention",
+    "calls": 11,
+    "total_ms": 0.07077000000000001
+  },
+  {
+    "cat": "",
+    "name": "aclnnScatterNdUpdateV2_ScatterNdUpdateV2AiCore_ScatterNdUpdateV2",
+    "calls": 11,
+    "total_ms": 0.07044125
+  },
+  {
+    "cat": "",
+    "name": "aclnnSubs_SubAiCore_Sub",
+    "calls": 34,
+    "total_ms": 0.06994175000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::resize_",
+    "calls": 22,
+    "total_ms": 0.06925999999999999
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnInplaceMuls",
+    "calls": 22,
+    "total_ms": 0.0684
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnConstantPadNd",
+    "calls": 11,
+    "total_ms": 0.06635
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnMax",
+    "calls": 11,
+    "total_ms": 0.06577
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnReduceSum",
+    "calls": 11,
+    "total_ms": 0.06377000000000001
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnTopk",
+    "calls": 11,
+    "total_ms": 0.06340000000000001
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnAll",
+    "calls": 11,
+    "total_ms": 0.06041999999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnLayerNorm",
+    "calls": 11,
+    "total_ms": 0.06006
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnArgMax",
+    "calls": 11,
+    "total_ms": 0.05995999999999999
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnNanToNum",
+    "calls": 11,
+    "total_ms": 0.05952000000000001
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnInplaceRelu",
+    "calls": 11,
+    "total_ms": 0.057429999999999995
+  },
+  {
+    "cat": "dequeue",
+    "name": "Dequeue@aclnnInplaceOne",
+    "calls": 1,
+    "total_ms": 0.05511
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnSparseFlashAttention",
+    "calls": 11,
+    "total_ms": 0.05406
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnMax",
+    "calls": 11,
+    "total_ms": 0.05321000000000001
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnReduceSum",
+    "calls": 11,
+    "total_ms": 0.05011
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnLtScalar",
+    "calls": 11,
+    "total_ms": 0.049870000000000005
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::lift_fresh",
+    "calls": 34,
+    "total_ms": 0.049830000000000006
+  },
+  {
+    "cat": "",
+    "name": "aclnnSilu_SiluAiCore_Swish",
+    "calls": 45,
+    "total_ms": 0.04896099999999999
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnArgMax",
+    "calls": 11,
+    "total_ms": 0.047920000000000004
+  },
+  {
+    "cat": "",
+    "name": "aclnnAbs_AbsAiCore_Abs",
+    "calls": 42,
+    "total_ms": 0.047481
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnLayerNorm",
+    "calls": 11,
+    "total_ms": 0.0459
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnNanToNum",
+    "calls": 11,
+    "total_ms": 0.044849999999999994
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::new_empty",
+    "calls": 1,
+    "total_ms": 0.04179
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aten::detach_",
+    "calls": 34,
+    "total_ms": 0.041060000000000006
+  },
+  {
+    "cat": "",
+    "name": "aclnnExp_ExpAiCore_Exp",
+    "calls": 34,
+    "total_ms": 0.039900874999999995
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnAll",
+    "calls": 11,
+    "total_ms": 0.037410000000000006
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnLtScalar",
+    "calls": 11,
+    "total_ms": 0.0337
+  },
+  {
+    "cat": "",
+    "name": "aclnnContiguous_SliceAiCore_Slice",
+    "calls": 22,
+    "total_ms": 0.027740374999999994
+  },
+  {
+    "cat": "",
+    "name": "ReshapeAndCacheNdKernel",
+    "calls": 11,
+    "total_ms": 0.027520375
+  },
+  {
+    "cat": "",
+    "name": "aclnnMax_ReduceMaxAiCore_ReduceMax",
+    "calls": 11,
+    "total_ms": 0.02730062500000001
+  },
+  {
+    "cat": "",
+    "name": "aclnnLayerNormWithImplMode_CastAiCore_Cast",
+    "calls": 22,
+    "total_ms": 0.020340375
+  },
+  {
+    "cat": "",
+    "name": "aclnnMean_ReduceMeanAiCore_ReduceMean",
+    "calls": 1,
+    "total_ms": 0.017560375
+  },
+  {
+    "cat": "",
+    "name": "MEMCPY_ASYNC",
+    "calls": 22,
+    "total_ms": 0.017260249999999998
+  },
+  {
+    "cat": "",
+    "name": "aclnnLayerNormWithImplMode_SliceAiCore_Slice",
+    "calls": 11,
+    "total_ms": 0.014280250000000005
+  },
+  {
+    "cat": "",
+    "name": "aclnnArgMax_CastAiCore_Cast",
+    "calls": 11,
+    "total_ms": 0.012580250000000003
+  },
+  {
+    "cat": "",
+    "name": "aclnnTopk_CastAiCore_Cast",
+    "calls": 11,
+    "total_ms": 0.012080500000000001
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_22_1",
+    "calls": 1,
+    "total_ms": 0.009941
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_67_1",
+    "calls": 1,
+    "total_ms": 0.00936
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_17_1",
+    "calls": 1,
+    "total_ms": 0.00934
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_11_1",
+    "calls": 1,
+    "total_ms": 0.00926
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_5_1",
+    "calls": 1,
+    "total_ms": 0.009160999999999999
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_39_1",
+    "calls": 1,
+    "total_ms": 0.00916
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_7_1",
+    "calls": 1,
+    "total_ms": 0.00902
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_83_1",
+    "calls": 1,
+    "total_ms": 0.00898
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_19_1",
+    "calls": 1,
+    "total_ms": 0.00894
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_12_1",
+    "calls": 1,
+    "total_ms": 0.00888
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_23_1",
+    "calls": 1,
+    "total_ms": 0.00886
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_31_1",
+    "calls": 1,
+    "total_ms": 0.00884
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_15_1",
+    "calls": 1,
+    "total_ms": 0.00882
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_35_1",
+    "calls": 1,
+    "total_ms": 0.00874
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_63_1",
+    "calls": 1,
+    "total_ms": 0.008721
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_47_1",
+    "calls": 1,
+    "total_ms": 0.0087
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_51_1",
+    "calls": 1,
+    "total_ms": 0.0087
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_59_1",
+    "calls": 1,
+    "total_ms": 0.00864
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_87_1",
+    "calls": 1,
+    "total_ms": 0.0086
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_61_1",
+    "calls": 1,
+    "total_ms": 0.008539999999999999
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_75_1",
+    "calls": 1,
+    "total_ms": 0.008521
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnMean",
+    "calls": 1,
+    "total_ms": 0.0085
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_71_1",
+    "calls": 1,
+    "total_ms": 0.0085
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_27_1",
+    "calls": 1,
+    "total_ms": 0.00846
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_4_1",
+    "calls": 1,
+    "total_ms": 0.008421
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_79_1",
+    "calls": 1,
+    "total_ms": 0.00838
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_43_1",
+    "calls": 1,
+    "total_ms": 0.0083
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_55_1",
+    "calls": 1,
+    "total_ms": 0.008199999999999999
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_70_1",
+    "calls": 1,
+    "total_ms": 0.0081
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_13_1",
+    "calls": 1,
+    "total_ms": 0.0081
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_25_1",
+    "calls": 1,
+    "total_ms": 0.0081
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_21_1",
+    "calls": 1,
+    "total_ms": 0.00808
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_3_1",
+    "calls": 1,
+    "total_ms": 0.00808
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_57_1",
+    "calls": 1,
+    "total_ms": 0.008060000000000001
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_42_1",
+    "calls": 1,
+    "total_ms": 0.008
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_65_1",
+    "calls": 1,
+    "total_ms": 0.007980000000000001
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_76_1",
+    "calls": 1,
+    "total_ms": 0.007921000000000001
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_18_1",
+    "calls": 1,
+    "total_ms": 0.0079
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_6_1",
+    "calls": 1,
+    "total_ms": 0.0079
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_24_1",
+    "calls": 1,
+    "total_ms": 0.00788
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_8_1",
+    "calls": 1,
+    "total_ms": 0.00786
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_33_1",
+    "calls": 1,
+    "total_ms": 0.00782
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_73_1",
+    "calls": 1,
+    "total_ms": 0.0078
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_30_1",
+    "calls": 1,
+    "total_ms": 0.0078
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_53_1",
+    "calls": 1,
+    "total_ms": 0.0077610000000000005
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_20_1",
+    "calls": 1,
+    "total_ms": 0.0077599999999999995
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_54_1",
+    "calls": 1,
+    "total_ms": 0.0077599999999999995
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_64_1",
+    "calls": 1,
+    "total_ms": 0.007721
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_49_1",
+    "calls": 1,
+    "total_ms": 0.007721
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_26_1",
+    "calls": 1,
+    "total_ms": 0.007719999999999999
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_40_1",
+    "calls": 1,
+    "total_ms": 0.007679999999999999
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_10_1",
+    "calls": 1,
+    "total_ms": 0.00766
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_88_1",
+    "calls": 1,
+    "total_ms": 0.007641
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_85_1",
+    "calls": 1,
+    "total_ms": 0.00764
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_81_1",
+    "calls": 1,
+    "total_ms": 0.00764
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_69_1",
+    "calls": 1,
+    "total_ms": 0.00764
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_58_1",
+    "calls": 1,
+    "total_ms": 0.00764
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_89_1",
+    "calls": 1,
+    "total_ms": 0.007621
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_62_1",
+    "calls": 1,
+    "total_ms": 0.00762
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_16_1",
+    "calls": 1,
+    "total_ms": 0.00762
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_90_1",
+    "calls": 1,
+    "total_ms": 0.0076
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_28_1",
+    "calls": 1,
+    "total_ms": 0.0076
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_14_1",
+    "calls": 1,
+    "total_ms": 0.00758
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_9_1",
+    "calls": 1,
+    "total_ms": 0.007561
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_68_1",
+    "calls": 1,
+    "total_ms": 0.00756
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_34_1",
+    "calls": 1,
+    "total_ms": 0.00756
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_32_1",
+    "calls": 1,
+    "total_ms": 0.00756
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_74_1",
+    "calls": 1,
+    "total_ms": 0.00752
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_72_1",
+    "calls": 1,
+    "total_ms": 0.00752
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_80_1",
+    "calls": 1,
+    "total_ms": 0.00752
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_82_1",
+    "calls": 1,
+    "total_ms": 0.0075
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_38_1",
+    "calls": 1,
+    "total_ms": 0.0075
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_77_1",
+    "calls": 1,
+    "total_ms": 0.0074800000000000005
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_56_1",
+    "calls": 1,
+    "total_ms": 0.00744
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_29_1",
+    "calls": 1,
+    "total_ms": 0.0074210000000000005
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_84_1",
+    "calls": 1,
+    "total_ms": 0.00738
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_50_1",
+    "calls": 1,
+    "total_ms": 0.0073609999999999995
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_52_1",
+    "calls": 1,
+    "total_ms": 0.00736
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnMean",
+    "calls": 1,
+    "total_ms": 0.00732
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_86_1",
+    "calls": 1,
+    "total_ms": 0.0073
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_78_1",
+    "calls": 1,
+    "total_ms": 0.0073
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_36_1",
+    "calls": 1,
+    "total_ms": 0.00728
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_48_1",
+    "calls": 1,
+    "total_ms": 0.00728
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_66_1",
+    "calls": 1,
+    "total_ms": 0.00724
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_41_1",
+    "calls": 1,
+    "total_ms": 0.00724
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_37_1",
+    "calls": 1,
+    "total_ms": 0.00724
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_46_1",
+    "calls": 1,
+    "total_ms": 0.00722
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_44_1",
+    "calls": 1,
+    "total_ms": 0.00718
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_45_1",
+    "calls": 1,
+    "total_ms": 0.0071600000000000006
+  },
+  {
+    "cat": "",
+    "name": "hcom_allReduce__909_60_1",
+    "calls": 1,
+    "total_ms": 0.0071200000000000005
+  },
+  {
+    "cat": "",
+    "name": "hcom_allGather__909_0_1",
+    "calls": 1,
+    "total_ms": 0.00698
+  },
+  {
+    "cat": "cpu_op",
+    "name": "aclnnInplaceOne",
+    "calls": 1,
+    "total_ms": 0.0033399999999999997
+  },
+  {
+    "cat": "enqueue",
+    "name": "Enqueue@aclnnInplaceOne",
+    "calls": 1,
+    "total_ms": 0.00231
+  },
+  {
+    "cat": "",
+    "name": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+    "calls": 1,
+    "total_ms": 0.00156
+  }
+]
