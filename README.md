@@ -4,7 +4,7 @@
 
 ## 当前结果
 
-已完成 xLLM 与 vLLM-Ascend 的同机非 PD 实测：同一台 910C-64G 超节点、同一份权重、16个逻辑设备、相同数据和客户端下，xLLM TP8×2 为 **TTFT 52.09秒、TPOT 236.26毫秒、输出46.90 token/s**；vLLM DP2×TP8 为 **17.58秒、49.55毫秒、185.34 token/s**，两边均48/48成功。当前稳定配置下 vLLM 吞吐为3.95倍；主要配置差异是 INT8 KV、Decode图、5-token MTP和通信融合，结论不扩大到所有模型与负载。
+已完成 xLLM 与 vLLM-Ascend 的同机非 PD 实测：同一台 910C-64G 超节点、同一份权重、16个逻辑设备、相同数据和客户端下，xLLM TP8×2 为 **TTFT 52.09秒、TPOT 236.26毫秒、输出46.90 token/s**；vLLM DP2×TP8 为 **17.58秒、49.55毫秒、185.34 token/s**，两边均48/48成功。当前已验证性能配置下 vLLM 吞吐为3.95倍；主要配置差异是 INT8 KV、Decode图、5-token MTP和通信融合。xLLM 压测后约12分钟 API 无响应并需要重启，稳定性门禁未通过；结论不扩大到所有模型与负载。
 
 - [vLLM 当前非 PD 最佳实测](experiments/vllm/2026-10-20-nonpd-run/README.md)：DP2×TP8、INT8 KV、5-token MTP、Decode图和前缀缓存的配置、指标与运行证据。
 - [xLLM 与 vLLM 同机对照](experiments/xllm/2026-10-20-samehost-tp8x2/README.md)：同主机、同权重、同设备数、同数据和同客户端的结果与归因。
@@ -30,7 +30,7 @@
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
-| 2026/10/20 | 完成xLLM与vLLM同机非PD对照：同一台16逻辑设备超节点、同权重/数据/客户端，xLLM为TTFT 52.09秒、TPOT 236.26毫秒、46.90 token/s，vLLM为17.58秒、49.55毫秒、185.34 token/s，均48/48成功；确认xLLM前缀缓存和MTP生效，当前差距主要关联INT8 KV、Decode图、MTP深度和通信融合。未动K8s及他人任务。[同机结果](experiments/xllm/2026-10-20-samehost-tp8x2/README.md) | 完成三框架可归因对比 | 做图/MTP/KV逐项消融 |
+| 2026/10/20 | 完成xLLM与vLLM同机非PD对照：同一台16逻辑设备超节点、同权重/数据/客户端，xLLM为TTFT 52.09秒、TPOT 236.26毫秒、46.90 token/s，vLLM为17.58秒、49.55毫秒、185.34 token/s，均48/48成功；确认xLLM前缀缓存和MTP生效，但压测后API无响应需重启，稳定性未过。未动K8s及他人任务。[同机结果](experiments/xllm/2026-10-20-samehost-tp8x2/README.md) | 完成三框架可归因对比 | 做图/MTP/KV逐项消融 |
 | 2026/10/19 | 完成 3P1D 长输入基线，输出 22.10 token/s；继续定位 KPool 和图模式问题，复用候选20.05 token/s无改善；图补丁测得34.90 token/s，但压测后回归0/4，已否决并回退，原配置8K仍2/4，正确性继续排查。[结果](xllm-3p1d-prefix-perf-2026-10-19.md) | 对比框架性能与实现瓶颈 | |
 | 2026/10/16 | 推进 Flash 容器部署准备，核查离线依赖与 PD 兼容性，准备多机验证。 | xLLM 部署与兼容性验证 | |
 | 2026/10/15 | 完成三框架调度、KV Cache、通信源码与文献整理。[资料](implementation-comparison.md) | 框架对比准备 | |
