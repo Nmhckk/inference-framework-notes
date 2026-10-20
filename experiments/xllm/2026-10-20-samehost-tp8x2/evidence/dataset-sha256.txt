@@ -1,0 +1,2 @@
+d86ea5c9baa84a4fc99ea1a422aaefe505b0316b4570a7d4f4e458f6fd388fe7  /data/tiankuan/huzhengyu/xllm-glm53-20261020/GSM8K-in81920-num48-glm53-flash-repeatRate0.93.jsonl
+d14df0cc6d8a06382e8906539be84bb7f1201b724656e11d6b9097efbef7f5d1  /data/tiankuan/huzhengyu/xllm-glm53-20261020/prefix-GSM8K-in76185-num2-glm53-flash.jsonl

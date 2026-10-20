@@ -1,0 +1,487 @@
+[
+    {
+        "Id": "0e6f6aa7ac5b219bbee791e463df8333ebd033cf989e35c4c4511a8d76237bf1",
+        "Created": "2026-10-20T13:59:32.740796693Z",
+        "Path": "/bin/bash",
+        "Args": [
+            "-c",
+            "    source /usr/local/Ascend/ascend-toolkit/set_env.sh &&     source /usr/local/Ascend/cann-9.0.0/share/info/ascendnpu-ir/bin/set_env.sh &&     source /usr/local/Ascend/nnal/atb/set_env.sh &&     exec \"$@\"",
+            "--",
+            "bash",
+            "-lc",
+            "sleep infinity"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 2192643,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-20T13:59:32.861567496Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:ce452eaac57393e2727ed7dee0ff1b65768b6c99216608e8eb6b954c5a712d6d",
+        "ResolvConfPath": "/data/docker/containers/0e6f6aa7ac5b219bbee791e463df8333ebd033cf989e35c4c4511a8d76237bf1/resolv.conf",
+        "HostnamePath": "/data/docker/containers/0e6f6aa7ac5b219bbee791e463df8333ebd033cf989e35c4c4511a8d76237bf1/hostname",
+        "HostsPath": "/data/docker/containers/0e6f6aa7ac5b219bbee791e463df8333ebd033cf989e35c4c4511a8d76237bf1/hosts",
+        "LogPath": "/data/docker/containers/0e6f6aa7ac5b219bbee791e463df8333ebd033cf989e35c4c4511a8d76237bf1/0e6f6aa7ac5b219bbee791e463df8333ebd033cf989e35c4c4511a8d76237bf1-json.log",
+        "Name": "/xllm-glm53-hzy-171-20261020",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": [
+            "e180e46b81780d15c272dd349d7ba06e139f4a388a4d5cd1da5a18c1468704fc",
+            "5194c614ff9fa1c7b128795dacfc28117906ea8403aab445b5d04d67be4e7a59",
+            "6952c06235b29b57dac8ad905bea47e368bc5a2222f55314089f74cbfaa9baa7"
+        ],
+        "HostConfig": {
+            "Binds": [
+                "/usr/local/Ascend/driver:/usr/local/Ascend/driver:ro",
+                "/usr/local/dcmi:/usr/local/dcmi:ro",
+                "/etc/hccn.conf:/etc/hccn.conf:ro",
+                "/data/tiankuan/huzhengyu/xllm-glm53-20261020/runtime-root/usr/local/Ascend/cann-9.0.0/opp/vendors/custom_xllm_math:/usr/local/Ascend/cann-9.0.0/opp/vendors/custom_xllm_math:ro",
+                "/data/tiankuan/huzhengyu/xllm-glm53-20261020/runtime-root/usr/local/python3.11.15/lib/python3.11/site-packages/xlite-0.0.0.dist-info:/usr/local/python3.11.15/lib/python3.11/site-packages/xlite-0.0.0.dist-info:ro",
+                "/usr/local/sbin/npu-smi:/usr/local/sbin/npu-smi:ro",
+                "/data/tiankuan/wio/GLM-5.3-Flash-w8a8:/models/glm53-flash:ro",
+                "/data/tiankuan/huzhengyu/xllm-glm53-20261020:/work:rw",
+                "/data/tiankuan/huzhengyu/xllm-glm53-20261020/runtime-root/usr/local/python3.11.15/lib/python3.11/site-packages/xlite:/usr/local/python3.11.15/lib/python3.11/site-packages/xlite:ro"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-file": "3",
+                    "max-size": "100m"
+                }
+            },
+            "NetworkMode": "host",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": [
+                "seccomp=unconfined"
+            ],
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 68719476736,
+            "Runtime": "ascend",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [
+                {
+                    "PathOnHost": "/dev/davinci0",
+                    "PathInContainer": "/dev/davinci0",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci1",
+                    "PathInContainer": "/dev/davinci1",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci2",
+                    "PathInContainer": "/dev/davinci2",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci3",
+                    "PathInContainer": "/dev/davinci3",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci4",
+                    "PathInContainer": "/dev/davinci4",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci5",
+                    "PathInContainer": "/dev/davinci5",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci6",
+                    "PathInContainer": "/dev/davinci6",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci7",
+                    "PathInContainer": "/dev/davinci7",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci8",
+                    "PathInContainer": "/dev/davinci8",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci9",
+                    "PathInContainer": "/dev/davinci9",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci10",
+                    "PathInContainer": "/dev/davinci10",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci11",
+                    "PathInContainer": "/dev/davinci11",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci12",
+                    "PathInContainer": "/dev/davinci12",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci13",
+                    "PathInContainer": "/dev/davinci13",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci14",
+                    "PathInContainer": "/dev/davinci14",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci15",
+                    "PathInContainer": "/dev/davinci15",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/davinci_manager",
+                    "PathInContainer": "/dev/davinci_manager",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/devmm_svm",
+                    "PathInContainer": "/dev/devmm_svm",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/hisi_hdc",
+                    "PathInContainer": "/dev/hisi_hdc",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/infiniband/rdma_cm",
+                    "PathInContainer": "/dev/infiniband/rdma_cm",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/infiniband/umad0",
+                    "PathInContainer": "/dev/infiniband/umad0",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/infiniband/umad1",
+                    "PathInContainer": "/dev/infiniband/umad1",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/infiniband/uverbs0",
+                    "PathInContainer": "/dev/infiniband/uverbs0",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/infiniband/uverbs1",
+                    "PathInContainer": "/dev/infiniband/uverbs1",
+                    "CgroupPermissions": "rwm"
+                }
+            ],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": [
+                {
+                    "Name": "memlock",
+                    "Hard": -1,
+                    "Soft": -1
+                }
+            ],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/data/docker/overlay2/977f14c2cb36b0ef3f6a41d1475e2b9ae09b09ef2493a54a4066e96026e62a2a-init/diff:/data/docker/overlay2/d99605cd5259c9e900f9a71672d62e5cbc86258915b00bb9b925ee266c41ad62/diff:/data/docker/overlay2/e801559d3994883c11683b8d08878513354341578c4d2621f38f09ef0d9997a2/diff:/data/docker/overlay2/6a3f272c3779ca2142b11e360ba93c42f6ee039d49e795e3503557eea1c86565/diff:/data/docker/overlay2/be75fac0f7623b95db4b83d4daf689ea3557cef08de490e8660e76d36fcb5991/diff:/data/docker/overlay2/8862e93653ab57eb15fc41a332369290f9e7892ffebe4b4284204bed7a07f894/diff:/data/docker/overlay2/b7ea7d17575a8fdb71531d9c2d71d9d6129dded6a89b9965bf99f1df0edda487/diff:/data/docker/overlay2/de4d299539af30bddc406de6f377ff6e565e813939f3d1d10d9886873987d9cb/diff:/data/docker/overlay2/c168da6c62673b86e983cefc54c51aeb4a8ef01f778e7bd974aee5dabf59cbfa/diff:/data/docker/overlay2/362e106eddb34670ff67322139e8300ca84819bab9d0a157ac0c237fb2b2a001/diff:/data/docker/overlay2/a3de5ad4f9f85ee1e1e78189a6c52d6b61c3d9d352afe0e14097d762f59dddb2/diff:/data/docker/overlay2/54f0a6e7cd8fd0755852805ebc4062be4819c7797b681658f1fb2636f558db38/diff:/data/docker/overlay2/458f29dd1e8ce6f1fd60a0147f32712860380641a841210a1b1d038860571a49/diff:/data/docker/overlay2/3ff88225ca38b1b5c51e740173b8f6dba303e0c325e2b6cb1258afa358452f72/diff:/data/docker/overlay2/65523ccb7a837948228f4c4e3a72bafcf9f467ba4b3b82c005f66e2fbf9356c3/diff:/data/docker/overlay2/6577c9bcf6b843afde723f4e563c822edcc743d69d2da82f828f10e828d26b8c/diff:/data/docker/overlay2/5b4086c071bd2c3030e48c5fb62c0d000a60ae02a63d62842306064fee20a82a/diff:/data/docker/overlay2/ccf6bc1641a4b6e58b240ee965110b11a4b94821b66839ac5021ae459a54afee/diff:/data/docker/overlay2/064f5022779a2defeb131694ae8c1b299b1e995494489154bccdf819245516e5/diff:/data/docker/overlay2/1665cb6f1015c390c9e46636eb072529bc35bffa81e5b898b09d9155e2bca595/diff:/data/docker/overlay2/18f56e02d81fad33b7f4f48e3a95f9cffaba392d5474ae7d3a71ebe6194beb7c/diff:/data/docker/overlay2/99b54fb36c243fbb9e3c97491cfc75eac0d535b91e4179c124bc927b869edfa7/diff:/data/docker/overlay2/0e04849abf97f805fbf9f1682620aa22f769665fd4987c298d681453d4af0026/diff:/data/docker/overlay2/d82d0569a35fc9dad521121bee107222a65bf07263c9122bb523a1953d9926f4/diff:/data/docker/overlay2/da947ed3fed68d4f986ce69069daa5b7a493d2b9b36edac34edab1c76875d654/diff:/data/docker/overlay2/e2f12f97268256bf8e66dd40b6065e52187360babcc343195978e3c60b883298/diff:/data/docker/overlay2/4aef350953fa9d1c11bd9ff3c89f7112c211cba6af682aa9855bbe2160f141ae/diff:/data/docker/overlay2/78ca6e6d1a7a8d69a9a89332cea2ac8cdad203f296445e859492036d43bb3578/diff:/data/docker/overlay2/cb983ea4a9da2c0630025eea0914ff59fc3dbd3ccfaaeb36227cd8500e1a54dd/diff:/data/docker/overlay2/2982f99763196d10244b9df7fd4522344189754cbba33b2c0c9113a286188600/diff:/data/docker/overlay2/5bb4fc7ad27d1256f61de8e6031e49ad2a5bfb8ee5eea5daabd0bb4560e12830/diff:/data/docker/overlay2/268bef98979b9ccff343493ac87d3df01b934a7494374caa664ce4217a4cdfb6/diff:/data/docker/overlay2/0d6861ec85af3cb57dae07d09ecd2acf481f38cbe742469ea55f270ae23d1f11/diff:/data/docker/overlay2/1e34edf9ffbcc06d9686b724d59b423ef7183d6bf9c255ce77dfb6058fd466d3/diff:/data/docker/overlay2/96c11c5189f04cda1df010d6d9024c68bb08cf73f98431415f4177928e761093/diff:/data/docker/overlay2/1da29beb0dd13e7ec0cc57da80633f3cd5a35e343cac3ed12db4488506846498/diff:/data/docker/overlay2/ccd06100b6b417560ccdf323582c86ec37fc3a70a65c1545367684512a8431d3/diff:/data/docker/overlay2/9b307fe48fad827e33db39cbb89f5ac2b6f934874c1bd588f2ea41bd378ad71d/diff:/data/docker/overlay2/b417c683131a70ab1be76794035e8548cb681704177dda68769b7c76b2b20313/diff:/data/docker/overlay2/004038c31386bdf2bf7e6a9461d8dcdee97054ab094f384aa288062e827843f9/diff:/data/docker/overlay2/849863c487d6ac26db512211bec28ef0aaadbdfda13a4645931494d24aedb878/diff:/data/docker/overlay2/be696711c4f2c322010e021486f9bc69f8098e645c04595aa6b93ba8b42f4394/diff",
+                "MergedDir": "/data/docker/overlay2/977f14c2cb36b0ef3f6a41d1475e2b9ae09b09ef2493a54a4066e96026e62a2a/merged",
+                "UpperDir": "/data/docker/overlay2/977f14c2cb36b0ef3f6a41d1475e2b9ae09b09ef2493a54a4066e96026e62a2a/diff",
+                "WorkDir": "/data/docker/overlay2/977f14c2cb36b0ef3f6a41d1475e2b9ae09b09ef2493a54a4066e96026e62a2a/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/data/tiankuan/huzhengyu/xllm-glm53-20261020/runtime-root/usr/local/python3.11.15/lib/python3.11/site-packages/xlite",
+                "Destination": "/usr/local/python3.11.15/lib/python3.11/site-packages/xlite",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/etc/hccn.conf",
+                "Destination": "/etc/hccn.conf",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/data/tiankuan/huzhengyu/xllm-glm53-20261020/runtime-root/usr/local/Ascend/cann-9.0.0/opp/vendors/custom_xllm_math",
+                "Destination": "/usr/local/Ascend/cann-9.0.0/opp/vendors/custom_xllm_math",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/data/tiankuan/huzhengyu/xllm-glm53-20261020/runtime-root/usr/local/python3.11.15/lib/python3.11/site-packages/xlite-0.0.0.dist-info",
+                "Destination": "/usr/local/python3.11.15/lib/python3.11/site-packages/xlite-0.0.0.dist-info",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/data/tiankuan/wio/GLM-5.3-Flash-w8a8",
+                "Destination": "/models/glm53-flash",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/data/tiankuan/huzhengyu/xllm-glm53-20261020",
+                "Destination": "/work",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/usr/local/Ascend/driver",
+                "Destination": "/usr/local/Ascend/driver",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/usr/local/dcmi",
+                "Destination": "/usr/local/dcmi",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/usr/local/sbin/npu-smi",
+                "Destination": "/usr/local/sbin/npu-smi",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "bm-jn-zs-zone1-910C-64G-10-171",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "ATB_MATMUL_SHUFFLE_K_ENABLE=1",
+                "ATB_WORKSPACE_MEM_ALLOC_GLOBAL=1",
+                "ATB_OPSRUNNER_KERNEL_CACHE_GLOBAL_COUNT=16",
+                "PIP_NO_INDEX=1",
+                "HF_HUB_OFFLINE=1",
+                "TRANSFORMERS_OFFLINE=1",
+                "TORCH_DEVICE_BACKEND_AUTOLOAD=0",
+                "PYTORCH_NPU_ALLOC_CONF=expandable_segments:True",
+                "PATH=/root/.cargo/bin:/usr/local/Ascend/nnal/atb/latest/atb/cxx_abi_1/bin:/usr/local/Ascend/ascend-toolkit/latest/bin:/usr/local/Ascend/ascend-toolkit/latest/compiler/ccec_compiler/bin:/usr/local/Ascend/ascend-toolkit/latest/tools/ccec_compiler/bin:/usr/local/Ascend/cann-9.0.0/tools/show_kernel_debug_data:/usr/local/Ascend/cann-9.0.0/tools/msobjdump:/usr/local/Ascend/cann-9.0.0/bin:/usr/local/Ascend/cann-9.0.0/tools/ccec_compiler/bin:/usr/local/Ascend/cann-9.0.0/tools/profiler/bin:/usr/local/Ascend/cann-9.0.0/tools/ascend_system_advisor/asys:/usr/local/python3.11.15/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "ASCEND_TOOLKIT_HOME=/usr/local/Ascend/cann-9.0.0",
+                "ASCEND_TOOLKIT_LATEST_HOME=/usr/local/Ascend/ascend-toolkit/latest",
+                "PYTHONPATH=/usr/local/Ascend/cann-9.0.0/python/site-packages:/usr/local/Ascend/cann-9.0.0/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe",
+                "ASCEND_AICPU_PATH=/usr/local/Ascend/cann-9.0.0",
+                "ASCEND_OPP_PATH=/usr/local/Ascend/cann-9.0.0/opp",
+                "TOOLCHAIN_HOME=/usr/local/Ascend/cann-9.0.0/toolkit",
+                "ASCEND_HOME_PATH=/usr/local/Ascend/cann-9.0.0",
+                "CMAKE_PREFIX_PATH=/usr/local/Ascend/cann-9.0.0/toolkit/tools/tikicpulib/lib/cmake:/usr/local/Ascend/cann-9.0.0/lib64/cmake",
+                "ATB_HOME_PATH=/usr/local/Ascend/nnal/atb/latest/atb/cxx_abi_1",
+                "LD_LIBRARY_PATH=/usr/local/Ascend/cann-9.0.0/lib64:/usr/local/Ascend/cann-9.0.0/lib64/plugin/opskernel:/usr/local/Ascend/cann-9.0.0/lib64/plugin/nnengine:/usr/local/Ascend/cann-9.0.0/opp/built-in/op_impl/ai_core/tbe/op_tiling:/usr/local/Ascend/driver/lib64:/usr/local/Ascend/driver/lib64/common:/usr/local/Ascend/driver/lib64/driver:/usr/local/Ascend/nnal/atb/latest/atb/cxx_abi_1/lib:/usr/local/Ascend/nnal/atb/latest/atb/cxx_abi_1/examples:/usr/local/Ascend/nnal/atb/latest/atb/cxx_abi_1/tests/atbopstest:/usr/local/Ascend/ascend-toolkit/latest/tools/aml/lib64:/usr/local/Ascend/ascend-toolkit/latest/tools/aml/lib64/plugin:/usr/local/Ascend/ascend-toolkit/latest/lib64:/usr/local/Ascend/ascend-toolkit/latest/lib64/plugin/opskernel:/usr/local/Ascend/ascend-toolkit/latest/lib64/plugin/nnengine:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe/op_tiling:",
+                "ATB_STREAM_SYNC_EVERY_KERNEL_ENABLE=0",
+                "ATB_STREAM_SYNC_EVERY_RUNNER_ENABLE=0",
+                "ATB_STREAM_SYNC_EVERY_OPERATION_ENABLE=0",
+                "ATB_OPSRUNNER_KERNEL_CACHE_LOCAL_COUNT=1",
+                "ATB_OPSRUNNER_KERNEL_CACHE_GLOABL_COUNT=5",
+                "ATB_WORKSPACE_MEM_ALLOC_ALG_TYPE=3",
+                "ATB_COMPARE_TILING_EVERY_KERNEL=0",
+                "ATB_SHARE_MEMORY_NAME_SUFFIX=",
+                "LCCL_DETERMINISTIC=0",
+                "LCCL_PARALLEL=0",
+                "http_proxy=",
+                "https_proxy=",
+                "TZ=Asia/Shanghai",
+                "PYTHON_VERSION=3.11.15",
+                "PYTHON_MAJOR_VERSION=3.11",
+                "PYTHON_SHORT_VERSION=311",
+                "PIP_PROGRESS_BAR=off",
+                "CARGO_HOME=/root/.cargo",
+                "RUSTUP_DIST_SERVER=",
+                "RUSTUP_UPDATE_ROOT=",
+                "LD_PRELOAD=/usr/lib64/libtcmalloc.so.4.5.16",
+                "VCPKG_DEFAULT_TRIPLET=arm64-linux",
+                "VCPKG_TARGET_TRIPLET=arm64-linux",
+                "NPU_MEMORY_FRACTION=0.98",
+                "OMP_NUM_THREADS=12",
+                "HCCL_EXEC_TIMEOUT=0",
+                "HCCL_CONNECT_TIMEOUT=7200",
+                "VCPKG_ROOT=/vcpkg-src",
+                "VCPKG_OVERLAY_TRIPLETS=/vcpkg-src/triplets/community",
+                "VCPKG_FORCE_SYSTEM_BINARIES=1",
+                "LANG=C.UTF-8",
+                "LC_ALL=C.UTF-8",
+                "PYTHONIOENCODING=utf-8",
+                "ATB_LOG_LEVEL=ERROR",
+                "ATB_LOG_TO_FILE=0",
+                "ASCEND_GLOBAL_EVENT_ENABLE=0",
+                "ASCEND_SLOG_PRINT_TO_STDOUT=0",
+                "no_proxy=.jd.com,.jd.local,.loca,127.0.0.1,localhost"
+            ],
+            "Cmd": [
+                "bash",
+                "-lc",
+                "sleep infinity"
+            ],
+            "Image": "quay.io/jd_xllm/xllm-ai:xllm-dev-a3-arm-cann9-20260911",
+            "Volumes": null,
+            "WorkingDir": "/export/home",
+            "Entrypoint": [
+                "/bin/bash",
+                "-c",
+                "    source /usr/local/Ascend/ascend-toolkit/set_env.sh &&     source /usr/local/Ascend/cann-9.0.0/share/info/ascendnpu-ir/bin/set_env.sh &&     source /usr/local/Ascend/nnal/atb/set_env.sh &&     exec \"$@\"",
+                "--"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "project": "hzy-xllm-glm53"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "b1405a3d4fb92abf21d5f7f8deef91fc1ce86af407f7072bc0b26b411abe3d90",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/default",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "host": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "69194b87d6438ee457ca198cc276886c37007f175d2dc10c7a7119acb8f5dc8e",
+                    "EndpointID": "6f6dcb49e5aa2f7994fa084474eabf3b382c44092ad8206814ed28f3518eefe5",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]

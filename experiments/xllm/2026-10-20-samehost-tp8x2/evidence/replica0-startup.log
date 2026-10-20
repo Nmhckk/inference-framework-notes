@@ -1,0 +1,6 @@
+I20261020 22:00:01.796921  1332 server.cpp:1200] Server[xllm::CollectiveService] is serving on port=29680.
+I20261020 22:00:01.811241  2055 server.cpp:1200] Server[xllm::WorkerService] is serving on port=38721.
+I20261020 22:03:41.573536  1332 llm_engine.cpp:288] kv cache capacity: 8.39 GB, blocks: 3299, slot_size: 1024, index_slot_size: 514, indexer_layers: 11, scale_slot_size: 0, linear_slot_size: 542720, linear_blocks: 66, state_slots: 66, gdn_state_bytes: 17.60 MB, kpool_state_bytes: 0.00 B, max_linear_state_cache_slots: 64, reserved_state_bytes: 1.13 GB, n_layers: 45, kv_cache_dtype: auto
+I20261020 22:03:42.466179  1332 llm_engine.cpp:288] kv cache capacity: 8.39 GB, blocks: 3299, slot_size: 1024, index_slot_size: 514, indexer_layers: 1, scale_slot_size: 0, linear_slot_size: 0, linear_blocks: 2, state_slots: 0, gdn_state_bytes: 0.00 B, kpool_state_bytes: 0.00 B, max_linear_state_cache_slots: 64, reserved_state_bytes: 0.00 B, n_layers: 1, kv_cache_dtype: auto
+I20261020 22:04:06.138911  1332 profile_manager.cpp:1265] Eager warmup completed: tokens=256, latency=23671.3 ms
+I20261020 22:04:13.560535  1332 server.cpp:1200] Server[xllm::APIService] is serving on port=19600.

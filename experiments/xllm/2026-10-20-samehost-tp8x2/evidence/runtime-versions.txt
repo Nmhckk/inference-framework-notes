@@ -1,0 +1,8 @@
+XLLM_SOURCE_COMMIT=ad9e405650c1bbb0af53d2c8e821dbdcbe5e79eb
+Python 3.11.15
+Name: torch
+Version: 2.9.0+cpu
+Name: torch_npu
+Version: 2.9.0.post2+gitbe0dd17
+Name: xlite
+Version: 0.0.0
