@@ -20,14 +20,14 @@
 
 ## 图模式补丁与反证
 
-候选补丁只修正 `decode_acl_graph.py` 的 linear-state 索引选择：有线性状态缓存时，不再因为 attention backend 同时带 MLA 标志而丢弃 `linear_state_indices`。补丁见 [graph-linear-state-index.patch](patches/graph-linear-state-index.patch)。
+候选补丁只修正 `decode_acl_graph.py` 的 linear-state 索引选择：有线性状态缓存时，不再因为 attention backend 同时带 MLA 标志而丢弃 `linear_state_indices`。补丁见 [graph-linear-state-index.patch](graph-linear-state-index.patch)。
 
 补丁后图捕获和服务启动都成功，但输出门禁失败：
 
 - Graph＋MTP1：已完成2条，正确0条；第一条达到1024输出上限并出现重复乱码。
 - Graph＋MTP0：已完成10条，正确4条；1K顺序为2/4，已完成的1K并发为1/2，8K并发为1/4。
 
-这说明该补丁必要但不充分；剩余问题更接近 KPool/DSA/GDN 混合状态在图回放时的地址或索引更新，而不是单纯 MTP 验证错误。完整逐请求结果见 [results-summary.json](results-summary.json)，原始日志和响应在 [`raw/`](raw/)。
+这说明该补丁必要但不充分；剩余问题更接近 KPool/DSA/GDN 混合状态在图回放时的地址或索引更新，而不是单纯 MTP 验证错误。完整逐请求结果见 [results-summary.json](results-summary.json)，原始日志和响应收录在 [证据包](xllm-optimization-evidence-20261020.tar.gz)。
 
 ## INT8 的准确含义
 
