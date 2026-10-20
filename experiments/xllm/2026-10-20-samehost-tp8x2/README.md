@@ -1,6 +1,6 @@
 # xLLM 与 vLLM 同机非 PD 对照（2026-10-20）
 
-本轮把 xLLM 部署到 vLLM 实测所用的同一台 910C-64G 超节点，使用同一份 GLM-5.3-Flash W8A8 权重、同一组 80K 数据和相同客户端负载。xLLM 以两个独立 TP8 `DEFAULT` 实例使用全部 16 个逻辑设备，对齐 vLLM 的 DP2×TP8 资源规模。48/48 请求成功，服务在测试后仍健康。
+本轮把 xLLM 部署到 vLLM 实测所用的同一台 910C-64G 超节点，使用同一份 GLM-5.3-Flash W8A8 权重、同一组 80K 数据和相同客户端负载。xLLM 以两个独立 TP8 `DEFAULT` 实例使用全部 16 个逻辑设备，对齐 vLLM 的 DP2×TP8 资源规模。48/48 请求成功；但测试结束约12分钟后两个 API 端点无响应，虽然工作进程仍在，服务需要重启。因此性能轮次有效，压测后稳定性门禁未通过。
 
 ## 同机结果
 
@@ -36,10 +36,10 @@
 4. vLLM 同时启用 FlashComm1、DSA CP、prefill/fused MC2 与 shared-expert DP；xLLM 当前两个 TP8 副本没有等价的同机 DP/EP 融合路径。
 5. xLLM 的 Prefix Cache 确实命中约 90% 前缀，但每个新请求仍需处理约 8K 未命中 token；并发排队使 TTFT P50/P90 明显上升。缓存生效并不足以抵消 Decode 和通信路径的差距。
 
-因此，本轮结论是“当前 GLM-5.3-Flash 稳定配置下 vLLM 更快”，不把它扩大成所有模型和负载的框架结论。xLLM 的优势仍集中在多机 PD 编排、原生 KPool/GDN 状态管理和灵活实例角色；这些能力需要在 TTFT 优先、多节点和异构 P/D 比例场景单独验证。
+因此，本轮结论是“当前 GLM-5.3-Flash 已验证性能配置下 vLLM 更快，而 xLLM 还有压测后存活性问题”，不把它扩大成所有模型和负载的框架结论。xLLM 的优势仍集中在多机 PD 编排、原生 KPool/GDN 状态管理和灵活实例角色；这些能力需要在 TTFT 优先、多节点和异构 P/D 比例场景单独验证。
 
 ## 环境修复记录
 
 新宿主的 Docker seccomp 默认规则会让该开发镜像在 `pthread_create` 时报 `Operation not permitted`，容器使用 `seccomp=unconfined` 后恢复。基础镜像不包含源码编译产生的 `custom_xllm_math` 与 `xlite` 运行库，本轮从同一构建产物中恢复并以只读目录挂载。镜像的 42 个 OCI 内容层在导入前逐一校验，最终镜像 ID与固定值一致。
 
-本轮只停止了本项目的 vLLM 容器；未操作 K8s 和其他用户容器。xLLM 两个端点目前保持运行，`/v1/models` 均返回 200。
+本轮只停止了本项目的 vLLM 容器；未操作 K8s 和其他用户容器。性能压测完成约12分钟后，`/v1/models` 出现超时/503，已重启本项目 xLLM 容器恢复服务；该现象按稳定性缺陷保留。

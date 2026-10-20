@@ -57,5 +57,10 @@
     "xllm_ttft_over_vllm": 2.9636253475412504,
     "xllm_tpot_over_vllm": 4.768347656835196
   },
-  "validation_boundary": "All 48 performance requests succeeded and short functional output was checked; this is not a full accuracy acceptance."
+  "validation_boundary": "All 48 performance requests succeeded and short functional output was checked. Post-run service stability failed and required restart; this is not a full accuracy acceptance.",
+  "post_run_stability": {
+    "passed": false,
+    "observation": "About 12 minutes after the 48-request run, both API endpoints timed out or returned 503 while worker processes were still present.",
+    "recovery": "Restarted only the project-owned xLLM container; Kubernetes and other users containers were not touched."
+  }
 }
