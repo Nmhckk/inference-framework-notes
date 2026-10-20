@@ -2,13 +2,13 @@
 
 以 GLM 系列模型研究推理框架，当前实机对象改为 GLM-5.3-Flash W8A8，先完成 xLLM 验证，再扩展 SGLang、vLLM-Ascend，对比调度、算子、KV Cache 和通信带来的差异，逐步形成自己的框架。早期 GLM-5.3 W8A8C8 调研材料保留其原适用条件。
 
-当前阶段：GLM-5.3-Flash W8A8 的 xLLM 四实例非 PD 完成 81920/600、并发16前缀负载48/48请求；TTFT均值23.268秒、TPOT均值144.6毫秒、集群输出82.32 token/s，是3P1D吞吐的3.72倍。MTP/缓存/重叠开启，图与KPool候选因验证失败关闭；尚非精度验收通过。K8s未改。
+当前阶段：已在空闲单机上完成 GLM-5.3-Flash W8A8 的 vLLM-Ascend 非PD实测。DP2×TP8、16个逻辑设备，81920/600、并发16前缀负载48/48成功；TTFT均值17.577秒、TPOT均值49.547毫秒、输出185.34 token/s。相同数据下，xLLM四实例、32设备为82.32 token/s。这是强预备对照，尚非完整精度验收或最终框架排名。K8s未改，未动他人任务。
 
 ## 日报
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
-| 2026/10/20 | 完成四实例非PD长输入复测：48/48成功，输出82.32 token/s；补充vLLM-Ascend、SGLang官方适配和十四篇论文，形成共同基线、机制消融与夜间实验计划。[结果及原始材料](experiments/xllm/2026-10-20-nonpd/README.md) · [研究路线](research/2026-10-20-framework-comparison-roadmap.md)。 | 完成三框架可归因对比 | 优先验证vLLM-Ascend共同基线 |
+| 2026/10/20 | 完成vLLM-Ascend非PD实测：单机16逻辑设备、48/48成功，TTFT 17.577秒、TPOT 49.547毫秒、输出185.34 token/s；相同负载下为xLLM 32设备结果的2.25倍。已保存配置、逐请求结果、图、MTP和前缀缓存证据。[结果](experiments/vllm/2026-10-20-nonpd-run/README.md) · [对比](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)。 | 完成三框架可归因对比 | 统一主机与客户端后做消融 |
 | 2026/10/19 | 完成xLLM 3P1D长输入前缀压测：48/48成功，TTFT 8.945秒、TPOT 637.1毫秒、输出22.10 token/s；定位PD压缩池缓存限制与OOM，图关闭、精度待验证。[结果及原始材料](xllm-3p1d-prefix-perf-2026-10-19.md)。 | 对比框架性能与实现瓶颈 | |
 | 2026/10/15 | 整理 xLLM 非 PD 材料；完成三框架调度、KV Cache、通信源码对比及论文分析。[资料](implementation-comparison.md)；实机待验证。 | GLM-5.3 C8 的 xLLM 部署验证与框架对比准备 | |
 
@@ -16,7 +16,9 @@
 
 - [GLM-5.3-Flash 三框架研究路线](research/2026-10-20-framework-comparison-roadmap.md)：汇总最新官方适配状态与十四篇论文，规划共同基线、机制消融、在线 goodput、夜间机时和自研模块。
 
-- [xLLM 非PD基线与vLLM对照准备](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)：更正此前误用的vLLM PD截图；公开资料没有同条件非PD数据，保留源码假设和公平复测条件。
+- [vLLM-Ascend 非PD首轮实测](experiments/vllm/2026-10-20-nonpd-run/README.md)：单机DP2×TP8、16设备、全部开启的有效优化、80K/600逐请求结果和运行证据。
+
+- [xLLM与vLLM非PD首轮对照](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)：给出实测差异、实现解释与未统一的控制变量。
 
 - [vLLM 非PD部署方案](experiments/vllm/2026-10-20-nonpd-plan/README.md)：v0.30.0RC1镜像选择、32设备DP/TP拓扑、时间估计和参数化启动脚本。
 
@@ -49,9 +51,9 @@
 
 ## 后续推进
 
-1. 基于当前稳定实例扩展负载及SLO测试，分析batch、图和通信瓶颈。
+1. 在同一主机和统一客户端上复测 xLLM/vLLM，再补充同设备数对照。
 2. 按后续需求补充精度与长稳验证，逐项调优批处理、图与MTP。
 3. 在相同模型、硬件和负载条件下引入 SGLang、vLLM-Ascend；分别记录统一基线和各自调优结果。
 4. 用性能剖析与控制变量实验定位差异，再确定自研模块。
 
-日报只记录当天实际新增进展，附成果链接；未运行的方案标为待验证。本次仅比较xLLM拓扑，尚无跨框架快慢的实测结论。
+日报只记录当天实际新增进展，附成果链接；未运行的方案标为待验证。当前已有跨框架首轮实测，待统一主机、设备数和客户端后升级为严格结论。

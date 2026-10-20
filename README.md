@@ -4,10 +4,11 @@
 
 ## 当前结果
 
-原四台机器改为四个非 PD `DEFAULT` 实例，每实例 TP8。81920 输入 / 600 输出、48 请求、并发 16：**TTFT 23.268 秒，TPOT 144.6 毫秒，集群输出 82.32 token/s**。48/48 请求完成；相比 3P1D 的 22.10 token/s 提升 3.72 倍，但 TTFT 变慢。属于性能压力记录，尚非完整精度验收。
+已完成 vLLM-Ascend 非 PD 首轮实测：单机 DP2×TP8、16个逻辑设备，81920/600、48请求、并发16下，**TTFT 17.577秒，TPOT 49.547毫秒，输出185.34 token/s**，48/48成功。相同数据和负载下，xLLM四实例非PD为82.32 token/s；vLLM用一半活跃逻辑设备实现2.25倍总吞吐、低65.7% TPOT。客户端和服务器尚未完全锁齐，当前作为强预备结论，不是最终框架排名。
 
-- [当前最佳非 PD 配置与原始证据](experiments/xllm/2026-10-20-nonpd/README.md)
-- [xLLM 非 PD 基线与 vLLM 对照准备](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)：已撤回误用的 vLLM PD 数字；公开资料暂无同条件非 PD 结果，保留源码假设并等待同机复测。
+- [vLLM 当前非 PD 最佳实测](experiments/vllm/2026-10-20-nonpd-run/README.md)：DP2×TP8、INT8 KV、5-token MTP、Decode图和前缀缓存的配置、指标与运行证据。
+- [xLLM 当前非 PD 结果](experiments/xllm/2026-10-20-nonpd/README.md)
+- [xLLM 与 vLLM 首轮对照](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)：区分实测差异、代码机制和未统一的控制变量。
 - [vLLM 非 PD 部署方案](experiments/vllm/2026-10-20-nonpd-plan/README.md)：固定镜像、32设备拓扑、优化参数、时间估计和参数化启动脚本。
 - [3P1D 基线与原始证据](xllm-3p1d-prefix-perf-2026-10-19.md)
 - [KPool 与图模式候选实验](experiments/xllm/2026-10-19-kpool/README.md)：局部结果与整机结果分开，失败方案保留。
@@ -28,7 +29,7 @@
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
-| 2026/10/20 | 完成 xLLM 四实例非 PD 长输入复测：48/48 成功，TTFT 23.268 秒、TPOT 144.6 毫秒、输出 82.32 token/s，为 3P1D 的 3.72 倍；补充 vLLM-Ascend、SGLang 官方适配和十四篇论文，形成三框架共同基线、机制消融与夜间实验计划。[结果](experiments/xllm/2026-10-20-nonpd/README.md) · [研究路线](research/2026-10-20-framework-comparison-roadmap.md) | 完成三框架可归因对比 | 优先验证 vLLM-Ascend 共同基线 |
+| 2026/10/20 | 完成 vLLM-Ascend 非PD实测：单机16逻辑设备、48/48成功，TTFT 17.577秒、TPOT 49.547毫秒、输出185.34 token/s；相同负载下，用xLLM一半的活跃设备实现2.25倍总吞吐。已保存配置、逐请求数据、MTP接受率和前缀命中证据；未动K8s及他人任务。[结果](experiments/vllm/2026-10-20-nonpd-run/README.md) · [对比](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md) | 完成三框架可归因对比 | 统一主机与客户端后做图/MTP/KV消融 |
 | 2026/10/19 | 完成 3P1D 长输入基线，输出 22.10 token/s；继续定位 KPool 和图模式问题，复用候选20.05 token/s无改善；图补丁测得34.90 token/s，但压测后回归0/4，已否决并回退，原配置8K仍2/4，正确性继续排查。[结果](xllm-3p1d-prefix-perf-2026-10-19.md) | 对比框架性能与实现瓶颈 | |
 | 2026/10/16 | 推进 Flash 容器部署准备，核查离线依赖与 PD 兼容性，准备多机验证。 | xLLM 部署与兼容性验证 | |
 | 2026/10/15 | 完成三框架调度、KV Cache、通信源码与文献整理。[资料](implementation-comparison.md) | 框架对比准备 | |
