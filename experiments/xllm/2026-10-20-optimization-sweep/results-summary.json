@@ -1,0 +1,170 @@
+{
+  "date": "2026-10-20",
+  "model": "GLM-5.3-Flash W8A8",
+  "framework": "xLLM 0.11.0",
+  "source_commit": "ad9e405650c1bbb0af53d2c8e821dbdcbe5e79eb",
+  "runs": {
+    "graph-mtp0-auto-state": {
+      "completed_requests": 10,
+      "correct_requests": 4,
+      "rows": [
+        {
+          "name": "length1024-variant0",
+          "phase": "concurrent",
+          "expected": "VALUE_1197",
+          "answer": "VALUE_1197",
+          "finish_reason": "stop",
+          "truncated": false,
+          "ok": true,
+          "seconds": 7.262317365035415
+        },
+        {
+          "name": "length1024-variant3",
+          "phase": "concurrent",
+          "expected": "VALUE_2370",
+          "answer": "VALUE_2345",
+          "finish_reason": "stop",
+          "truncated": false,
+          "ok": false,
+          "seconds": 17.601920704357326
+        },
+        {
+          "name": "length8192-variant0",
+          "phase": "concurrent",
+          "expected": "VALUE_8365",
+          "answer": "VALUE_8192_0",
+          "finish_reason": "stop",
+          "truncated": false,
+          "ok": false,
+          "seconds": 44.36602933704853
+        },
+        {
+          "name": "length8192-variant1",
+          "phase": "concurrent",
+          "expected": "VALUE_8756",
+          "answer": "VALUE_8192_1",
+          "finish_reason": "stop",
+          "truncated": false,
+          "ok": false,
+          "seconds": 12.098453301936388
+        },
+        {
+          "name": "length8192-variant2",
+          "phase": "concurrent",
+          "expected": "VALUE_9147",
+          "answer": "VALUE_9147",
+          "finish_reason": "stop",
+          "truncated": false,
+          "ok": true,
+          "seconds": 10.997695091180503
+        },
+        {
+          "name": "length8192-variant3",
+          "phase": "concurrent",
+          "expected": "VALUE_9538",
+          "answer": "VALUE_8192_3",
+          "finish_reason": "stop",
+          "truncated": false,
+          "ok": false,
+          "seconds": 11.232268028892577
+        },
+        {
+          "name": "length1024-variant0",
+          "phase": "sequential",
+          "expected": "VALUE_1197",
+          "answer": "VALUE_1197",
+          "finish_reason": "stop",
+          "truncated": false,
+          "ok": true,
+          "seconds": 2.694626921787858
+        },
+        {
+          "name": "length1024-variant1",
+          "phase": "sequential",
+          "expected": "VALUE_1588",
+          "answer": "VALUE_1024_1",
+          "finish_reason": "stop",
+          "truncated": false,
+          "ok": false,
+          "seconds": 3.513140331953764
+        },
+        {
+          "name": "length1024-variant2",
+          "phase": "sequential",
+          "expected": "VALUE_1979",
+          "answer": "VALUE_1979",
+          "finish_reason": "stop",
+          "truncated": false,
+          "ok": true,
+          "seconds": 11.334004249423742
+        },
+        {
+          "name": "length1024-variant3",
+          "phase": "sequential",
+          "expected": "VALUE_2370",
+          "answer": "VALUE_8765",
+          "finish_reason": "stop",
+          "truncated": false,
+          "ok": false,
+          "seconds": 3.4020474702119827
+        }
+      ],
+      "complete_gate": false,
+      "valid_for_performance": false
+    },
+    "graph-mtp1-auto-state": {
+      "completed_requests": 2,
+      "correct_requests": 0,
+      "rows": [
+        {
+          "name": "length1024-variant0",
+          "phase": "sequential",
+          "expected": "VALUE_1197",
+          "answer": "",
+          "finish_reason": "length",
+          "truncated": true,
+          "ok": false,
+          "seconds": 28.669462701305747
+        },
+        {
+          "name": "length1024-variant1",
+          "phase": "sequential",
+          "expected": "VALUE_1588",
+          "answer": "",
+          "finish_reason": "stop",
+          "truncated": false,
+          "ok": false,
+          "seconds": 14.183194039389491
+        }
+      ],
+      "complete_gate": false,
+      "valid_for_performance": false
+    }
+  },
+  "other_trials": {
+    "eager-mtp1-indexer-int8": {
+      "startup": "rejected",
+      "reason": "KPool requires BF16 compressed index cache",
+      "valid_for_performance": false
+    },
+    "eager-mtp1-draft-tp1": {
+      "startup": "inconclusive",
+      "reason": "external training occupied all NPUs from 23:17:41",
+      "valid_for_performance": false
+    },
+    "eager-mtp2-adaptive": {
+      "startup": "inconclusive",
+      "reason": "external training occupied all NPUs from 23:17:41",
+      "valid_for_performance": false
+    }
+  },
+  "best_valid_existing_baseline": {
+    "topology": "same-host TP8 x 2, eager, MTP1",
+    "workload": "81920 input / 600 output / 48 requests / concurrency 16 / repeat 0.93",
+    "output_tokens_per_second": 46.9037,
+    "ttft_mean_seconds": 52.0919,
+    "tpot_mean_ms": 236.2551,
+    "success": "48/48",
+    "source": "../2026-10-20-samehost-tp8x2/performance-summary.json"
+  }
+}

@@ -1,0 +1,11 @@
+--- publication/inference-framework-notes/experiments/xllm/2026-10-20-optimization-sweep/raw/sources/xllm/xllm/python/model_executor/runners/decode_acl_graph.py.pre-graph-state-fix	2026-10-20 23:02:23
++++ publication/inference-framework-notes/experiments/xllm/2026-10-20-optimization-sweep/raw/sources/xllm/xllm/python/model_executor/runners/decode_acl_graph.py	2026-10-20 23:02:23
+@@ -1104,7 +1104,7 @@
+         # number of repair rows; those unrelated indices need no expansion.
+         linear_state_indices = (
+             None
+-            if getattr(self.attention_backend, "is_mla", False)
++            if getattr(self.attention_backend, "is_mla", False) and not self._has_linear_cache
+             else getattr(metadata, "linear_state_indices", None)
+         )
+         if linear_state_indices is not None:
