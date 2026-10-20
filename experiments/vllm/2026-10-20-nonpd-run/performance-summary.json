@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-20",
+  "status": "provisional_performance_result",
+  "model": "GLM-5.3-Flash W8A8",
+  "framework_image": "quay.io/ascend/vllm-ascend:v0.30.0rc1-a3",
+  "image_digest": "sha256:090eeee66e347509127601e565b971a0801701e32e4e865d89cc8dec72ca7d83",
+  "topology": "one 16-logical-device host, DP2 x TP8, expert parallel, non-PD mixed",
+  "workload": {
+    "input_target": 81920,
+    "actual_prompt_tokens_min": 81932,
+    "actual_prompt_tokens_max": 81934,
+    "output_tokens_per_request": 600,
+    "requests": 48,
+    "successful_requests": 48,
+    "concurrency": 16,
+    "request_rate": 0.93,
+    "repeat_rate": 0.93,
+    "prefix_warmup_requests": 2
+  },
+  "result": {
+    "wall_seconds": 155.39218071382493,
+    "total_output_tokens": 28800,
+    "output_throughput_tokens_per_second": 185.33751098479644,
+    "ttft_mean_seconds": 17.577084417280275,
+    "ttft_p50_seconds": 1.9436179157346487,
+    "ttft_p90_seconds": 49.54058557255196,
+    "tpot_mean_milliseconds": 49.546535277680086,
+    "tpot_p50_milliseconds": 34.991196050419035,
+    "tpot_p90_milliseconds": 101.11235389268283
+  },
+  "runtime_metrics_after_run": {
+    "prefix_cache_queried_tokens": 4085208,
+    "prefix_cache_hit_tokens": 3649536,
+    "prefix_cache_hit_ratio": 0.8933537778247767,
+    "mtp_draft_tokens": 40605,
+    "mtp_accepted_tokens": 20906,
+    "mtp_draft_token_acceptance_ratio": 0.5148627016377293,
+    "metric_scope": "cumulative since both engine ranks started; includes warm-up and diagnostic requests"
+  },
+  "optimizations": [
+    "W8A8 weights",
+    "INT8 KV cache",
+    "prefix caching",
+    "chunked prefill",
+    "5-token MTP",
+    "FULL_DECODE_ONLY graph",
+    "FlashComm1",
+    "DSA CP",
+    "prefill/fused MC2",
+    "shared-expert DP"
+  ],
+  "dataset_sha256": {
+    "main_48_requests": "d86ea5c9baa84a4fc99ea1a422aaefe505b0316b4570a7d4f4e458f6fd388fe7",
+    "prefix_2_requests": "d14df0cc6d8a06382e8906539be84bb7f1201b724656e11d6b9097efbef7f5d1"
+  },
+  "validation_boundary": "Performance and short functional output were checked; this is not a full accuracy acceptance. The client reproduces the supplied request semantics but is not the AISBench package."
+}

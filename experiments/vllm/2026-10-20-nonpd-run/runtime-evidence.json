@@ -1,0 +1,43 @@
+{
+  "engine_ranks": 2,
+  "logical_devices_per_rank": 8,
+  "kv_cache": {
+    "dtype": "int8",
+    "prefix_cache_enabled": true,
+    "block_size": 1152,
+    "tokens_per_rank": 3284081,
+    "memory_gib_per_rank": 27.5,
+    "max_concurrency_at_98304_tokens": 33.407407407407405
+  },
+  "graph": {
+    "mode": "FULL_DECODE_ONLY",
+    "capture_completed": true,
+    "max_capture_size": 96
+  },
+  "mtp": {
+    "configured_speculative_tokens": 5,
+    "runtime_method": "mtp",
+    "model_architecture": "Glm5NextMTPModel",
+    "drafts": 8121,
+    "draft_tokens": 40605,
+    "accepted_tokens": 20906,
+    "accepted_by_position": [7225, 5673, 3872, 2487, 1649]
+  },
+  "prefix_cache": {
+    "queried_tokens": 4085208,
+    "hit_tokens": 3649536,
+    "hit_ratio": 0.8933537778247767
+  },
+  "post_run_health": {
+    "all_16_logical_devices": "OK",
+    "matched_error_log_lines": 0,
+    "matched_oom_log_lines": 0,
+    "matched_ecc_log_lines": 0
+  },
+  "known_runtime_gaps": [
+    "The image does not contain vllm._deepselect_C, so DeepSelect is unavailable.",
+    "The image does not contain causal_conv1d_update_npu; the runtime uses a PyTorch fallback with a synchronization warning.",
+    "IRQ affinity tuning was skipped because /proc/irq was read-only inside the unprivileged container."
+  ],
+  "scope_note": "Counters are cumulative since service start and include warm-up and diagnostics, not only the formal 48 requests."
+}
