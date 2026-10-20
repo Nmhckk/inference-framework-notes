@@ -1,0 +1,45 @@
+{
+  "request_count": 48,
+  "success_count": 48,
+  "concurrency": 16,
+  "request_rate": 0.93,
+  "prefix_warmup": [
+    {
+      "phase": "prefix_warmup",
+      "index": 0,
+      "port": 19600,
+      "http_status": 200,
+      "success": true,
+      "error": null,
+      "prompt_tokens": 76197,
+      "completion_tokens": 1,
+      "ttft_s": 95.62812086287886,
+      "tpot_ms": null,
+      "latency_s": 95.62835772242397,
+      "stream_chunks": 1
+    },
+    {
+      "phase": "prefix_warmup",
+      "index": 1,
+      "port": 19700,
+      "http_status": 200,
+      "success": true,
+      "error": null,
+      "prompt_tokens": 76197,
+      "completion_tokens": 1,
+      "ttft_s": 96.08839135989547,
+      "tpot_ms": null,
+      "latency_s": 96.08853142522275,
+      "stream_chunks": 1
+    }
+  ],
+  "wall_seconds": 614.0237552188337,
+  "total_output_tokens": 28800,
+  "output_throughput_tokens_per_second": 46.903722787949604,
+  "ttft_mean_seconds": 52.09189291492415,
+  "ttft_p50_seconds": 35.64001259673387,
+  "ttft_p90_seconds": 148.51214254526423,
+  "tpot_mean_milliseconds": 236.25510539562825,
+  "tpot_p50_milliseconds": 226.99905307154995,
+  "tpot_p90_milliseconds": 364.564221761872
+}
