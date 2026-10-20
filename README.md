@@ -4,9 +4,10 @@
 
 ## 当前结果
 
-已完成 vLLM-Ascend 非 PD 首轮实测：单机 DP2×TP8、16个逻辑设备，81920/600、48请求、并发16下，**TTFT 17.577秒，TPOT 49.547毫秒，输出185.34 token/s**，48/48成功。相同数据和负载下，xLLM四实例非PD为82.32 token/s；vLLM用一半活跃逻辑设备实现2.25倍总吞吐、低65.7% TPOT。客户端和服务器尚未完全锁齐，当前作为强预备结论，不是最终框架排名。
+已完成 xLLM 与 vLLM-Ascend 的同机非 PD 实测：同一台 910C-64G 超节点、同一份权重、16个逻辑设备、相同数据和客户端下，xLLM TP8×2 为 **TTFT 52.09秒、TPOT 236.26毫秒、输出46.90 token/s**；vLLM DP2×TP8 为 **17.58秒、49.55毫秒、185.34 token/s**，两边均48/48成功。当前稳定配置下 vLLM 吞吐为3.95倍；主要配置差异是 INT8 KV、Decode图、5-token MTP和通信融合，结论不扩大到所有模型与负载。
 
 - [vLLM 当前非 PD 最佳实测](experiments/vllm/2026-10-20-nonpd-run/README.md)：DP2×TP8、INT8 KV、5-token MTP、Decode图和前缀缓存的配置、指标与运行证据。
+- [xLLM 与 vLLM 同机对照](experiments/xllm/2026-10-20-samehost-tp8x2/README.md)：同主机、同权重、同设备数、同数据和同客户端的结果与归因。
 - [xLLM 当前非 PD 结果](experiments/xllm/2026-10-20-nonpd/README.md)
 - [xLLM 与 vLLM 首轮对照](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)：区分实测差异、代码机制和未统一的控制变量。
 - [vLLM 非 PD 部署方案](experiments/vllm/2026-10-20-nonpd-plan/README.md)：固定镜像、32设备拓扑、优化参数、时间估计和参数化启动脚本。
@@ -29,7 +30,7 @@
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
-| 2026/10/20 | 完成 vLLM-Ascend 非PD实测：单机16逻辑设备、48/48成功，TTFT 17.577秒、TPOT 49.547毫秒、输出185.34 token/s；相同负载下，用xLLM一半的活跃设备实现2.25倍总吞吐。已保存配置、逐请求数据、MTP接受率和前缀命中证据；未动K8s及他人任务。[结果](experiments/vllm/2026-10-20-nonpd-run/README.md) · [对比](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md) | 完成三框架可归因对比 | 统一主机与客户端后做图/MTP/KV消融 |
+| 2026/10/20 | 完成xLLM与vLLM同机非PD对照：同一台16逻辑设备超节点、同权重/数据/客户端，xLLM为TTFT 52.09秒、TPOT 236.26毫秒、46.90 token/s，vLLM为17.58秒、49.55毫秒、185.34 token/s，均48/48成功；确认xLLM前缀缓存和MTP生效，当前差距主要关联INT8 KV、Decode图、MTP深度和通信融合。未动K8s及他人任务。[同机结果](experiments/xllm/2026-10-20-samehost-tp8x2/README.md) | 完成三框架可归因对比 | 做图/MTP/KV逐项消融 |
 | 2026/10/19 | 完成 3P1D 长输入基线，输出 22.10 token/s；继续定位 KPool 和图模式问题，复用候选20.05 token/s无改善；图补丁测得34.90 token/s，但压测后回归0/4，已否决并回退，原配置8K仍2/4，正确性继续排查。[结果](xllm-3p1d-prefix-perf-2026-10-19.md) | 对比框架性能与实现瓶颈 | |
 | 2026/10/16 | 推进 Flash 容器部署准备，核查离线依赖与 PD 兼容性，准备多机验证。 | xLLM 部署与兼容性验证 | |
 | 2026/10/15 | 完成三框架调度、KV Cache、通信源码与文献整理。[资料](implementation-comparison.md) | 框架对比准备 | |
