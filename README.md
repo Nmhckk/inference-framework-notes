@@ -17,6 +17,7 @@
 
 | 主题 | 入口 |
 | --- | --- |
+| 后续研究路线 | [GLM-5.3-Flash 三框架研究规划](research/2026-10-20-framework-comparison-roadmap.md) |
 | 三框架实现与优势分析 | [源码对比](implementation-comparison.md) · [xLLM 优势候选](xllm-strengths-and-experiments-2026-10-19.md) |
 | 公平性能比较 | [测量方法](benchmark-methodology.md) · [实验模板](benchmark-run-template.json) |
 | 论文 | [文献路线](literature-map.md) |

@@ -14,6 +14,8 @@
 
 ## 资料与代码
 
+- [GLM-5.3-Flash 三框架研究路线](research/2026-10-20-framework-comparison-roadmap.md)：汇总最新官方适配状态与十四篇论文，规划共同基线、机制消融、在线 goodput、夜间机时和自研模块。
+
 - [xLLM 非PD基线与vLLM对照准备](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)：更正此前误用的vLLM PD截图；公开资料没有同条件非PD数据，保留源码假设和公平复测条件。
 
 - [vLLM 非PD部署方案](experiments/vllm/2026-10-20-nonpd-plan/README.md)：v0.30.0RC1镜像选择、32设备DP/TP拓扑、时间估计和参数化启动脚本。
