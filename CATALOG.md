@@ -14,6 +14,8 @@
 
 ## 资料与代码
 
+- [xLLM 与 vLLM-Ascend 非PD对比](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)：用当前82.32 token/s实测与vLLM 426.77 token/s参考值核对差距，给出调度、Decode图、MTP和混合缓存的源码与理论解释，并限定公平比较条件。
+
 - [四实例非PD当前最佳性能](experiments/xllm/2026-10-20-nonpd/README.md)：同一80K/600负载的3P1D对照、显存边界、原生缓存/MTP计数和完整原始结果。
 
 - [3P1D长输入前缀性能](xllm-3p1d-prefix-perf-2026-10-19.md)：用户脚本语义、完整48请求结果、失败配置与KPool源码限制。
@@ -27,7 +29,7 @@
 
 - [Decode ECC 定位与恢复](xllm-decode-ecc-recovery-2026-10-19.md)：全部rank日志、硬件计数、设备隔离和顺序验收。
 
-- [Flash 2P2D 部署与验证](xllm-flash-2p2d-2026-10-19.md)：说明旧 C8 限制、VLM/LLM差异和实际测试范围。
+- [Flash 2P2D 部署与验证](xllm-flash-2p2d-2026-10-19.md)：说明旧 C8 限制、VLM/LLM 差异和实际测试范围。
 
 - [三框架实现对比](implementation-comparison.md)：调度、KV Cache、昇腾通信、设计取舍与控制变量实验。
 - [固定提交源码索引](implementation-source-index.json)：31 个函数/模块入口及其支持的结论。

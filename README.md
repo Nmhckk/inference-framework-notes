@@ -7,6 +7,7 @@
 原四台机器改为四个非 PD `DEFAULT` 实例，每实例 TP8。81920 输入 / 600 输出、48 请求、并发 16：**TTFT 23.268 秒，TPOT 144.6 毫秒，集群输出 82.32 token/s**。48/48 请求完成；相比 3P1D 的 22.10 token/s 提升 3.72 倍，但 TTFT 变慢。属于性能压力记录，尚非完整精度验收。
 
 - [当前最佳非 PD 配置与原始证据](experiments/xllm/2026-10-20-nonpd/README.md)
+- [xLLM 与 vLLM-Ascend 非 PD 对比](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)：当前 GLM 实测不支持“xLLM 更快”，并从调度、图、MTP 和混合缓存代码解释差距。
 - [3P1D 基线与原始证据](xllm-3p1d-prefix-perf-2026-10-19.md)
 - [KPool 与图模式候选实验](experiments/xllm/2026-10-19-kpool/README.md)：局部结果与整机结果分开，失败方案保留。
 - [历史报告与资料目录](CATALOG.md)
