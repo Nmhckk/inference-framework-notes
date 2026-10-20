@@ -2,16 +2,19 @@
 
 以 GLM 系列模型研究推理框架，当前实机对象改为 GLM-5.3-Flash W8A8，先完成 xLLM 验证，再扩展 SGLang、vLLM-Ascend，对比调度、算子、KV Cache 和通信带来的差异，逐步形成自己的框架。早期 GLM-5.3 W8A8C8 调研材料保留其原适用条件。
 
-当前阶段：GLM-5.3-Flash W8A8的xLLM 3P1D完成81920/600、并发16前缀负载48/48请求；TTFT均值8.945秒、TPOT均值637.1毫秒、集群输出22.10 token/s。MTP/缓存/重叠开启，图因OOM与异常输出关闭；尚非精度验收通过，生成性能仍需优化。K8s未改。
+当前阶段：GLM-5.3-Flash W8A8 的 xLLM 四实例非 PD 完成 81920/600、并发16前缀负载48/48请求；TTFT均值23.268秒、TPOT均值144.6毫秒、集群输出82.32 token/s，是3P1D吞吐的3.72倍。MTP/缓存/重叠开启，图与KPool候选因验证失败关闭；尚非精度验收通过。K8s未改。
 
 ## 日报
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
+| 2026/10/20 | 完成四实例非PD长输入复测：48/48成功，输出82.32 token/s；确认3P1D偏TTFT、非PD偏Decode吞吐，0.85显存并发OOM，0.80稳定。[结果及原始材料](experiments/xllm/2026-10-20-nonpd/README.md)。 | 找出xLLM当前最佳有效配置 | 对比PD与非PD的SLO取舍 |
 | 2026/10/19 | 完成xLLM 3P1D长输入前缀压测：48/48成功，TTFT 8.945秒、TPOT 637.1毫秒、输出22.10 token/s；定位PD压缩池缓存限制与OOM，图关闭、精度待验证。[结果及原始材料](xllm-3p1d-prefix-perf-2026-10-19.md)。 | 对比框架性能与实现瓶颈 | |
 | 2026/10/15 | 整理 xLLM 非 PD 材料；完成三框架调度、KV Cache、通信源码对比及论文分析。[资料](implementation-comparison.md)；实机待验证。 | GLM-5.3 C8 的 xLLM 部署验证与框架对比准备 | |
 
 ## 资料与代码
+
+- [四实例非PD当前最佳性能](experiments/xllm/2026-10-20-nonpd/README.md)：同一80K/600负载的3P1D对照、显存边界、原生缓存/MTP计数和完整原始结果。
 
 - [3P1D长输入前缀性能](xllm-3p1d-prefix-perf-2026-10-19.md)：用户脚本语义、完整48请求结果、失败配置与KPool源码限制。
 
@@ -24,7 +27,7 @@
 
 - [Decode ECC 定位与恢复](xllm-decode-ecc-recovery-2026-10-19.md)：全部rank日志、硬件计数、设备隔离和顺序验收。
 
-- [Flash 2P2D 部署与验证](xllm-flash-2p2d-2026-10-19.md)：说明旧 C8 限制、VLM/LLM 差异和实际测试范围。
+- [Flash 2P2D 部署与验证](xllm-flash-2p2d-2026-10-19.md)：说明旧 C8 限制、VLM/LLM差异和实际测试范围。
 
 - [三框架实现对比](implementation-comparison.md)：调度、KV Cache、昇腾通信、设计取舍与控制变量实验。
 - [固定提交源码索引](implementation-source-index.json)：31 个函数/模块入口及其支持的结论。
