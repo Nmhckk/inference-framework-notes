@@ -1,0 +1,567 @@
+{
+  "scope": "Native counters and completed request logs since the cold engine start; includes AISBench warmups",
+  "nodes": {
+    "8": {
+      "completed_600_token_requests_including_warmup": 13,
+      "requests": [
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 267,
+          "speculative_proposed_tokens": 332,
+          "ttft": 102586.0,
+          "avg_tpot": 97.4,
+          "speculative_token_acceptance_rate": 0.8042
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 289,
+          "speculative_proposed_tokens": 311,
+          "ttft": 43974.0,
+          "avg_tpot": 132.3,
+          "speculative_token_acceptance_rate": 0.9293
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 284,
+          "speculative_proposed_tokens": 315,
+          "ttft": 66335.0,
+          "avg_tpot": 113.0,
+          "speculative_token_acceptance_rate": 0.9016
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 276,
+          "speculative_proposed_tokens": 323,
+          "ttft": 11492.0,
+          "avg_tpot": 252.8,
+          "speculative_token_acceptance_rate": 0.8545
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 267,
+          "speculative_proposed_tokens": 332,
+          "ttft": 64940.0,
+          "avg_tpot": 156.4,
+          "speculative_token_acceptance_rate": 0.8042
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 293,
+          "speculative_proposed_tokens": 307,
+          "ttft": 11858.0,
+          "avg_tpot": 129.8,
+          "speculative_token_acceptance_rate": 0.9544
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 289,
+          "speculative_proposed_tokens": 311,
+          "ttft": 11813.0,
+          "avg_tpot": 150.3,
+          "speculative_token_acceptance_rate": 0.9293
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 279,
+          "speculative_proposed_tokens": 320,
+          "ttft": 11966.0,
+          "avg_tpot": 133.7,
+          "speculative_token_acceptance_rate": 0.8719
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 285,
+          "speculative_proposed_tokens": 314,
+          "ttft": 11631.0,
+          "avg_tpot": 132.1,
+          "speculative_token_acceptance_rate": 0.9076
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 292,
+          "speculative_proposed_tokens": 308,
+          "ttft": 11688.0,
+          "avg_tpot": 130.3,
+          "speculative_token_acceptance_rate": 0.9481
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 271,
+          "speculative_proposed_tokens": 328,
+          "ttft": 11672.0,
+          "avg_tpot": 155.6,
+          "speculative_token_acceptance_rate": 0.8262
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 294,
+          "speculative_proposed_tokens": 305,
+          "ttft": 11778.0,
+          "avg_tpot": 110.0,
+          "speculative_token_acceptance_rate": 0.9639
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 287,
+          "speculative_proposed_tokens": 312,
+          "ttft": 11712.0,
+          "avg_tpot": 93.0,
+          "speculative_token_acceptance_rate": 0.9199
+        }
+      ],
+      "native_counters": {
+        "speculative_num_accepted_tokens_total": 3685.0,
+        "speculative_num_committed_tokens_total": 7816.0,
+        "speculative_num_draft_tokens_total": 4131.0,
+        "speculative_num_drafts_total": 4131.0,
+        "prefix_cache_hit_tokens_total": 884736.0,
+        "prefix_cache_prompt_tokens_total": 1065120.0,
+        "prefix_cache_token_hit_rate_perc": 83.0648
+      }
+    },
+    "9": {
+      "completed_600_token_requests_including_warmup": 12,
+      "requests": [
+        {
+          "prompt_tokens": 81935,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 284,
+          "speculative_proposed_tokens": 315,
+          "ttft": 63660.0,
+          "avg_tpot": 93.9,
+          "speculative_token_acceptance_rate": 0.9016
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 279,
+          "speculative_proposed_tokens": 321,
+          "ttft": 11526.0,
+          "avg_tpot": 233.5,
+          "speculative_token_acceptance_rate": 0.8692
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 278,
+          "speculative_proposed_tokens": 322,
+          "ttft": 64931.0,
+          "avg_tpot": 134.8,
+          "speculative_token_acceptance_rate": 0.8634
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 268,
+          "speculative_proposed_tokens": 331,
+          "ttft": 42648.0,
+          "avg_tpot": 196.7,
+          "speculative_token_acceptance_rate": 0.8097
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 276,
+          "speculative_proposed_tokens": 324,
+          "ttft": 11710.0,
+          "avg_tpot": 171.2,
+          "speculative_token_acceptance_rate": 0.8519
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 281,
+          "speculative_proposed_tokens": 319,
+          "ttft": 11716.0,
+          "avg_tpot": 131.2,
+          "speculative_token_acceptance_rate": 0.8809
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 286,
+          "speculative_proposed_tokens": 314,
+          "ttft": 11683.0,
+          "avg_tpot": 129.6,
+          "speculative_token_acceptance_rate": 0.9108
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 238,
+          "speculative_proposed_tokens": 362,
+          "ttft": 12621.0,
+          "avg_tpot": 201.0,
+          "speculative_token_acceptance_rate": 0.6575
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 287,
+          "speculative_proposed_tokens": 313,
+          "ttft": 11634.0,
+          "avg_tpot": 129.6,
+          "speculative_token_acceptance_rate": 0.9169
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 268,
+          "speculative_proposed_tokens": 332,
+          "ttft": 11691.0,
+          "avg_tpot": 154.2,
+          "speculative_token_acceptance_rate": 0.8072
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 275,
+          "speculative_proposed_tokens": 325,
+          "ttft": 11660.0,
+          "avg_tpot": 114.3,
+          "speculative_token_acceptance_rate": 0.8462
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 285,
+          "speculative_proposed_tokens": 314,
+          "ttft": 11828.0,
+          "avg_tpot": 91.8,
+          "speculative_token_acceptance_rate": 0.9076
+        }
+      ],
+      "native_counters": {
+        "speculative_num_accepted_tokens_total": 3316.0,
+        "speculative_num_committed_tokens_total": 7221.0,
+        "speculative_num_draft_tokens_total": 3905.0,
+        "speculative_num_drafts_total": 3905.0,
+        "prefix_cache_hit_tokens_total": 884736.0,
+        "prefix_cache_prompt_tokens_total": 1059380.0,
+        "prefix_cache_token_hit_rate_perc": 83.5142
+      }
+    },
+    "10": {
+      "completed_600_token_requests_including_warmup": 12,
+      "requests": [
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 283,
+          "speculative_proposed_tokens": 316,
+          "ttft": 64031.0,
+          "avg_tpot": 114.5,
+          "speculative_token_acceptance_rate": 0.8956
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 283,
+          "speculative_proposed_tokens": 317,
+          "ttft": 11502.0,
+          "avg_tpot": 213.1,
+          "speculative_token_acceptance_rate": 0.8927
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 278,
+          "speculative_proposed_tokens": 321,
+          "ttft": 62463.0,
+          "avg_tpot": 134.9,
+          "speculative_token_acceptance_rate": 0.866
+        },
+        {
+          "prompt_tokens": 81934,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 268,
+          "speculative_proposed_tokens": 331,
+          "ttft": 41610.0,
+          "avg_tpot": 197.3,
+          "speculative_token_acceptance_rate": 0.8097
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 264,
+          "speculative_proposed_tokens": 335,
+          "ttft": 11729.0,
+          "avg_tpot": 155.7,
+          "speculative_token_acceptance_rate": 0.7881
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 280,
+          "speculative_proposed_tokens": 319,
+          "ttft": 11831.0,
+          "avg_tpot": 131.5,
+          "speculative_token_acceptance_rate": 0.8777
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 288,
+          "speculative_proposed_tokens": 312,
+          "ttft": 11652.0,
+          "avg_tpot": 129.5,
+          "speculative_token_acceptance_rate": 0.9231
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 257,
+          "speculative_proposed_tokens": 342,
+          "ttft": 11699.0,
+          "avg_tpot": 195.6,
+          "speculative_token_acceptance_rate": 0.7515
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 287,
+          "speculative_proposed_tokens": 312,
+          "ttft": 11665.0,
+          "avg_tpot": 151.0,
+          "speculative_token_acceptance_rate": 0.9199
+        },
+        {
+          "prompt_tokens": 81934,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 279,
+          "speculative_proposed_tokens": 320,
+          "ttft": 11673.0,
+          "avg_tpot": 115.2,
+          "speculative_token_acceptance_rate": 0.8719
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 270,
+          "speculative_proposed_tokens": 330,
+          "ttft": 11795.0,
+          "avg_tpot": 137.2,
+          "speculative_token_acceptance_rate": 0.8182
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 275,
+          "speculative_proposed_tokens": 324,
+          "ttft": 11849.0,
+          "avg_tpot": 97.2,
+          "speculative_token_acceptance_rate": 0.8488
+        }
+      ],
+      "native_counters": {
+        "speculative_num_accepted_tokens_total": 3320.0,
+        "speculative_num_committed_tokens_total": 7212.0,
+        "speculative_num_draft_tokens_total": 3892.0,
+        "speculative_num_drafts_total": 3892.0,
+        "prefix_cache_hit_tokens_total": 884736.0,
+        "prefix_cache_prompt_tokens_total": 1059380.0,
+        "prefix_cache_token_hit_rate_perc": 83.5141
+      }
+    },
+    "11": {
+      "completed_600_token_requests_including_warmup": 12,
+      "requests": [
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 289,
+          "speculative_proposed_tokens": 311,
+          "ttft": 61903.0,
+          "avg_tpot": 91.1,
+          "speculative_token_acceptance_rate": 0.9293
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 287,
+          "speculative_proposed_tokens": 312,
+          "ttft": 40802.0,
+          "avg_tpot": 131.7,
+          "speculative_token_acceptance_rate": 0.9199
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 279,
+          "speculative_proposed_tokens": 320,
+          "ttft": 11506.0,
+          "avg_tpot": 212.0,
+          "speculative_token_acceptance_rate": 0.8719
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 263,
+          "speculative_proposed_tokens": 337,
+          "ttft": 63555.0,
+          "avg_tpot": 137.2,
+          "speculative_token_acceptance_rate": 0.7804
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 291,
+          "speculative_proposed_tokens": 309,
+          "ttft": 11692.0,
+          "avg_tpot": 148.0,
+          "speculative_token_acceptance_rate": 0.9417
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 280,
+          "speculative_proposed_tokens": 320,
+          "ttft": 11729.0,
+          "avg_tpot": 170.3,
+          "speculative_token_acceptance_rate": 0.875
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 280,
+          "speculative_proposed_tokens": 319,
+          "ttft": 11723.0,
+          "avg_tpot": 151.0,
+          "speculative_token_acceptance_rate": 0.8777
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 270,
+          "speculative_proposed_tokens": 330,
+          "ttft": 11691.0,
+          "avg_tpot": 173.4,
+          "speculative_token_acceptance_rate": 0.8182
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 286,
+          "speculative_proposed_tokens": 313,
+          "ttft": 16959.0,
+          "avg_tpot": 128.7,
+          "speculative_token_acceptance_rate": 0.9137
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 290,
+          "speculative_proposed_tokens": 309,
+          "ttft": 11767.0,
+          "avg_tpot": 108.4,
+          "speculative_token_acceptance_rate": 0.9385
+        },
+        {
+          "prompt_tokens": 81932,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 262,
+          "speculative_proposed_tokens": 338,
+          "ttft": 11698.0,
+          "avg_tpot": 155.1,
+          "speculative_token_acceptance_rate": 0.7751
+        },
+        {
+          "prompt_tokens": 81933,
+          "num_prefix_cache_tokens": 73728,
+          "generated_tokens": 600,
+          "speculative_accepted_tokens": 284,
+          "speculative_proposed_tokens": 316,
+          "ttft": 11708.0,
+          "avg_tpot": 91.2,
+          "speculative_token_acceptance_rate": 0.8987
+        }
+      ],
+      "native_counters": {
+        "speculative_num_accepted_tokens_total": 3373.0,
+        "speculative_num_committed_tokens_total": 7220.0,
+        "speculative_num_draft_tokens_total": 3847.0,
+        "speculative_num_drafts_total": 3847.0,
+        "prefix_cache_hit_tokens_total": 884736.0,
+        "prefix_cache_prompt_tokens_total": 1059380.0,
+        "prefix_cache_token_hit_rate_perc": 83.5144
+      }
+    }
+  },
+  "aggregate": {
+    "logged_600_token_requests_including_one_main_warmup": 49,
+    "route_counts_including_warmup": {
+      "8": 13,
+      "9": 12,
+      "10": 12,
+      "11": 12
+    },
+    "logged_generated_tokens": 29400,
+    "logged_prefix_cache_tokens": 3612672,
+    "logged_prompt_tokens": 4014676,
+    "logged_speculative_accepted_tokens": 13651,
+    "logged_speculative_proposed_tokens": 15723,
+    "logged_prefix_cache_hit_rate": 0.8998663902143037,
+    "logged_speculative_acceptance_rate": 0.8682185333587737
+  }
+}

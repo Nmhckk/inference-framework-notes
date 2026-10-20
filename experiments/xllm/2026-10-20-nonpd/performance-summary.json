@@ -1,0 +1,173 @@
+{
+  "run": "perf-combined-aisbench-eager-mtp1-b8-mem80-20261020",
+  "scope": "AISBench performance pressure data only; no full model accuracy claim",
+  "requests": 48,
+  "successes": 48,
+  "failed": 0,
+  "output_tokens": 28800,
+  "actual_input_lengths": {
+    "81932": 44,
+    "81933": 1,
+    "81934": 2,
+    "81935": 1
+  },
+  "actual_output_lengths": {
+    "600": 48
+  },
+  "ttft_mean_seconds": 23.268,
+  "ttft_median_seconds": 11.917,
+  "ttft_p90_seconds": 63.6725,
+  "tpot_mean_ms": 144.6,
+  "tpot_median_ms": 134.3,
+  "tpot_p90_ms": 198.4,
+  "cluster_output_tps": 82.3239,
+  "benchmark_duration_seconds": 349.8377645,
+  "max_client_concurrency": 16,
+  "observed_average_concurrency": 15.0784,
+  "resources": {
+    "hosts": 4,
+    "active_logical_devices": 32,
+    "topology": "4xDEFAULT (non-PD)",
+    "TP_per_instance": 8,
+    "max_seqs_per_instance": 8,
+    "memory_utilization": 0.8,
+    "graph": false,
+    "MTP_tokens": 1,
+    "prefix_cache": true,
+    "schedule_overlap": true,
+    "chunked_prefill": true,
+    "prefill_chunk_tokens": 8192
+  },
+  "source_report": "outputs/20261020_091440/performances/vllm-api-stream-chat/gsm8k.json",
+  "dataset_sha256": {
+    "GSM8K-in81920-num48-glm53-flash-repeatRate0.93.jsonl": "f009b980797b02bd23a426255d23d938f7714918e69ba8c9052677aedc889d5f",
+    "prefix-GSM8K-in76185-num2-glm53-flash.jsonl": "fa8d7db5178a338e3278506071ccdc9df4b46b3d2c0d4e0ae8d907b67d0195bf"
+  },
+  "AISBench_aggregates": {
+    "Benchmark Duration": {
+      "total": "349837.7645 ms"
+    },
+    "Total Requests": {
+      "total": 48
+    },
+    "Failed Requests": {
+      "total": 0
+    },
+    "Success Requests": {
+      "total": 48
+    },
+    "Concurrency": {
+      "total": 15.0784
+    },
+    "Max Concurrency": {
+      "total": 16
+    },
+    "Request Throughput": {
+      "total": "0.1372 req/s"
+    },
+    "Total Input Tokens": {
+      "total": 3932744
+    },
+    "Prefill Token Throughput": {
+      "total": "3521.2313 token/s"
+    },
+    "Total Generated Tokens": {
+      "total": 28800
+    },
+    "Input Token Throughput": {
+      "total": "11241.6223 token/s"
+    },
+    "Output Token Throughput": {
+      "total": "82.3239 token/s"
+    },
+    "Total Token Throughput": {
+      "total": "11323.9461 token/s"
+    }
+  },
+  "AISBench_latency_rows": {
+    "E2EL": {
+      "Performance Parameters": "E2EL",
+      "Stage": "total",
+      "Average": "109895.4 ms",
+      "Min": "66400.8 ms",
+      "Max": "163371.3 ms",
+      "Median": "104418.5 ms",
+      "P75": "133025.1 ms",
+      "P90": "147609.6 ms",
+      "P99": "162037.6 ms",
+      "N": "48"
+    },
+    "TTFT": {
+      "Performance Parameters": "TTFT",
+      "Stage": "total",
+      "Average": "23268.0 ms",
+      "Min": "11738.6 ms",
+      "Max": "66844.6 ms",
+      "Median": "11917.0 ms",
+      "P75": "23057.0 ms",
+      "P90": "63672.5 ms",
+      "P99": "65991.6 ms",
+      "N": "48"
+    },
+    "TPOT": {
+      "Performance Parameters": "TPOT",
+      "Stage": "total",
+      "Average": "144.6 ms",
+      "Min": "91.1 ms",
+      "Max": "252.9 ms",
+      "Median": "134.3 ms",
+      "P75": "155.9 ms",
+      "P90": "198.4 ms",
+      "P99": "243.8 ms",
+      "N": "48"
+    },
+    "ITL": {
+      "Performance Parameters": "ITL",
+      "Stage": "total",
+      "Average": "267.9 ms",
+      "Min": "0.0 ms",
+      "Max": "59765.4 ms",
+      "Median": "175.8 ms",
+      "P75": "180.4 ms",
+      "P90": "186.4 ms",
+      "P99": "209.5 ms",
+      "N": "48"
+    },
+    "InputTokens": {
+      "Performance Parameters": "InputTokens",
+      "Stage": "total",
+      "Average": "81932.1667",
+      "Min": "81932.0",
+      "Max": "81935.0",
+      "Median": "81932.0",
+      "P75": "81932.0",
+      "P90": "81932.0",
+      "P99": "81934.53",
+      "N": "48"
+    },
+    "OutputTokens": {
+      "Performance Parameters": "OutputTokens",
+      "Stage": "total",
+      "Average": "600.0",
+      "Min": "600.0",
+      "Max": "600.0",
+      "Median": "600.0",
+      "P75": "600.0",
+      "P90": "600.0",
+      "P99": "600.0",
+      "N": "48"
+    },
+    "OutputTokenThroughput": {
+      "Performance Parameters": "OutputTokenThroughput",
+      "Stage": "total",
+      "Average": "5.8067 token/s",
+      "Min": "3.6726 token/s",
+      "Max": "9.036 token/s",
+      "Median": "5.7461 token/s",
+      "P75": "6.6814 token/s",
+      "P90": "7.7447 token/s",
+      "P99": "9.0042 token/s",
+      "N": "48"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "run": "perf-combined-aisbench-eager-mtp1-b8-20261020",
+  "status": "rejected",
+  "configuration_difference_from_accepted_run": {
+    "max_memory_utilization": 0.85
+  },
+  "client_last_observation": {
+    "posted": 48,
+    "received": 0,
+    "failed": 40,
+    "finished": 40,
+    "stranded_when_stopped": 8
+  },
+  "per_node_oom": {
+    "8": {
+      "requested_gib": 3.0,
+      "free_gib": 2.12,
+      "allocated_gib": 57.10
+    },
+    "9": {
+      "requested_gib": 3.0,
+      "free_gib": 2.10,
+      "allocated_gib": 57.10
+    },
+    "10": {
+      "requested_gib": 3.0,
+      "free_gib": 2.10,
+      "allocated_gib": 57.10
+    },
+    "11": {
+      "requested_gib": 3.0,
+      "free_gib": 2.10,
+      "allocated_gib": 57.12
+    }
+  },
+  "decision": "Do not publish latency or throughput from this run; lower max_memory_utilization to 0.80 and rerun from cold engines."
+}
