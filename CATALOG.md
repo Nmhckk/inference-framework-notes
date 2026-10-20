@@ -8,7 +8,7 @@
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
-| 2026/10/20 | 完成四实例非PD长输入复测：48/48成功，输出82.32 token/s；确认3P1D偏TTFT、非PD偏Decode吞吐，0.85显存并发OOM，0.80稳定。[结果及原始材料](experiments/xllm/2026-10-20-nonpd/README.md)。 | 找出xLLM当前最佳有效配置 | 对比PD与非PD的SLO取舍 |
+| 2026/10/20 | 完成四实例非PD长输入复测：48/48成功，输出82.32 token/s；补充vLLM-Ascend、SGLang官方适配和十四篇论文，形成共同基线、机制消融与夜间实验计划。[结果及原始材料](experiments/xllm/2026-10-20-nonpd/README.md) · [研究路线](research/2026-10-20-framework-comparison-roadmap.md)。 | 完成三框架可归因对比 | 优先验证vLLM-Ascend共同基线 |
 | 2026/10/19 | 完成xLLM 3P1D长输入前缀压测：48/48成功，TTFT 8.945秒、TPOT 637.1毫秒、输出22.10 token/s；定位PD压缩池缓存限制与OOM，图关闭、精度待验证。[结果及原始材料](xllm-3p1d-prefix-perf-2026-10-19.md)。 | 对比框架性能与实现瓶颈 | |
 | 2026/10/15 | 整理 xLLM 非 PD 材料；完成三框架调度、KV Cache、通信源码对比及论文分析。[资料](implementation-comparison.md)；实机待验证。 | GLM-5.3 C8 的 xLLM 部署验证与框架对比准备 | |
 

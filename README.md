@@ -28,7 +28,7 @@
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
-| 2026/10/20 | 完成 xLLM 四实例非 PD 长输入复测：48/48 成功，TTFT 23.268 秒、TPOT 144.6 毫秒、输出 82.32 token/s，为 3P1D 的 3.72 倍；0.85 显存配置并发 OOM，降至 0.80 后稳定，K8s 未改。[结果](experiments/xllm/2026-10-20-nonpd/README.md) | 找出 xLLM 当前最佳有效配置 | 对比 PD 的 TTFT/吞吐取舍 |
+| 2026/10/20 | 完成 xLLM 四实例非 PD 长输入复测：48/48 成功，TTFT 23.268 秒、TPOT 144.6 毫秒、输出 82.32 token/s，为 3P1D 的 3.72 倍；补充 vLLM-Ascend、SGLang 官方适配和十四篇论文，形成三框架共同基线、机制消融与夜间实验计划。[结果](experiments/xllm/2026-10-20-nonpd/README.md) · [研究路线](research/2026-10-20-framework-comparison-roadmap.md) | 完成三框架可归因对比 | 优先验证 vLLM-Ascend 共同基线 |
 | 2026/10/19 | 完成 3P1D 长输入基线，输出 22.10 token/s；继续定位 KPool 和图模式问题，复用候选20.05 token/s无改善；图补丁测得34.90 token/s，但压测后回归0/4，已否决并回退，原配置8K仍2/4，正确性继续排查。[结果](xllm-3p1d-prefix-perf-2026-10-19.md) | 对比框架性能与实现瓶颈 | |
 | 2026/10/16 | 推进 Flash 容器部署准备，核查离线依赖与 PD 兼容性，准备多机验证。 | xLLM 部署与兼容性验证 | |
 | 2026/10/15 | 完成三框架调度、KV Cache、通信源码与文献整理。[资料](implementation-comparison.md) | 框架对比准备 | |
