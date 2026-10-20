@@ -1,12 +1,10 @@
-# xLLM 非 PD 基线与 vLLM-Ascend 对照准备（2026-10-20）
+# xLLM 与 vLLM-Ascend 非 PD 首轮对照（2026-10-20）
 
 ## 结论与更正
 
 用户提供的 vLLM 数据（TTFT 10.624 秒、TPOT 16.222 毫秒、输出 426.77 token/s）实际启用了 PD 分离，不能与 xLLM 四实例非 PD 结果计算倍率，也不能用于判断非 PD 下哪个框架更快。此前基于该截图计算的 2.19×、8.91×、5.18× 差距全部撤回。
 
-当前唯一完成相同目标负载实测的是 xLLM：GLM-5.3-Flash W8A8、4×TP8、81920 输入、600 输出、48 请求、并发 16，TTFT 均值 23.268 秒、TPOT 均值 144.600 毫秒、输出吞吐 82.3239 token/s，48/48 请求成功。
-
-截至 2026-10-20，未找到公开的“GLM-5.3-Flash W8A8、Ascend 910C、32 NPU、非 PD、81920/600、并发 16”完整结果。因此当前没有可信的 xLLM/vLLM 非 PD 性能排名，必须同机复测。
+同日已补充 vLLM-Ascend 实测：两边使用同一批数据、长度、请求数、并发和请求速率；xLLM 为4×TP8、32逻辑设备，vLLM为DP2×TP8、16逻辑设备。这一轮可以判断实际配置下的性能差异，但服务器、设备数和客户端实现尚未完全一致，不视为最终框架排名。
 
 ## 网上可以采用的 vLLM 证据
 
@@ -39,18 +37,24 @@ decode_tps ≈ active_sequences × E[committed_tokens_per_step] / T_step
 T_step = T_operator + T_collective + T_launch + T_host_gap + T_prefill_interference
 ```
 
-vLLM 当前候选优势来自可验证的实现组合，而不是尚未测量的最终性能：
+vLLM 当前优势来自已有运行证据的实现组合：
 
-1. MTP3 比 xLLM 当前 MTP1 有更高的每步提交 token 上限；真实收益仍取决于接受率。
+1. 本轮 5-token MTP 比 xLLM 当前 MTP1 有更高的每步提交 token 上限；实测 draft token 接受率为51.49%。
 2. `FULL_DECODE_ONLY` 可减少逐 token 的 Host/Kernel launch 开销；xLLM 当前有效结果关闭图模式。
 3. vLLM-Ascend 已为 GLM 的 KDA、KeyPool、NoPE sparse MLA 和混合缓存提供专用实现，适配路线见 [#15665](https://github.com/vllm-project/vllm-ascend/issues/15665)。
 4. vLLM 统一 token budget 调度 chunked prefill、prefix cache 和 Decode；xLLM 当前 MTP 会关闭 P/D 混批并选择 Prefill-first，见 [xLLM scheduler_policy.cpp](https://github.com/xLLM-AI/xllm/blob/ad9e405650c1bbb0af53d2c8e821dbdcbe5e79eb/xllm/core/scheduler/scheduler_policy.cpp#L1061-L1105)。
 
-这些代码特征只形成“vLLM 值得实测”的假设。没有同机结果前，不写成“vLLM 一定比 xLLM 快”。
+首轮实测支持这些机制的组合效果，但还需在同机上做逐项消融，才能分摊每一项的独立收益。
 
-## 待执行的公平对照
+## 首轮非 PD 实测
 
-仓库已准备 [vLLM 非 PD 部署方案](../../vllm/2026-10-20-nonpd-plan/README.md)。第一组严格控制为 32 个逻辑设备、同一权重、同一 AISBench 数据、81920/600、48 请求、并发16。优先测试 4节点×TP8（DP4），若 vLLM A3 路径要求官方 TP16 布局，则改为2节点×TP16（DP2）并在结果中明确拓扑差异。
+2026-10-20 已在一台空闲 910C 服务器上完成 vLLM-Ascend 非 PD 混部实测：单机16个逻辑设备、DP2×TP8、W8A8 + INT8 KV + prefix cache + 5-token MTP + `FULL_DECODE_ONLY` 图。48/48请求成功，TTFT均值17.577秒、TPOT均值49.547毫秒、输出吞吐185.338 token/s。[完整结果](../../vllm/2026-10-20-nonpd-run/README.md)。
+
+与 xLLM 四实例非 PD 对比，vLLM 在只使用一半活跃逻辑设备的情况下，集群输出吞吐为2.25倍、单活跃逻辑设备吞吐为4.50倍，TTFT降低24.5%，TPOT降低65.7%。两者的数据集、长度、请求数、并发和请求速率相同，但服务器与客户端尚未完全统一，因此定位为强预备结论，不把全部差距归因于单一机制。
+
+## 后续的严格对照
+
+下一轮将当前16设备结果复制到与 xLLM 相同服务器和统一客户端，然后用32设备补充同资源对照。在同一拓扑上依次关闭图、MTP、INT8 KV 和前缀缓存，用消融实验确定每个机制的独立收益。
 
 必须保存镜像 digest、vLLM/vLLM-Ascend/CANN 版本、权重哈希、设备映射、启动日志、MTP 接受率、prefix hit、原始请求结果和 NPU 利用率，之后才能给出框架结论。
 
@@ -59,5 +63,8 @@ vLLM 当前候选优势来自可验证的实现组合，而不是尚未测量的
 - [xLLM 四实例非 PD 完整结果](../../xllm/2026-10-20-nonpd/README.md)
 - [xLLM 原始性能摘要](../../xllm/2026-10-20-nonpd/performance-summary.json)
 - [xLLM 原生缓存与 MTP 计数](../../xllm/2026-10-20-nonpd/native-runtime-evidence.json)
+- [vLLM 非 PD 完整结果](../../vllm/2026-10-20-nonpd-run/README.md)
+- [vLLM 结构化性能摘要](../../vllm/2026-10-20-nonpd-run/performance-summary.json)
 - [vLLM-Ascend GLM-5.3-Flash 教程](https://github.com/vllm-project/vllm-ascend/blob/main/docs/source/tutorials/models/GLM5.3-Flash.md)
 - [vLLM-Ascend GLM-5.3-Flash 适配路线](https://github.com/vllm-project/vllm-ascend/issues/15665)
+
