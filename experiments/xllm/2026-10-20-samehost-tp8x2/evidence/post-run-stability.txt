@@ -1,0 +1,10 @@
+2026-10-20 CST post-run stability check
+
+22:17:19  Last measured request completed (48/48 successful).
+22:29:30  Project container remained Up and xLLM worker processes were present, but the API was unavailable: localhost connections were refused and host-address checks timed out or returned HTTP 503.
+22:30       Verified both affected containers carried project-owned labels, then restarted only xllm-glm53-hzy-171-20261020 through the saved deployment script. vllm-glm53-hzy-171-20261020 remained stopped. Kubernetes and unrelated containers were not touched.
+22:35:55  Replica 0 logged APIService serving on port 19600 after model load, KPool initialization and eager warmup.
+22:35:56  Replica 1 logged APIService serving on port 19700 after model load, KPool initialization and eager warmup.
+22:38       http://127.0.0.1:19600/v1/models and :19700/v1/models both returned HTTP 200 with model id glm53-flash.
+
+Conclusion: the 48-request performance sample is complete, but post-run service stability failed and required a container restart. Treat this as a stability defect independent from the reported throughput/latency sample.
