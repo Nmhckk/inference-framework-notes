@@ -14,7 +14,9 @@
 
 ## 资料与代码
 
-- [xLLM 与 vLLM-Ascend 非PD对比](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)：用当前82.32 token/s实测与vLLM 426.77 token/s参考值核对差距，给出调度、Decode图、MTP和混合缓存的源码与理论解释，并限定公平比较条件。
+- [xLLM 非PD基线与vLLM对照准备](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)：更正此前误用的vLLM PD截图；公开资料没有同条件非PD数据，保留源码假设和公平复测条件。
+
+- [vLLM 非PD部署方案](experiments/vllm/2026-10-20-nonpd-plan/README.md)：v0.30.0RC1镜像选择、32设备DP/TP拓扑、时间估计和参数化启动脚本。
 
 - [四实例非PD当前最佳性能](experiments/xllm/2026-10-20-nonpd/README.md)：同一80K/600负载的3P1D对照、显存边界、原生缓存/MTP计数和完整原始结果。
 
