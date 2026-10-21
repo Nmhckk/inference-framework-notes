@@ -1,24 +1,29 @@
 # 历史资料与实验索引
 
-以 GLM 系列模型研究推理框架，当前实机对象改为 GLM-5.3-Flash W8A8，先完成 xLLM 验证，再扩展 SGLang、vLLM-Ascend，对比调度、算子、KV Cache 和通信带来的差异，逐步形成自己的框架。早期 GLM-5.3 W8A8C8 调研材料保留其原适用条件。
+以多种基础模型研究推理框架，现已从 GLM-5.3-Flash 扩展到 xLLM 官方重点适配的 Qwen3.5，对比调度、算子、KV Cache 和通信带来的差异，逐步形成自己的框架。早期 GLM-5.3 W8A8C8 调研材料保留其原适用条件。
 
-当前阶段：已在空闲单机上完成 GLM-5.3-Flash W8A8 的 vLLM-Ascend 非PD实测。DP2×TP8、16个逻辑设备，81920/600、并发16前缀负载48/48成功；TTFT均值17.577秒、TPOT均值49.547毫秒、输出185.34 token/s。相同数据下，xLLM四实例、32设备为82.32 token/s。这是强预备对照，尚非完整精度验收或最终框架排名。K8s未改，未动他人任务。
+当前阶段：已完成 Qwen3.5-4B BF16 的 xLLM/vLLM-Ascend 单卡同机对照。81920/600、并发16负载均48/48成功；xLLM为65.52 token/s、TTFT P90 65.61秒，vLLM为69.12 token/s、69.62秒。vLLM吞吐领先5.5%，xLLM长尾TTFT领先5.8%。K8s未改，未动他人任务。
 
 ## 日报
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
+| 2026/10/21 | 选择Qwen3.5-4B完成xLLM/vLLM-Ascend单卡同机对照；保存启动脚本、逐请求结果、服务日志及Zero-Evict、Schedule Overlap源码归因。[结果](experiments/comparison/2026-10-21-qwen35-xllm-vllm/README.md)。 | 扩展模型并识别xLLM优势边界 | Qwen3.5-27B W8A8＋MTP、KV压力测试 |
 | 2026/10/20 | 完成vLLM-Ascend非PD实测：单机16逻辑设备、48/48成功，TTFT 17.577秒、TPOT 49.547毫秒、输出185.34 token/s；相同负载下为xLLM 32设备结果的2.25倍。已保存配置、逐请求结果、图、MTP和前缀缓存证据。[结果](experiments/vllm/2026-10-20-nonpd-run/README.md) · [对比](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)。 | 完成三框架可归因对比 | 统一主机与客户端后做消融 |
 | 2026/10/19 | 完成xLLM 3P1D长输入前缀压测：48/48成功，TTFT 8.945秒、TPOT 637.1毫秒、输出22.10 token/s；定位PD压缩池缓存限制与OOM，图关闭、精度待验证。[结果及原始材料](xllm-3p1d-prefix-perf-2026-10-19.md)。 | 对比框架性能与实现瓶颈 | |
 | 2026/10/15 | 整理 xLLM 非 PD 材料；完成三框架调度、KV Cache、通信源码对比及论文分析。[资料](implementation-comparison.md)；实机待验证。 | GLM-5.3 C8 的 xLLM 部署验证与框架对比准备 | |
 
 ## 资料与代码
 
+- [Qwen3.5-4B xLLM/vLLM同机对照](experiments/comparison/2026-10-21-qwen35-xllm-vllm/README.md)：单卡公平配置、原始指标、运行日志和源码解释。
+
 - [GLM-5.3-Flash 三框架研究路线](research/2026-10-20-framework-comparison-roadmap.md)：汇总最新官方适配状态与十四篇论文，规划共同基线、机制消融、在线 goodput、夜间机时和自研模块。
 
 - [vLLM-Ascend 非PD首轮实测](experiments/vllm/2026-10-20-nonpd-run/README.md)：单机DP2×TP8、16设备、全部开启的有效优化、80K/600逐请求结果和运行证据。
 
 - [xLLM与vLLM非PD首轮对照](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)：给出实测差异、实现解释与未统一的控制变量。
+
+- [xLLM图、MTP与INT8边界验证](experiments/xllm/2026-10-20-optimization-sweep/README.md)：记录图模式错误输出、KV/Indexer INT8硬限制、候选补丁和空机复测顺序。
 
 - [vLLM 非PD部署方案](experiments/vllm/2026-10-20-nonpd-plan/README.md)：v0.30.0RC1镜像选择、32设备DP/TP拓扑、时间估计和参数化启动脚本。
 
