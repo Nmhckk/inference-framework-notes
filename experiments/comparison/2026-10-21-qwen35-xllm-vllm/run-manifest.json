@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-21",
+  "host": "bm-jn-zs-zone1-910C-64G-10-171",
+  "device": "Ascend 910C 64GB physical NPU 0",
+  "model": {
+    "name": "Qwen3.5-4B",
+    "dtype": "bfloat16",
+    "model_type": "qwen3_5_text"
+  },
+  "workload": {
+    "requests": 48,
+    "concurrency": 16,
+    "request_rate_per_second": 0.93,
+    "prompt_tokens_min": 81798,
+    "prompt_tokens_max": 82558,
+    "output_tokens_per_request": 600,
+    "ignore_eos": true,
+    "prefix_cache": false,
+    "prefill_chunk_tokens": 8192
+  },
+  "xllm": {
+    "reported_version": "0.11.0",
+    "system_fingerprint": "xllm-0.11.0-d2e014e664917657",
+    "image": "quay.io/jd_xllm/xllm-ai:xllm-dev-a3-arm-cann9-20260911",
+    "image_id": "sha256:ce452eaac57393e2727ed7dee0ff1b65768b6c99216608e8eb6b954c5a712d6d",
+    "graph_capture_sizes": [1, 2, 4, 8, 16],
+    "schedule_overlap": true,
+    "kv_cache_gib": 45.02,
+    "gdn_state_slots": 18
+  },
+  "vllm_ascend": {
+    "reported_version": "0.30.0",
+    "image": "quay.io/ascend/vllm-ascend:v0.30.0rc2-a3",
+    "image_id": "sha256:ce42d65b2403992ad2e2b06c61f4f048babb57e455cfe307b018345e36c5e98b",
+    "graph_mode": "FULL_DECODE_ONLY",
+    "graph_capture_sizes": [1, 2, 4, 8, 16],
+    "async_scheduling": true,
+    "kv_cache_gib": 44.66
+  },
+  "source_audit_snapshots": {
+    "xllm": "b612303512c9d4c7304f7d558f250cf0c3e88918",
+    "vllm": "e632d66433e3e4fe064420bd12973f31e75aa84e",
+    "vllm_ascend": "f16e5e26801f86b071bca6454c9b9b2b63362e0a"
+  }
+}
