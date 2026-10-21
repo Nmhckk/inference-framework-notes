@@ -1,0 +1,5 @@
+configuration,repetitions,throughput_mean_tok_s,throughput_stdev,ttft_p90_mean_s,ttft_p99_mean_s,tpot_mean_ms,tpot_p99_mean_ms,successful_requests
+xLLM graph=off overlap=on,3,1099.100,0.912,1.313,1.580,14.118,14.480,144
+xLLM graph=off overlap=off,3,1062.387,1.359,1.292,1.600,14.684,14.984,144
+xLLM graph=on overlap=on,3,1094.956,3.829,1.290,1.577,14.156,14.509,144
+vLLM rc2 full-decode-graph async,3,951.610,1.538,1.530,1.817,16.304,16.728,144
