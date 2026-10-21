@@ -33,11 +33,11 @@ xLLM 日志确认 8 个 Full-Attention 层使用 `split_qkv_rmsnorm_mrope`。继
 
 因此，当前能确认的是：两个框架都具备 Qwen3.5 专用融合、Decode 图和异步调度时，xLLM 在这组 Decode 较长的负载下仍有约 **3%–4%** 的端到端优势。剩余差异可能来自 GDN kernel、状态缓存布局、Host 发射和服务链路，但尚无逐算子 profiler，不能继续拆给单一模块。
 
-### 3. xLLM 对当前 vLLM 镜像的优势有明确版本证据
+### 3. xLLM 对当前 vLLM 镜像的性能优势成立，算子归因仍缺运行证据
 
-vLLM 日志虽然确认 Decode 图捕获完成并实际 replay，但该镜像的 Qwen3.5 运行配置中 `enable_qk_norm_rope_fusion=False`，同时报告 NPU `causal_conv1d_update` 不可用，回退到逐请求同步的 PyTorch 实现。xLLM 在相同权重上命中了 fused QKV/RMSNorm/mRoPE NPU kernel，并通过 C++ runtime 做 Schedule Overlap。这与 **15.50%** 的端到端差距方向一致。
+xLLM 相对固定镜像 `v0.30.0rc2-a3` 的 **15.50%** 端到端吞吐优势由三轮逐请求数据支持；xLLM 日志也证明 fused QKV/RMSNorm/mRoPE NPU kernel 和 Schedule Overlap 生效。不过归档的 `vllm-server.log` 是空文件，无法从当前证据包独立复核此前观察到的 `enable_qk_norm_rope_fusion=False` 与 NPU `causal_conv1d_update` fallback。因此这两项降级为待补运行证据，暂不用于定量解释 15.50% 差距。
 
-这是对固定镜像 `v0.30.0rc2-a3` 的结论。vLLM-Ascend 主线之后已经继续加入 Qwen3.5、GDN 和融合算子优化，不能把本轮数字外推到所有版本。
+vLLM-Ascend 当前主线源码仍记录了同步 PyTorch causal-conv fallback 的风险，但主线不能替代被测镜像的源码 SHA 或服务日志。详细证据分级见[代码级性能归因](../2026-10-21-qwen35-code-attribution/README.md)。
 
 ### 4. SGLang 在 910C 上存在默认配置兼容门槛
 
