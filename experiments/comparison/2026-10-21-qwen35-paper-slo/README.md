@@ -55,13 +55,9 @@ Schedule Overlap 只能解释约 3.5 个百分点；即便关闭它，xLLM 吞�
 ## 证据与复现
 
 - [三轮聚合摘要](summary.csv)
-- [完整聚合与 P99](export/comparison-summary.json)
-- [逐请求结果](export/results/)
-- [xLLM 服务日志](export/logs/exact-clean-server.log)与[Graph 日志](export/logs/xllm-graph-on-server.log)
-- [xLLM 启动配置](export/input/launch_xllm_exact.sh)、[vLLM 启动配置](export/launch_vllm.sh)和[统一客户端](export/input/benchmark_stream.py)
-- [镜像、源码和数据哈希](export/runtime-versions.txt)
-- [容器配置](export/docker-inspect.json)、[测试后 NPU 状态](export/npu-smi-after-cleanup.txt)
-- [一次误标运行的排除说明](export/EXCLUSIONS.md)
+- [完整证据包](qwen35-paper-slo-evidence.tar.gz)，SHA-256：`81afd83c4cb5846033affae3fed82ffadb6976e24cfc93b34708e6c2fc55acbb`
+
+证据包内的 `export/` 目录包含完整聚合与 P99、逐请求结果、xLLM/vLLM 服务日志、两框架启动配置、统一客户端、镜像与源码版本、容器配置、测试前后 NPU 状态，以及误标运行的排除说明。仓库本地副本同时保留了解压后的文件，GitHub 用压缩包归档以减少目录噪声。
 
 ## 仍需验证
 
