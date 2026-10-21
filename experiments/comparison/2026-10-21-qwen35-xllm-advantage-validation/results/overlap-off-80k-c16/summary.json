@@ -1,0 +1,23 @@
+{
+  "framework": "xllm-overlap-off",
+  "model": "qwen35-4b",
+  "endpoint": "http://127.0.0.1:18080",
+  "dataset": "/bench/input/GSM8K-in81920-num48-glm53-flash-repeatRate0.93.jsonl",
+  "dataset_sha256": "98af0c03d1a08bdb0afbabd24aea6695840763d980d1e0817edd6f825b34c5f2",
+  "requests": 48,
+  "successes": 48,
+  "concurrency": 16,
+  "request_rate": 0.93,
+  "max_tokens": 600,
+  "wall_s": 441.68027093820274,
+  "output_tokens": 28800,
+  "output_throughput_tps": 65.2055387007076,
+  "ttft_mean_s": 27.451239160339657,
+  "ttft_p50_s": 16.883381485007703,
+  "ttft_p90_s": 65.79003434982154,
+  "tpot_mean_ms": 194.27894414246418,
+  "tpot_p50_ms": 223.0108525380119,
+  "tpot_p90_ms": 224.68291791948883,
+  "prompt_tokens_min": 81798,
+  "prompt_tokens_max": 82558
+}
