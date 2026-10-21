@@ -1,0 +1,23 @@
+{
+  "framework": "xllm-0.11.0",
+  "model": "qwen35-4b",
+  "endpoint": "http://127.0.0.1:18080",
+  "dataset": "/data/tiankuan/huzhengyu/qwen35-compare-20261021/input/GSM8K-in81920-num48-glm53-flash-repeatRate0.93.jsonl",
+  "dataset_sha256": "98af0c03d1a08bdb0afbabd24aea6695840763d980d1e0817edd6f825b34c5f2",
+  "requests": 48,
+  "successes": 48,
+  "concurrency": 16,
+  "request_rate": 0.93,
+  "max_tokens": 600,
+  "wall_s": 439.5623550694436,
+  "output_tokens": 28800,
+  "output_throughput_tps": 65.51971447930312,
+  "ttft_mean_s": 27.94839667373647,
+  "ttft_p50_s": 17.88723560096696,
+  "ttft_p90_s": 65.61247188234705,
+  "tpot_mean_ms": 192.28193281126028,
+  "tpot_p50_ms": 220.05483647108775,
+  "tpot_p90_ms": 222.56542256409816,
+  "prompt_tokens_min": 81798,
+  "prompt_tokens_max": 82558
+}
