@@ -1,0 +1,23 @@
+{
+  "framework": "vllm-ascend-0.30.0rc2",
+  "model": "qwen35-4b",
+  "endpoint": "http://127.0.0.1:18080",
+  "dataset": "/data/tiankuan/huzhengyu/qwen35-compare-20261021/input/GSM8K-in81920-num48-glm53-flash-repeatRate0.93.jsonl",
+  "dataset_sha256": "98af0c03d1a08bdb0afbabd24aea6695840763d980d1e0817edd6f825b34c5f2",
+  "requests": 48,
+  "successes": 48,
+  "concurrency": 16,
+  "request_rate": 0.93,
+  "max_tokens": 600,
+  "wall_s": 416.66804325487465,
+  "output_tokens": 28800,
+  "output_throughput_tps": 69.1197716412898,
+  "ttft_mean_s": 25.94072310717699,
+  "ttft_p50_s": 12.855802321340889,
+  "ttft_p90_s": 69.6153198632412,
+  "tpot_mean_ms": 183.0380686926622,
+  "tpot_p50_ms": 208.87514966725058,
+  "tpot_p90_ms": 209.41432425285845,
+  "prompt_tokens_min": 81798,
+  "prompt_tokens_max": 82558
+}
