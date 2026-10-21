@@ -2,13 +2,13 @@
 
 以多种基础模型研究推理框架，现已从 GLM-5.3-Flash 扩展到 xLLM 官方重点适配的 Qwen3.5，对比调度、算子、KV Cache 和通信带来的差异，逐步形成自己的框架。早期 GLM-5.3 W8A8C8 调研材料保留其原适用条件。
 
-当前阶段：已完成 Qwen3.5-4B BF16 的 xLLM/vLLM-Ascend 单卡同机对照。81920/600、并发16负载均48/48成功；xLLM为65.52 token/s、TTFT P90 65.61秒，vLLM为69.12 token/s、69.62秒。vLLM吞吐领先5.5%，xLLM长尾TTFT领先5.8%。K8s未改，未动他人任务。
+当前阶段：已完成 Qwen3.5-4B BF16 的 xLLM/vLLM-Ascend 单卡同机对照及 xLLM 优势消融。Schedule Overlap 端到端吞吐改善0.48%，Zero-Evict在当前高KV压力下未产生可见收益；Prefix Cache下xLLM以更高TTFT和更低总吞吐换得更低TPOT，vLLM综合性能更强。K8s未改，未动他人任务。
 
 ## 日报
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
-| 2026/10/21 | 选择Qwen3.5-4B完成xLLM/vLLM-Ascend单卡同机对照；保存启动脚本、逐请求结果、服务日志及Zero-Evict、Schedule Overlap源码归因。[结果](experiments/comparison/2026-10-21-qwen35-xllm-vllm/README.md)。 | 扩展模型并识别xLLM优势边界 | Qwen3.5-27B W8A8＋MTP、KV压力测试 |
+| 2026/10/21 | 选择Qwen3.5-4B完成xLLM/vLLM-Ascend单卡同机对照；继续完成Schedule Overlap、Zero-Evict、Prefix Cache及线性状态槽消融，保存启动脚本、逐请求结果和服务日志。[公平对照](experiments/comparison/2026-10-21-qwen35-xllm-vllm/README.md) · [优势验证](experiments/comparison/2026-10-21-qwen35-xllm-advantage-validation/README.md)。 | 扩展模型并识别xLLM优势边界 | Qwen3.5-27B W8A8＋MTP、SLO压力测试 |
 | 2026/10/20 | 完成vLLM-Ascend非PD实测：单机16逻辑设备、48/48成功，TTFT 17.577秒、TPOT 49.547毫秒、输出185.34 token/s；相同负载下为xLLM 32设备结果的2.25倍。已保存配置、逐请求结果、图、MTP和前缀缓存证据。[结果](experiments/vllm/2026-10-20-nonpd-run/README.md) · [对比](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)。 | 完成三框架可归因对比 | 统一主机与客户端后做消融 |
 | 2026/10/19 | 完成xLLM 3P1D长输入前缀压测：48/48成功，TTFT 8.945秒、TPOT 637.1毫秒、输出22.10 token/s；定位PD压缩池缓存限制与OOM，图关闭、精度待验证。[结果及原始材料](xllm-3p1d-prefix-perf-2026-10-19.md)。 | 对比框架性能与实现瓶颈 | |
 | 2026/10/15 | 整理 xLLM 非 PD 材料；完成三框架调度、KV Cache、通信源码对比及论文分析。[资料](implementation-comparison.md)；实机待验证。 | GLM-5.3 C8 的 xLLM 部署验证与框架对比准备 | |
@@ -16,6 +16,8 @@
 ## 资料与代码
 
 - [Qwen3.5-4B xLLM/vLLM同机对照](experiments/comparison/2026-10-21-qwen35-xllm-vllm/README.md)：单卡公平配置、原始指标、运行日志和源码解释。
+
+- [Qwen3.5-4B xLLM优势消融](experiments/comparison/2026-10-21-qwen35-xllm-advantage-validation/README.md)：Schedule Overlap、Zero-Evict、Prefix Cache、GDN状态槽显存及vLLM对照。
 
 - [GLM-5.3-Flash 三框架研究路线](research/2026-10-20-framework-comparison-roadmap.md)：汇总最新官方适配状态与十四篇论文，规划共同基线、机制消融、在线 goodput、夜间机时和自研模块。
 
