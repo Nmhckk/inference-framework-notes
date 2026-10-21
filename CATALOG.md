@@ -2,7 +2,7 @@
 
 以多种基础模型研究推理框架，现已从 GLM-5.3-Flash 扩展到 xLLM 官方重点适配的 Qwen3.5，对比调度、算子、KV Cache 和通信带来的差异，逐步形成自己的框架。早期 GLM-5.3 W8A8C8 调研材料保留其原适用条件。
 
-当前阶段：已完成 Qwen3.5-4B BF16 的 xLLM/vLLM-Ascend 单卡同机对照及 xLLM 优势消融。Schedule Overlap 端到端吞吐改善0.48%，Zero-Evict在当前高KV压力下未产生可见收益；Prefix Cache下xLLM以更高TTFT和更低总吞吐换得更低TPOT，vLLM综合性能更强。K8s未改，未动他人任务。
+当前阶段：已完成 Qwen3.5-4B BF16 的 xLLM/vLLM-Ascend 单卡同机对照及 xLLM 优势消融。80K/600 下 vLLM 吞吐领先；切换到论文方向的 2K/2K、16并发后，xLLM 三轮吞吐均值1099.10 token/s，较 vLLM 的951.61提升15.50%。Schedule Overlap贡献3.46%吞吐，Graph无稳定增益；服务日志确认Qwen3.5融合NPU kernel已命中。K8s未改，未动他人任务。
 
 论文、官方 workflow、最新主分支和 Issue 复核表明，后续应优先验证 Qwen3.5-27B 的 GDN 融合与 MTP3，再以 Qwen3-1.7B/4B、2048/2048、TPOT SLO 扫描复现论文区间。当前主分支多机多流并行不可用，已从近期实验中排除。
 
@@ -10,12 +10,14 @@
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
-| 2026/10/21 | 完成Qwen3.5-4B同机对照及Schedule Overlap、Zero-Evict、Prefix Cache消融；复核论文、workflow、主分支和Issue，形成Qwen3.5-27B GDN/MTP与Qwen3 SLO多卡测试矩阵。[公平对照](experiments/comparison/2026-10-21-qwen35-xllm-vllm/README.md) · [优势消融](experiments/comparison/2026-10-21-qwen35-xllm-advantage-validation/README.md) · [方向校准](research/2026-10-21-xllm-advantage-validation-direction.md)。 | 用可证伪实验确认xLLM优势 | 优先27B GDN/MTP，再复现Qwen3 SLO曲线 |
+| 2026/10/21 | 完成Qwen3.5-4B论文区间同卡复测：2K/2K、16并发下xLLM三轮均值1099.10 token/s，较vLLM提升15.50%；Schedule Overlap贡献3.46%，Graph无稳定增益，融合NPU kernel已命中。[新结果](experiments/comparison/2026-10-21-qwen35-paper-slo/README.md) · [方向校准](research/2026-10-21-xllm-advantage-validation-direction.md)。 | 用可证伪实验确认xLLM优势 | 补QPS/SLO、27B GDN/MTP和SGLang |
 | 2026/10/20 | 完成vLLM-Ascend非PD实测：单机16逻辑设备、48/48成功，TTFT 17.577秒、TPOT 49.547毫秒、输出185.34 token/s；相同负载下为xLLM 32设备结果的2.25倍。已保存配置、逐请求结果、图、MTP和前缀缓存证据。[结果](experiments/vllm/2026-10-20-nonpd-run/README.md) · [对比](experiments/comparisons/2026-10-20-xllm-vllm-nonpd/README.md)。 | 完成三框架可归因对比 | 统一主机与客户端后做消融 |
 | 2026/10/19 | 完成xLLM 3P1D长输入前缀压测：48/48成功，TTFT 8.945秒、TPOT 637.1毫秒、输出22.10 token/s；定位PD压缩池缓存限制与OOM，图关闭、精度待验证。[结果及原始材料](xllm-3p1d-prefix-perf-2026-10-19.md)。 | 对比框架性能与实现瓶颈 | |
 | 2026/10/15 | 整理 xLLM 非 PD 材料；完成三框架调度、KV Cache、通信源码对比及论文分析。[资料](implementation-comparison.md)；实机待验证。 | GLM-5.3 C8 的 xLLM 部署验证与框架对比准备 | |
 
 ## 资料与代码
+
+- [Qwen3.5-4B 论文区间同卡复测](experiments/comparison/2026-10-21-qwen35-paper-slo/README.md)：xLLM/vLLM 三轮结果、Schedule Overlap 与 Graph 消融、逐请求数据、服务日志和源码解释。
 
 - [xLLM 优势验证方向校准](research/2026-10-21-xllm-advantage-validation-direction.md)：把论文主张、最新仓库实现、公开 Issue 和已有反例对应到可执行实验；附[测试矩阵](research/2026-10-21-xllm-advantage-test-matrix.csv)。
 
