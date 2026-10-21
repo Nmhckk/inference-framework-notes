@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "verdict": {
+    "structural_exclusivity_in_tested_revisions": "PASS",
+    "end_to_end_advantage_same_card": "PASS",
+    "megagdn_causal_share_of_advantage": "NOT_PROVEN_NO_DIRECT_AB_OR_PROFILER"
+  },
+  "revisions": {
+    "xllm": "53f22bb603556dfb933f3f14a993cfbd20ce2e26",
+    "xllm_ops": "b94b87318c2826738c65d6e6f242aa9c1881a3ab",
+    "sglang": "e9b22a0818292eedc0630b2b72cdfcb4ae81bf85"
+  },
+  "checks": [
+    {
+      "name": "xLLM test commit pins the audited xllm_ops revision",
+      "status": "PASS",
+      "evidence": "160000 commit b94b87318c2826738c65d6e6f242aa9c1881a3ab\tthird_party/xllm_ops"
+    },
+    {
+      "name": "xLLM decode unconditionally reaches one MegaGDN call site",
+      "status": "PASS",
+      "evidence": {
+        "relative_lines": [
+          19
+        ],
+        "fallback_call_present": false
+      }
+    },
+    {
+      "name": "MegaGDN contract covers convolution, Q/K norm, recurrence, output norm/gate and both states",
+      "status": "PASS",
+      "evidence": {
+        "causal_convolution": true,
+        "qk_normalization": true,
+        "recurrent_state_update": true,
+        "rmsnorm_and_z_gate": true,
+        "conv_and_ssm_state_update": true
+      }
+    },
+    {
+      "name": "The device kernel implements the documented fused stages",
+      "status": "PASS",
+      "evidence": {
+        "phase1_conv": true,
+        "phase4_recurrence_norm_gate": true,
+        "qk_normalize": true,
+        "state_read_write": true
+      }
+    },
+    {
+      "name": "SGLang NPU decode keeps causal-conv and recurrence as separate boundaries",
+      "status": "PASS",
+      "evidence": {
+        "causal_conv_relative_lines": [
+          17
+        ],
+        "recurrence_relative_lines": [
+          39
+        ]
+      }
+    },
+    {
+      "name": "SGLang NPU keeps RMSNorm/Z gate after the backend result",
+      "status": "PASS",
+      "evidence": {
+        "post_backend_norm_lines": [
+          969,
+          1105
+        ],
+        "fused_projection_path_is_cuda_only": true
+      }
+    },
+    {
+      "name": "Runtime evidence resolves 32 layers as 8 full-attention plus 24 GDN",
+      "status": "PASS",
+      "evidence": {
+        "total_layers": 32,
+        "full_attention_layer_ids": [
+          3,
+          7,
+          11,
+          15,
+          19,
+          23,
+          27,
+          31
+        ],
+        "inferred_gdn_layers": 24
+      }
+    },
+    {
+      "name": "Measured xLLM run used the audited NPU path with major confounders disabled",
+      "status": "PASS",
+      "evidence": {
+        "torch_backend": true,
+        "graph_off": true,
+        "schedule_overlap_on": true,
+        "mtp_off": true,
+        "pd_off": true,
+        "batch_16": true
+      }
+    },
+    {
+      "name": "All three xLLM throughput runs exceed all three SGLang runs",
+      "status": "PASS",
+      "evidence": {
+        "xllm_range_tok_s": [
+          1098.1936640306253,
+          1100.0183142931144
+        ],
+        "sglang_range_tok_s": [
+          1040.2845373238902,
+          1065.4311902075808
+        ],
+        "minimum_observed_gap_pct": 3.075043618411555
+      }
+    }
+  ],
+  "operator_boundary_model": {
+    "scope": "framework-visible device-operator boundaries; not profiler kernel count",
+    "gdn_layers": 24,
+    "per_full_batch_decode_step": {
+      "xllm": 24,
+      "sglang_lower_bound": 72,
+      "xllm_reduction_vs_sglang_lower_bound_pct": 66.66666666666667
+    },
+    "idealized_full_benchmark": {
+      "waves": 3,
+      "decode_steps_per_wave": 2048,
+      "xllm": 147456,
+      "sglang_lower_bound": 442368
+    }
+  },
+  "measured_effect": {
+    "workload": {
+      "model": "Qwen3.5-4B BF16",
+      "input_tokens_observed": "2033-2034",
+      "output_tokens": 2048,
+      "requests": 48,
+      "concurrency": 16,
+      "request_rate": 0,
+      "npu": "Ascend 910C 64GB physical device 0",
+      "host": "bm-jn-zs-zone1-910C-64G-10-171",
+      "prefix_cache": false
+    },
+    "xllm_mean_tok_s": 1099.1004726827125,
+    "sglang_mean_tok_s": 1057.0163347202056,
+    "xllm_vs_sglang_mean_pct": 3.9814084778213576,
+    "minimum_observed_run_gap_pct": 3.075043618411555,
+    "xllm_tpot_mean_ms": 14.118390262755614,
+    "sglang_tpot_mean_ms": 14.371482685876318
+  },
+  "causal_limit": "The tested xLLM Qwen3.5 NPU implementation has no MegaGDN-off fallback. Static operator-boundary counts and cross-framework results support the mechanism, but only a numerically equivalent split-path A/B or a matched profiler can quantify causality."
+}
