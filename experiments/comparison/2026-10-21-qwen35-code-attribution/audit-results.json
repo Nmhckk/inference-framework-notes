@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "purpose": "source and runtime code-path gate; not a performance benchmark",
+  "source_checks": [
+    {
+      "framework": "xLLM",
+      "scope": "tested-commit",
+      "mechanism": "QKV split + Q/K RMSNorm + mRoPE fused call",
+      "status": "PASS",
+      "revision": "53f22bb603556dfb933f3f14a993cfbd20ce2e26",
+      "path": "xllm/python/layers/npu/qwen3_5/attention.py",
+      "lines": [
+        120
+      ],
+      "pattern": "kernels\\.split_qkv_rmsnorm_mrope\\("
+    },
+    {
+      "framework": "xLLM",
+      "scope": "tested-commit",
+      "mechanism": "single-token MegaGDN fused decode call",
+      "status": "PASS",
+      "revision": "53f22bb603556dfb933f3f14a993cfbd20ce2e26",
+      "path": "xllm/python/layers/npu/qwen3_5/gated_delta_net.py",
+      "lines": [
+        173
+      ],
+      "pattern": "kernels\\.mega_gdn_decode\\("
+    },
+    {
+      "framework": "xLLM",
+      "scope": "tested-commit",
+      "mechanism": "one-step producer/consumer schedule overlap",
+      "status": "PASS",
+      "revision": "53f22bb603556dfb933f3f14a993cfbd20ce2e26",
+      "path": "xllm/core/scheduler/continuous_scheduler.cpp",
+      "lines": [
+        564,
+        568,
+        602,
+        611
+      ],
+      "pattern": "step_with_schedule_overlap|result_callback_\\(last_batch_\\)"
+    },
+    {
+      "framework": "xLLM",
+      "scope": "tested-commit",
+      "mechanism": "device-side previous-token handoff",
+      "status": "PASS",
+      "revision": "53f22bb603556dfb933f3f14a993cfbd20ce2e26",
+      "path": "xllm/core/runtime/worker_impl.cpp",
+      "lines": [
+        904,
+        907,
+        911,
+        915,
+        917
+      ],
+      "pattern": "replace_token|synchronize_stream=\\*/false"
+    },
+    {
+      "framework": "xLLM",
+      "scope": "tested-commit",
+      "mechanism": "separate fixed-slot recurrent-state allocator",
+      "status": "PASS",
+      "revision": "53f22bb603556dfb933f3f14a993cfbd20ce2e26",
+      "path": "xllm/core/kv_cache/block/linear_state_block_manager.cpp",
+      "lines": [
+        57
+      ],
+      "pattern": "LinearStateBlockManager::allocate_for_sequence"
+    },
+    {
+      "framework": "SGLang",
+      "scope": "tested-commit",
+      "mechanism": "QKV/gate + Q/K RMSNorm + RoPE fused call",
+      "status": "PASS",
+      "revision": "e9b22a0818292eedc0630b2b72cdfcb4ae81bf85",
+      "path": "python/sglang/srt/models/qwen3_5.py",
+      "lines": [
+        1546
+      ],
+      "pattern": "split_qkvgate_gemma_rmsnorm_rope\\("
+    },
+    {
+      "framework": "SGLang",
+      "scope": "tested-commit",
+      "mechanism": "event-loop overlap with previous-result queue",
+      "status": "PASS",
+      "revision": "e9b22a0818292eedc0630b2b72cdfcb4ae81bf85",
+      "path": "python/sglang/srt/managers/scheduler.py",
+      "lines": [
+        2008,
+        2015,
+        2044,
+        2059,
+        2067
+      ],
+      "pattern": "def event_loop_overlap|result_queue\\.append|pop_and_process"
+    },
+    {
+      "framework": "SGLang",
+      "scope": "tested-commit",
+      "mechanism": "separate causal-conv and GDN-dispatch stages",
+      "status": "PASS",
+      "revision": "e9b22a0818292eedc0630b2b72cdfcb4ae81bf85",
+      "path": "python/sglang/srt/hardware_backend/npu/attention/ascend_gdn_backend.py",
+      "lines": [
+        130,
+        152,
+        225,
+        247
+      ],
+      "pattern": "torch\\.ops\\.npu\\.causal_conv1d|kernel_dispatcher\\.decode"
+    },
+    {
+      "framework": "vLLM",
+      "scope": "current-main-not-tested-image",
+      "mechanism": "async scheduler advances requests with output placeholders",
+      "status": "PASS",
+      "revision": "fc8e08a2a607968226376c53a30cfa6337578f79",
+      "path": "vllm/v1/core/sched/async_scheduler.py",
+      "lines": [
+        38,
+        45,
+        50,
+        70,
+        71,
+        76
+      ],
+      "pattern": "num_output_placeholders|spec_token_ids = self\\._spec_token_placeholders"
+    },
+    {
+      "framework": "vLLM-Ascend",
+      "scope": "current-main-not-tested-image",
+      "mechanism": "current main documents synchronous causal-conv fallback risk",
+      "status": "PASS",
+      "revision": "1026eedfd2a13662d54f78e1c45566989a7157af",
+      "path": "vllm_ascend/patch/worker/patch_triton.py",
+      "lines": [
+        347
+      ],
+      "pattern": "falling back to the.*PyTorch|syncs per request"
+    }
+  ],
+  "runtime_evidence": {
+    "xllm": {
+      "schedule_overlap_enabled": true,
+      "graph_disabled": true,
+      "mtp_disabled": true,
+      "fused_full_attention_layers": 8,
+      "cache": {
+        "paged_kv_blocks": 11385,
+        "linear_state_blocks": 18,
+        "state_slots": 18,
+        "gdn_state_bytes": "49.12 MB"
+      }
+    },
+    "vllm": {
+      "launch_async_scheduling": true,
+      "launch_full_decode_graph": true,
+      "packaged_server_log_bytes": 0,
+      "attribution_log_status": "MISSING_EVIDENCE"
+    },
+    "sglang": {
+      "overlap_enabled": true,
+      "radix_cache_disabled": true,
+      "mamba_ssm_bfloat16": true,
+      "decode_graph_captured": true,
+      "decode_graph_replayed": true
+    }
+  },
+  "measured_metrics": {
+    "xLLM graph=off overlap=on": {
+      "throughput_tok_s": 1099.1,
+      "tpot_ms": 14.118,
+      "ttft_p90_s": 1.313
+    },
+    "SGLang graph=full overlap=on": {
+      "throughput_tok_s": 1057.016,
+      "tpot_ms": 14.371,
+      "ttft_p90_s": 2.381
+    },
+    "SGLang graph=full overlap=off": {
+      "throughput_tok_s": 937.222,
+      "tpot_ms": 16.455,
+      "ttft_p90_s": 2.318
+    },
+    "vLLM rc2 full-decode-graph async": {
+      "throughput_tok_s": 951.61,
+      "tpot_ms": 16.304,
+      "ttft_p90_s": 1.53
+    }
+  },
+  "derived_deltas": {
+    "xllm_vs_sglang_throughput_pct": 3.981396686521288,
+    "xllm_vs_vllm_throughput_pct": 15.498996437616231,
+    "sglang_overlap_throughput_pct": 12.781816901438514
+  }
+}
