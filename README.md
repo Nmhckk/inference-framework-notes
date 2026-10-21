@@ -10,9 +10,12 @@
 
 继续完成 xLLM 优势消融：Schedule Overlap 使吞吐提升 **0.48%**、TPOT P50 降低 **1.33%**；Zero-Evict 在32并发高 KV 压力下各指标差异低于0.2%，未验证出收益。93%重复前缀负载下，xLLM Prefix Cache 的 TPOT P50 为11.43毫秒，但 TTFT P50为111.01秒、总吞吐80.29 token/s；vLLM为57.33毫秒、1.04秒和261.21 token/s。xLLM确有更低的单用户Decode间隔，代价是Prefill串行和整体goodput下降。
 
+论文、官方 workflow、主分支代码和公开 Issue 复核后，已校准优势验证方向：此前 80K/600 单卡测试没有命中论文的主要优势区间。下一步优先验证 **Qwen3.5-27B 的 GDN Decode SuperOp＋MTP3**，再按论文条件测试 **Qwen3-1.7B/4B、2048/2048、TPOT SLO 下的 QPS 与 TP1/2/4 扩展**。当前主分支的多机多流并行会显式报错，已排除；静态 PD 不再代替 Engine 公平对照。
+
 - [vLLM 当前非 PD 最佳实测](experiments/vllm/2026-10-20-nonpd-run/README.md)：DP2×TP8、INT8 KV、5-token MTP、Decode图和前缀缓存的配置、指标与运行证据。
 - [Qwen3.5-4B 单卡同机对照](experiments/comparison/2026-10-21-qwen35-xllm-vllm/README.md)：同卡公平配置、逐请求数据、服务日志和源码归因。
 - [xLLM 优势消融与 Prefix Cache 对照](experiments/comparison/2026-10-21-qwen35-xllm-advantage-validation/README.md)：Schedule Overlap、Zero-Evict、状态槽显存与两框架前缀缓存实测。
+- [xLLM 优势验证方向校准](research/2026-10-21-xllm-advantage-validation-direction.md)：论文、仓库、Issue 与代码证据，Qwen3.5 GDN/MTP 和 Qwen3 SLO 测试路线；[可执行测试矩阵](research/2026-10-21-xllm-advantage-test-matrix.csv)。
 - [xLLM 与 vLLM 同机对照](experiments/xllm/2026-10-20-samehost-tp8x2/README.md)：同主机、同权重、同设备数、同数据和同客户端的结果与归因。
 - [xLLM 图、MTP 与 INT8 边界验证](experiments/xllm/2026-10-20-optimization-sweep/README.md)：图输出反例、KV/Indexer INT8 代码限制、补丁和待复测项。
 - [xLLM 当前非 PD 结果](experiments/xllm/2026-10-20-nonpd/README.md)
@@ -37,7 +40,7 @@
 
 | 日期 | 工作详情 | 阶段主要目标 | 阶段次要目标 |
 | --- | --- | --- | --- |
-| 2026/10/21 | 选择Qwen3.5-4B完成xLLM/vLLM-Ascend单卡同机对照，并完成Schedule Overlap、Zero-Evict、Prefix Cache消融。Overlap带来0.48%吞吐和1.33% TPOT改善；Zero-Evict差异低于0.2%；重复前缀下xLLM TPOT为11.43毫秒但吞吐为80.29 token/s，vLLM为57.33毫秒和261.21 token/s。[公平对照](experiments/comparison/2026-10-21-qwen35-xllm-vllm/README.md) · [优势验证](experiments/comparison/2026-10-21-qwen35-xllm-advantage-validation/README.md) | 扩展模型并识别xLLM优势边界 | Qwen3.5-27B W8A8＋MTP、SLO压力测试 |
+| 2026/10/21 | 完成Qwen3.5-4B同机对照与调度/缓存消融；继续复核xLLM论文、官方workflow、主分支和公开Issue，确认80K单卡没有命中官方优势区间，将测试转向Qwen3.5-27B GDN融合＋MTP3，以及Qwen3-1.7B/4B在TPOT SLO下的QPS与多卡扩展。[公平对照](experiments/comparison/2026-10-21-qwen35-xllm-vllm/README.md) · [优势消融](experiments/comparison/2026-10-21-qwen35-xllm-advantage-validation/README.md) · [方向校准](research/2026-10-21-xllm-advantage-validation-direction.md) | 用可证伪实验确认xLLM优势 | 优先27B GDN/MTP，再复现Qwen3 SLO曲线 |
 | 2026/10/20 | 完成xLLM与vLLM同机非PD对照：xLLM为TTFT 52.09秒、TPOT 236.26毫秒、46.90 token/s，vLLM为17.58秒、49.55毫秒、185.34 token/s，均48/48成功；继续完成图/MTP/INT8消融，确认主KV INT8不支持当前NPU Flash路径、KPool拒绝Indexer INT8，Graph＋MTP1为0/2、Graph＋MTP0已完成4/10正确，均不得计性能。外部训练占卡后停止测试，未动K8s及他人任务。[同机结果](experiments/xllm/2026-10-20-samehost-tp8x2/README.md) · [优化边界](experiments/xllm/2026-10-20-optimization-sweep/README.md) | 完成三框架可归因对比 | 空机复测MTP2与draft TP1 |
 | 2026/10/19 | 完成 3P1D 长输入基线，输出 22.10 token/s；继续定位 KPool 和图模式问题，复用候选20.05 token/s无改善；图补丁测得34.90 token/s，但压测后回归0/4，已否决并回退，原配置8K仍2/4，正确性继续排查。[结果](xllm-3p1d-prefix-perf-2026-10-19.md) | 对比框架性能与实现瓶颈 | |
 | 2026/10/16 | 推进 Flash 容器部署准备，核查离线依赖与 PD 兼容性，准备多机验证。 | xLLM 部署与兼容性验证 | |
