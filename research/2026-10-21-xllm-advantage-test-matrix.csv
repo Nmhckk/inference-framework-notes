@@ -1,0 +1,15 @@
+priority,campaign,framework,model,devices,parallel,input_tokens,output_tokens,concurrency,variant,correctness_gate,primary_metric,status
+1,gdn-superop,xLLM,Qwen3.5-27B,2,TP2,2048,64,1,superop_on,"deterministic output; superop calls match; fallback=0",TPOT,ready
+1,gdn-superop,xLLM,Qwen3.5-27B,2,TP2,2048,64,1,superop_off,"same output as on",TPOT,ready
+1,gdn-superop,xLLM,Qwen3.5-27B,2,TP2,2048,64,4,superop_on,"deterministic output; superop calls match; fallback=0",TPOT,ready
+1,gdn-superop,xLLM,Qwen3.5-27B,2,TP2,2048,64,4,superop_off,"same output as on",TPOT,ready
+1,mtp-depth,xLLM,Qwen3.5-27B,4,TP4,20000,1000,1,mtp0,"deterministic reference output",output_tps,ready
+1,mtp-depth,xLLM,Qwen3.5-27B,4,TP4,20000,1000,1,mtp1,"draft file; server counters increase; matches reference",output_tps,ready
+1,mtp-depth,xLLM,Qwen3.5-27B,4,TP4,20000,1000,1,mtp2,"draft file; server counters increase; matches reference",output_tps,ready
+1,mtp-depth,xLLM,Qwen3.5-27B,4,TP4,20000,1000,1,mtp3,"draft file; server counters increase; matches reference",output_tps,ready
+1,mtp-cross-framework,vLLM-Ascend,Qwen3.5-27B,4,TP4,20000,1000,1,mtp0+mtp3,"same weights/draft/depth/output",output_tps,ready_after_xllm
+2,paper-slo,xLLM,Qwen3-1.7B,1/2/4,TP1/2/4,2048,2048,qps_sweep,graph_on+overlap_on,"all requests valid",goodput_at_tpot_p99_50ms,ready
+2,paper-slo,xLLM,Qwen3-1.7B,1/2/4,TP1/2/4,2048,2048,qps_sweep,graph_off+overlap_off,"all requests valid",goodput_at_tpot_p99_50ms,ready
+2,paper-slo,vLLM-Ascend,Qwen3-1.7B,1/2/4,TP1/2/4,2048,2048,qps_sweep,tuned_graph+async,"all requests valid",goodput_at_tpot_p99_50ms,ready_after_xllm
+2,paper-slo,SGLang,Qwen3-1.7B,1/2/4,TP1/2/4,2048,2048,qps_sweep,tuned_graph+async,"all requests valid",goodput_at_tpot_p99_50ms,ready_after_vllm
+3,multicard-scaling,xLLM/vLLM-Ascend/SGLang,Qwen3-32B,1/2/4,TP1/2/4,1200,40,qps_sweep,tuned,"all requests valid",scaling_efficiency,planned
