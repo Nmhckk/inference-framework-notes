@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-21",
+  "host": "bm-jn-zs-zone1-910C-64G-10-171",
+  "device": "physical NPU 0",
+  "model": "Qwen3.5-4B BF16",
+  "prompt_tokens": "81798-82558",
+  "output_tokens": 600,
+  "requests": 48,
+  "request_rate": 0.93,
+  "concurrency": {
+    "schedule_overlap": 16,
+    "zero_evict": 32,
+    "prefix_cache": 16
+  },
+  "common": {
+    "prefix_cache_baseline": false,
+    "chunked_prefill_tokens": 8192,
+    "graph_capture_batches": [1, 2, 4, 8, 16],
+    "ignore_eos": true
+  },
+  "frameworks": {
+    "xllm": "0.11.0",
+    "vllm_ascend": "0.30.0rc2"
+  },
+  "archive_sha256": "b0a3aa89f76697d9208773d8e2968cf3b9b3c4967cb48f0d3c60dea1247ed1c5"
+}
