@@ -11,6 +11,12 @@
 
 80K/600 保留为长上下文兼容性和容量压力测试，不再作为寻找 xLLM 普遍优势的主基准。
 
+## 实机进展
+
+按上述方向切换到 Qwen3.5-4B、2033–2034/2048、单卡16并发后，已完成每组3轮的同卡复测。xLLM最佳配置三轮均值1099.10 token/s，vLLM-Ascend rc2为951.61 token/s，xLLM吞吐领先15.50%，TTFT P90低14.21%，TPOT均值低13.40%。Schedule Overlap独立贡献3.46%吞吐；Graph在该点没有稳定收益。完整条件、逐请求结果和源码归因见[论文区间同卡复测](../experiments/comparison/2026-10-21-qwen35-paper-slo/README.md)。
+
+该结果验证了“先换负载区间，再做机制消融”的方向，但还不是论文完整复现：模型为Qwen3.5而非Qwen3，尚未扫描offered QPS，也未测试TP2/TP4。共享目录中的Qwen3.5-27B目前是训练检查点，且没有外置MTP draft，因此GDN SuperOp/MTP3实验仍待可直接加载的HF权重。
+
 ## 论文、仓库和 Issue 证据
 
 | 候选能力 | 公开证据 | 当前判断 | 对应实验 |
